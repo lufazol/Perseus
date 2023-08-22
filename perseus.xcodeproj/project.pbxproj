@@ -13,6 +13,9 @@
 		57A47BCE2A94D50A0062AE7C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 57A47BCD2A94D50A0062AE7C /* Preview Assets.xcassets */; };
 		57A47BD02A94D50A0062AE7C /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A47BCF2A94D50A0062AE7C /* Persistence.swift */; };
 		57A47BD32A94D50A0062AE7C /* perseus.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 57A47BD12A94D50A0062AE7C /* perseus.xcdatamodeld */; };
+		57A812272A94E19500642DF3 /* BoletinsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A812262A94E19500642DF3 /* BoletinsView.swift */; };
+		57A812292A94E1AD00642DF3 /* MedicamentosView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A812282A94E1AD00642DF3 /* MedicamentosView.swift */; };
+		57A8122B2A94E1B900642DF3 /* DadosView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A8122A2A94E1B900642DF3 /* DadosView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +26,9 @@
 		57A47BCD2A94D50A0062AE7C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		57A47BCF2A94D50A0062AE7C /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		57A47BD22A94D50A0062AE7C /* perseus.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = perseus.xcdatamodel; sourceTree = "<group>"; };
+		57A812262A94E19500642DF3 /* BoletinsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoletinsView.swift; sourceTree = "<group>"; };
+		57A812282A94E1AD00642DF3 /* MedicamentosView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicamentosView.swift; sourceTree = "<group>"; };
+		57A8122A2A94E1B900642DF3 /* DadosView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DadosView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,7 +62,10 @@
 			isa = PBXGroup;
 			children = (
 				57A47BC62A94D5090062AE7C /* perseusApp.swift */,
+				57A812262A94E19500642DF3 /* BoletinsView.swift */,
 				57A47BC82A94D5090062AE7C /* ContentView.swift */,
+				57A8122A2A94E1B900642DF3 /* DadosView.swift */,
+				57A812282A94E1AD00642DF3 /* MedicamentosView.swift */,
 				57A47BCA2A94D50A0062AE7C /* Assets.xcassets */,
 				57A47BCF2A94D50A0062AE7C /* Persistence.swift */,
 				57A47BD12A94D50A0062AE7C /* perseus.xcdatamodeld */,
@@ -143,8 +152,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				57A8122B2A94E1B900642DF3 /* DadosView.swift in Sources */,
 				57A47BD02A94D50A0062AE7C /* Persistence.swift in Sources */,
+				57A812272A94E19500642DF3 /* BoletinsView.swift in Sources */,
 				57A47BC92A94D5090062AE7C /* ContentView.swift in Sources */,
+				57A812292A94E1AD00642DF3 /* MedicamentosView.swift in Sources */,
 				57A47BC72A94D5090062AE7C /* perseusApp.swift in Sources */,
 				57A47BD32A94D50A0062AE7C /* perseus.xcdatamodeld in Sources */,
 			);
