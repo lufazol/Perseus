@@ -12,6 +12,35 @@ struct ContentView: View {
     
     var body: some View {
         
+        // sets tab bar and associated views
+        TabView {
+            NavigationView {
+                BoletinsView()
+                    .navigationTitle("Boletins")
+            }
+            .tabItem {
+                Image(systemName: "list.clipboard")
+                Text("Boletins")
+            }
+
+            NavigationView {
+                MedicamentosView()
+                    .navigationTitle("Medicamentos")
+            }
+            .tabItem {
+                Image(systemName: "pills")
+                Text("Medicamentos")
+            }
+
+            NavigationView {
+                DadosView()
+                    .navigationTitle("Dados")
+            }
+            .tabItem {
+                Image(systemName: "person.text.rectangle")
+                Text("Dados")
+            }
+        }
     }
 }
 
