@@ -16,6 +16,8 @@
 		57A812272A94E19500642DF3 /* BoletinsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A812262A94E19500642DF3 /* BoletinsView.swift */; };
 		57A812292A94E1AD00642DF3 /* MedicamentosView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A812282A94E1AD00642DF3 /* MedicamentosView.swift */; };
 		57A8122B2A94E1B900642DF3 /* DadosView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A8122A2A94E1B900642DF3 /* DadosView.swift */; };
+		F2F9AD022A963D6C00BC8F84 /* PersonalInfoOnboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F9AD012A963D6C00BC8F84 /* PersonalInfoOnboardView.swift */; };
+		F2F9AD052A96438B00BC8F84 /* ModalView in Frameworks */ = {isa = PBXBuildFile; productRef = F2F9AD042A96438B00BC8F84 /* ModalView */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +31,7 @@
 		57A812262A94E19500642DF3 /* BoletinsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoletinsView.swift; sourceTree = "<group>"; };
 		57A812282A94E1AD00642DF3 /* MedicamentosView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicamentosView.swift; sourceTree = "<group>"; };
 		57A8122A2A94E1B900642DF3 /* DadosView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DadosView.swift; sourceTree = "<group>"; };
+		F2F9AD012A963D6C00BC8F84 /* PersonalInfoOnboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalInfoOnboardView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -36,6 +39,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F2F9AD052A96438B00BC8F84 /* ModalView in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,6 +69,7 @@
 				57A812262A94E19500642DF3 /* BoletinsView.swift */,
 				57A47BC82A94D5090062AE7C /* ContentView.swift */,
 				57A8122A2A94E1B900642DF3 /* DadosView.swift */,
+				F2F9AD012A963D6C00BC8F84 /* PersonalInfoOnboardView.swift */,
 				57A812282A94E1AD00642DF3 /* MedicamentosView.swift */,
 				57A47BCA2A94D50A0062AE7C /* Assets.xcassets */,
 				57A47BCF2A94D50A0062AE7C /* Persistence.swift */,
@@ -98,6 +103,9 @@
 			dependencies = (
 			);
 			name = perseus;
+			packageProductDependencies = (
+				F2F9AD042A96438B00BC8F84 /* ModalView */,
+			);
 			productName = perseus;
 			productReference = 57A47BC32A94D5090062AE7C /* perseus.app */;
 			productType = "com.apple.product-type.application";
@@ -126,6 +134,9 @@
 				Base,
 			);
 			mainGroup = 57A47BBA2A94D5090062AE7C;
+			packageReferences = (
+				F2F9AD032A96438B00BC8F84 /* XCRemoteSwiftPackageReference "modal-view" */,
+			);
 			productRefGroup = 57A47BC42A94D5090062AE7C /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -152,6 +163,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F2F9AD022A963D6C00BC8F84 /* PersonalInfoOnboardView.swift in Sources */,
 				57A8122B2A94E1B900642DF3 /* DadosView.swift in Sources */,
 				57A47BD02A94D50A0062AE7C /* Persistence.swift in Sources */,
 				57A812272A94E19500642DF3 /* BoletinsView.swift in Sources */,
@@ -359,6 +371,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		F2F9AD032A96438B00BC8F84 /* XCRemoteSwiftPackageReference "modal-view" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/diniska/modal-view";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		F2F9AD042A96438B00BC8F84 /* ModalView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F2F9AD032A96438B00BC8F84 /* XCRemoteSwiftPackageReference "modal-view" */;
+			productName = ModalView;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		57A47BD12A94D50A0062AE7C /* perseus.xcdatamodeld */ = {
