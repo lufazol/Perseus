@@ -34,7 +34,6 @@ struct ContentView: View {
 
             NavigationView {
                 DadosView()
-                    .navigationTitle("Dados")
             }
             .tabItem {
                 Image(systemName: "person.text.rectangle")
