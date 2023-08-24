@@ -45,95 +45,94 @@ struct DadosView: View {
                 .listRowBackground(Color.clear)
 
                 Section {
-                    HStack {
-                        Image(systemName: "doc.text.below.ecg.fill")
-                            .imageScale(.large)
-                            .foregroundColor(.white)
-                            .background(
-                                Rectangle()
-                                    .foregroundColor(Color(hex: 0x56BABF))
-                                    .frame(width: rectangleWidth, height: rectangleHeight)
-                                    .cornerRadius(10)
-                            )
-                            .padding(.trailing, 10)
-                        Text("Ficha médica")
-                        Spacer()
-                        Image(systemName: "chevron.right")
-                            .foregroundColor(.gray)
+                    NavigationLink(destination: FichaView()) {
+                        HStack {
+                            Image(systemName: "doc.text.below.ecg.fill")
+                                .imageScale(.large)
+                                .foregroundColor(.white)
+                                .background(
+                                    Rectangle()
+                                        .foregroundColor(Color(hex: 0x56BABF))
+                                        .frame(width: rectangleWidth, height: rectangleHeight)
+                                        .cornerRadius(10)
+                                )
+                                .padding(.trailing, 10)
+                            Text("Ficha médica")
+                            Spacer()
+                        }
                     }
                 }
 
                 Section {
-                    HStack {
-                        Image(systemName: "person.line.dotted.person.fill")
-                            .imageScale(.small)
-                            .foregroundColor(.white)
-                            .background(
-                                Rectangle()
-                                    .foregroundColor(Color(hex: 0x459599))
-                                    .frame(width: rectangleWidth, height: rectangleHeight)
-                                    .cornerRadius(10)
-                            )
-                            .padding(.trailing, 10)
-                        Text("Contatos")
-                        Spacer()
-                        Image(systemName: "chevron.right")
-                            .foregroundColor(.gray)
+                    NavigationLink(destination: FichaView()) {
+                        HStack {
+                            Image(systemName: "person.line.dotted.person.fill")
+                                .imageScale(.small)
+                                .foregroundColor(.white)
+                                .background(
+                                    Rectangle()
+                                        .foregroundColor(Color(hex: 0x459599))
+                                        .frame(width: rectangleWidth, height: rectangleHeight)
+                                        .cornerRadius(10)
+                                )
+                                .padding(.trailing, 10)
+                            Text("Contatos")
+                            Spacer()
+                        }
                     }
                 }
 
                 Section {
-                    HStack {
-                        Image(systemName: "bell.badge.fill")
-                            .imageScale(.large)
-                            .foregroundColor(.white)
-                            .background(
-                                Rectangle()
-                                    .foregroundColor(Color(hex: 0x928AE5))
-                                    .frame(width: rectangleWidth, height: rectangleHeight)
-                                    .cornerRadius(10)
-                            )
-                            .padding(.trailing, 10)
-                        Text("Notificações")
-                        Spacer()
-                        Image(systemName: "chevron.right")
-                            .foregroundColor(.gray)
+                    NavigationLink(destination: FichaView()) {
+                        HStack {
+                            Image(systemName: "bell.badge.fill")
+                                .imageScale(.large)
+                                .foregroundColor(.white)
+                                .background(
+                                    Rectangle()
+                                        .foregroundColor(Color(hex: 0x928AE5))
+                                        .frame(width: rectangleWidth, height: rectangleHeight)
+                                        .cornerRadius(10)
+                                )
+                                .padding(.trailing, 10)
+                            Text("Notificações")
+                            Spacer()
+                        }
                     }
-                    HStack {
-                        Image(systemName: "globe.americas.fill")
-                            .imageScale(.large)
-                            .foregroundColor(.white)
-                            .background(
-                                Rectangle()
-                                    .foregroundColor(Color(hex: 0x766CD9))
-                                    .frame(width: rectangleWidth, height: rectangleHeight)
-                                    .cornerRadius(10)
-                            )
-                            .padding(.trailing, 10)
-                        Text("Idiomas")
-                        Spacer()
-                        Image(systemName: "chevron.right")
-                            .foregroundColor(.gray)
+                    NavigationLink(destination: FichaView()) {
+                        HStack {
+                            Image(systemName: "globe.americas.fill")
+                                .imageScale(.large)
+                                .foregroundColor(.white)
+                                .background(
+                                    Rectangle()
+                                        .foregroundColor(Color(hex: 0x766CD9))
+                                        .frame(width: rectangleWidth, height: rectangleHeight)
+                                        .cornerRadius(10)
+                                )
+                                .padding(.trailing, 10)
+                            Text("Idiomas")
+                            Spacer()
+                        }
                     }
-                    HStack {
-                        Image(systemName: "hand.raised.fill")
-                            .imageScale(.large)
-                            .foregroundColor(.white)
-                            .background(
-                                Rectangle()
-                                    .foregroundColor(Color(hex: 0x574CBF))
-                                    .frame(width: rectangleWidth, height: rectangleHeight)
-                                    .cornerRadius(10)
-                            )
-                            .padding(.trailing, 10)
-                        Text("Declaração de privacidade")
-                        Spacer()
-                        Image(systemName: "chevron.right")
-                            .foregroundColor(.gray)
+                    NavigationLink(destination: FichaView()) {
+                        HStack {
+                            Image(systemName: "hand.raised.fill")
+                                .imageScale(.large)
+                                .foregroundColor(.white)
+                                .background(
+                                    Rectangle()
+                                        .foregroundColor(Color(hex: 0x574CBF))
+                                        .frame(width: rectangleWidth, height: rectangleHeight)
+                                        .cornerRadius(10)
+                                )
+                                .padding(.trailing, 10)
+                            Text("Declaração de privacidade")
+                            Spacer()
+                        }
                     }
                 }
 
-                
                 Section {
                     Button(action: {
                         // Action to perform when the button is tapped
