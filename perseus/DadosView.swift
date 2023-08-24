@@ -63,6 +63,7 @@ struct DadosView: View {
                     }
                 }
 
+                /*
                 Section {
                     NavigationLink(destination: FichaView()) {
                         HStack {
@@ -81,8 +82,10 @@ struct DadosView: View {
                         }
                     }
                 }
+                */
 
                 Section {
+                    /*
                     NavigationLink(destination: FichaView()) {
                         HStack {
                             Image(systemName: "bell.badge.fill")
@@ -115,6 +118,7 @@ struct DadosView: View {
                             Spacer()
                         }
                     }
+                    */
                     NavigationLink(destination: FichaView()) {
                         HStack {
                             Image(systemName: "hand.raised.fill")
