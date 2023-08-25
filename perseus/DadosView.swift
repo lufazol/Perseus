@@ -31,12 +31,12 @@ struct DadosView: View {
                     HStack {
                         Spacer()
                         VStack {
-                            Circle()
-                                .frame(
-                                    width: UIScreen.main.bounds.width * 0.2,
-                                    height: UIScreen.main.bounds.height * 0.1
-                                )
-                            Text("Nome do Vovô")
+                            Image("amelia")
+                                 .resizable()
+                                 .scaledToFill()
+                                 .frame(width: 200, height: 180)
+                                 .clipShape(Circle())
+                            Text("Amélia")
                                 .font(.largeTitle)
                         }
                         Spacer()
