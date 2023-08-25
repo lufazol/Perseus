@@ -15,6 +15,6 @@ struct perseusApp: App {
         WindowGroup {
             OnboardingAView()
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
-        }
+                .environment(\.locale, Locale(identifier: "pt_BR"))        }
     }
 }
