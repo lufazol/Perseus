@@ -9,18 +9,26 @@ import SwiftUI
 
 struct FichaView: View {
     
+    // set lists used on pickers
     let tiposSanguineos = ["A+", "A-", "B+", "B-", "AB+", "AB-", "O+", "O-"]
     let sexos = ["Masculino", "Feminino", "Outro", "Não declarar"]
 
     @Environment(\.editMode) private var editMode
-    @State private var nome = "Amélia"
-    @State private var dataDeNascimento = Calendar.current.date(from: DateComponents(year: 1950, month: 8, day: 31))!
-    @State private var sexo = "Feminino"
-    @State private var peso = 84
-    @State private var tipoSanguineo = "O+"
-    @State private var cirurgias = "Colostomia, cesárea, abdominoplastia e blefaropastia."
-    @State private var doencas = "Diabetes, hipertensão, osteoporose, infecção urinária com frequência."
-
+    
+    
+    // States are commented so that they might be used when core data is implemented
+    /*
+    @State private var nome = GlobalElder.shared.mockedElder.nome
+    @State private var dataDeNascimento = GlobalElder.shared.mockedElder.dataDeNascimento
+    @State private var sexo = GlobalElder.shared.mockedElder.sexo
+    @State private var peso = GlobalElder.shared.mockedElder.peso
+    @State private var tipoSanguineo = GlobalElder.shared.mockedElder.tipoSanguineo
+    @State private var cirurgias = GlobalElder.shared.mockedElder.cirurgias
+    @State private var doencas = GlobalElder.shared.mockedElder.doencas
+    */
+    
+    @ObservedObject
+    private var elder: Elder = GlobalElder.shared.mockedElder
 
     var body: some View {
         VStack {
@@ -46,12 +54,12 @@ struct FichaView: View {
                         Text("Nome do idoso")
                         Spacer()
                         if editMode?.wrappedValue.isEditing == true {
-                            TextField("", text: $nome)
+                            TextField("", text: $elder.nome)
                                 .labelsHidden()
                                 .multilineTextAlignment(.trailing)
                                 .foregroundColor(.accentColor)
                         } else {
-                            Text(nome)
+                            Text(elder.nome)
                         }
                     }
                 }
@@ -61,10 +69,10 @@ struct FichaView: View {
                         Text("Nascimento")
                         Spacer()
                         if editMode?.wrappedValue.isEditing == true {
-                            DatePicker("nascimento", selection: $dataDeNascimento, displayedComponents: .date)
+                            DatePicker("nascimento", selection: $elder.dataDeNascimento, displayedComponents: .date)
                                 .labelsHidden()
                         } else {
-                            Text(dataDeNascimento.formatted(.dateTime.day().month().year()))
+                            Text(elder.dataDeNascimento.formatted(.dateTime.day().month().year()))
                         }
                     }
                 }
@@ -74,13 +82,13 @@ struct FichaView: View {
                         Text("Sexo")
                         Spacer()
                         if editMode?.wrappedValue.isEditing == true {
-                            Picker("", selection: $sexo) {
+                            Picker("", selection: $elder.sexo) {
                                 ForEach(sexos, id: \.self) { item in
                                     Text(item)
                                 }
                             }
                         } else {
-                            Text(sexo)
+                            Text(elder.sexo)
                         }
                     }
                 }
@@ -90,13 +98,13 @@ struct FichaView: View {
                         Text("Peso")
                         Spacer()
                         if editMode?.wrappedValue.isEditing == true {
-                            Picker("", selection: $peso) {
+                            Picker("", selection: $elder.peso) {
                                 ForEach(0..<500) {
                                     Text("\($0) kg")
                                 }
                             }
                         } else {
-                            Text("\(String(peso)) kg")
+                            Text("\(String(elder.peso)) kg")
                         }
                     }
                 }
@@ -106,13 +114,13 @@ struct FichaView: View {
                         Text("Tipo sanguíneo")
                         Spacer()
                         if editMode?.wrappedValue.isEditing == true {
-                            Picker("", selection: $tipoSanguineo) {
+                            Picker("", selection: $elder.tipoSanguineo) {
                                 ForEach(tiposSanguineos, id: \.self) { item in
                                     Text(item)
                                 }
                             }
                         } else {
-                            Text(tipoSanguineo)
+                            Text(elder.tipoSanguineo)
                         }
                     }
                 }
@@ -120,10 +128,10 @@ struct FichaView: View {
                 Section {
                     HStack {
                         if editMode?.wrappedValue.isEditing == true {
-                            TextField("", text: $cirurgias, axis: .vertical)
+                            TextField("", text: $elder.cirurgias, axis: .vertical)
                                 .foregroundColor(.accentColor)
                         } else {
-                            Text(cirurgias)
+                            Text(elder.cirurgias)
                         }
                     }
                 } header: {
@@ -133,10 +141,10 @@ struct FichaView: View {
                 Section {
                     HStack {
                         if editMode?.wrappedValue.isEditing == true {
-                            TextField("", text: $doencas, axis: .vertical)
+                            TextField("", text: $elder.doencas, axis: .vertical)
                                 .foregroundColor(.accentColor)
                         } else {
-                            Text(doencas)
+                            Text(elder.doencas)
                         }
                     }
                 } header: {

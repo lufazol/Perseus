@@ -20,6 +20,10 @@ extension Color {
 }
 
 struct DadosView: View {
+
+    @ObservedObject
+    private var elder: Elder = GlobalElder.shared.mockedElder
+
     var body: some View {
         
         let rectangleWidth = CGFloat(32)
@@ -36,7 +40,7 @@ struct DadosView: View {
                                  .scaledToFill()
                                  .frame(width: 200, height: 180)
                                  .clipShape(Circle())
-                            Text("Amélia")
+                            Text(elder.nome)
                                 .font(.largeTitle)
                         }
                         Spacer()
