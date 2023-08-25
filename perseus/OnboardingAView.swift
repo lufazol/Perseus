@@ -55,7 +55,7 @@ struct OnboardingAView: View {
                 Spacer().listRowBackground(Color.clear)
                 
                 Section {
-                    Button(action: {
+                    Button(action:  {
 
                     }) {
                         HStack {
@@ -67,8 +67,11 @@ struct OnboardingAView: View {
                     }
                     
                     .cornerRadius(10)
-                }.disabled(name.isEmpty)
-                    .background(Color.gray)
+                }
+                .disabled(name.isEmpty)
+                .listRowBackground(Color.gray)
+                .background(Color.gray)
+
             }
         }
     }
