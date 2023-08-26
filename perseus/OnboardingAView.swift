@@ -9,11 +9,11 @@ import Foundation
 
 struct OnboardingAView: View {
     
-    
+    @State private var nameIsSet: Bool = false
     @State var name: String = ""
     @State var dateWasSelected = false
     @State var birthDate = Date.now
-    @State var gender: String = ""
+    @State var gender: String = "Masculino"
     var genders = ["Masculino", "Feminino", "Outro"]
 
     @State var goToOnboardingBView = false
@@ -38,19 +38,29 @@ struct OnboardingAView: View {
                     
                     Section {
                         TextField("Nome do Idoso", text: $name)
+                            .autocorrectionDisabled()
+                    } footer: {
+                        Text("*Campo obrigatório")
                     }
-                    
+
                     Section{
-                        DatePicker(selection: $birthDate, in: ...Date.now, displayedComponents: .date) {
-                            Text("Data de Nascimento")
+                        HStack {
+                            Text("Nascimento")
+                            Spacer()
+                            DatePicker("nascimento", selection: $birthDate, in: ...Date.now, displayedComponents: .date)
+                                .labelsHidden()
                         }
                     }
                     
                     Section{
-                        Picker("Sexo", selection: $gender) {
-                            //Text("").tag("")
-                            ForEach(genders, id: \.self){
-                                Text($0)
+                        HStack {
+                            Text("Sexo")
+                            Spacer()
+                            Picker("", selection: $gender) {
+                                //Text("").tag("")
+                                ForEach(genders, id: \.self){ item in
+                                    Text(item)
+                                }
                             }
                         }
                     }
@@ -59,10 +69,10 @@ struct OnboardingAView: View {
                         NavigationLink("Próximo", destination: OnboardingBView())
                             .background(Color(hex: 0x261C8C))
                             .listRowBackground(Color(hex: 0x261C8C))
+                            .disabled(name.isEmpty)
                             .foregroundColor(Color.white)
                             .frame(maxWidth: .infinity, alignment: .center)
                     }
-                         
                 }
             }
         }

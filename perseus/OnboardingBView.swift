@@ -9,8 +9,8 @@ import SwiftUI
 
 struct OnboardingBView: View {
     
-    @State var blood: String = ""
-    @State var weight: String = ""
+    @State var blood: String = "A+"
+    @State var weight: String = "60.0"
     @State var surgery: String = ""
     @State var illnesses: String = ""
     
@@ -41,30 +41,38 @@ struct OnboardingBView: View {
                     }.listRowBackground(Color.clear)
 
                 Section{
-                    Picker("Tipo sanguíneo", selection: $blood) {
-                        //Text("").tag("")
-                        ForEach(bloodType, id: \.self){
-                            Text($0)
+                    HStack {
+                        Text("Tipo sanguíneo")
+                        Spacer()
+                        Picker("", selection: $blood) {
+                            //Text("").tag("")
+                            ForEach(bloodType, id: \.self){ item in
+                                Text(item)
+                            }
                         }
                     }
                 }
                        
                 Section{
-                    Picker("Peso (kg)", selection: $weight) {
-                        ForEach(weightArray, id: \.self){
-                            Text($0)
+                    HStack {
+                        Text("Peso (kg)")
+                        Spacer()
+                        Picker("", selection: $weight) {
+                            ForEach(weightArray, id: \.self){ item in
+                                Text(item)
+                            }
                         }
                     }
                 }
                 
                 Section {
-                    TextField("Cirurgias", text: $surgery)
+                    TextField("Cirurgias", text: $surgery, axis:.vertical)
                 } footer: {
-                    Text("Escreva aqui as cirurgias que a pessoa passou.")
+                    Text("Escreva aqui as cirurgias pelas quais a pessoa passou.")
                 }
                 
                 Section {
-                    TextField("Doenças", text: $illnesses)
+                    TextField("Doenças", text: $illnesses, axis: .vertical)
                 } footer: {
                     Text("Escreva aqui as doenças que a pessoa teve.")
                 }
