@@ -69,25 +69,16 @@ struct OnboardingBView: View {
                     Text("Escreva aqui as doenças que a pessoa teve.")
                 }
                 
-
-                Section {
-                    Button(action: {
-                    }) {
-                        HStack {
-                            Spacer()
-                            Text("Finalizar")
-                                .foregroundColor(.white)
-                            Spacer()
-                        }
-                    }
-                    
-                    .cornerRadius(10)
-                }.background(Color(hex: 0x261C8C))
-                    .listRowBackground(Color(hex: 0x261C8C))
+                Section{
+                    NavigationLink("Finalizar", destination: BoletinsView())
+                        .background(Color(hex: 0x261C8C))
+                        .listRowBackground(Color(hex: 0x261C8C))
+                        .foregroundColor(Color.white)
+                        .frame(maxWidth: .infinity, alignment: .center)
+                }
             }
         }
     }
-    
 }
 
 struct OnboardingBView_Previews: PreviewProvider {

@@ -16,62 +16,54 @@ struct OnboardingAView: View {
     @State var gender: String = ""
     var genders = ["Masculino", "Feminino", "Outro"]
 
+    @State var goToOnboardingBView = false
     
     var body: some View {
-        VStack{
-            Form {
-                Section{
-                    HStack{
-                        VStack{
-                            Text("Para começar a utilizar, por favor adicione os dados da pessoa que você está cuidando.")
-                            .foregroundColor(Color.gray)
-                            .padding(.horizontal, -16)
-
-                            Circle()
-                            .padding(.top, 24)
-                            .frame(width: UIScreen.main.bounds.width * 0.36)
+        NavigationView{
+            VStack{
+                Form {
+                    Section{
+                        HStack{
+                            VStack{
+                                Text("Para começar a utilizar, por favor adicione os dados da pessoa que você está cuidando.")
+                                    .foregroundColor(Color.gray)
+                                    .padding(.horizontal, -16)
+                                
+                                Circle()
+                                    .padding(.top, 24)
+                                    .frame(width: UIScreen.main.bounds.width * 0.36)
                             }
                         }
                     }.listRowBackground(Color.clear)
-
-                Section {
-                    TextField("Nome do Idoso", text: $name)
-                }
-                
-                DatePicker(selection: $birthDate, in: ...Date.now, displayedComponents: .date) {
-                    Text("Data de Nascimento")
-                }
-
-                Section{
-                    Picker("Sexo", selection: $gender) {
-                        //Text("").tag("")
-                        ForEach(genders, id: \.self){
-                            Text($0)
-                        }
+                    
+                    Section {
+                        TextField("Nome do Idoso", text: $name)
                     }
-                }
-                        
-                Spacer().listRowBackground(Color.clear)
-                Spacer().listRowBackground(Color.clear)
-                
-                Section {
-                    Button(action:  {
-
-                    }) {
-                        HStack {
-                            Spacer()
-                            Text("Próximo")
-                                .foregroundColor(.white)
-                            Spacer()
+                    
+                    Section{
+                        DatePicker(selection: $birthDate, in: ...Date.now, displayedComponents: .date) {
+                            Text("Data de Nascimento")
                         }
                     }
                     
-                    .cornerRadius(10)
+                    Section{
+                        Picker("Sexo", selection: $gender) {
+                            //Text("").tag("")
+                            ForEach(genders, id: \.self){
+                                Text($0)
+                            }
+                        }
+                    }
+                    
+                    Section{
+                        NavigationLink("Próximo", destination: OnboardingBView())
+                            .background(Color(hex: 0x261C8C))
+                            .listRowBackground(Color(hex: 0x261C8C))
+                            .foregroundColor(Color.white)
+                            .frame(maxWidth: .infinity, alignment: .center)
+                    }
+                         
                 }
-                .disabled(name.isEmpty)
-                .listRowBackground(Color.gray)
-                .background(Color.gray)
-
             }
         }
     }

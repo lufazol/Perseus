@@ -9,7 +9,7 @@ import SwiftUI
 
 struct BoletinsView: View {
     var body: some View {
-        Text("Boletins View")
+        Text("Boletins View").navigationBarBackButtonHidden(true)
     }
 }
 

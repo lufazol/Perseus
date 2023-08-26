@@ -13,7 +13,7 @@ struct perseusApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            OnboardingAView()
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
     }
