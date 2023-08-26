@@ -83,7 +83,7 @@ struct OnboardingBView: View {
                 }
                 
                 Section{
-                    NavigationLink("Finalizar", destination: BoletinsView())
+                    NavigationLink("Finalizar", destination: ContentView())
                         .background(Color(hex: 0x261C8C))
                         .listRowBackground(Color(hex: 0x261C8C))
                         .foregroundColor(Color.white)
