@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		57754E122A9775B40047C2BE /* FichaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57754E112A9775B40047C2BE /* FichaView.swift */; };
+		57754E142A977FB70047C2BE /* PrivacidadeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57754E132A977FB70047C2BE /* PrivacidadeView.swift */; };
 		57A47BC72A94D5090062AE7C /* perseusApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A47BC62A94D5090062AE7C /* perseusApp.swift */; };
 		57A47BC92A94D5090062AE7C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A47BC82A94D5090062AE7C /* ContentView.swift */; };
 		57A47BCB2A94D50A0062AE7C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 57A47BCA2A94D50A0062AE7C /* Assets.xcassets */; };
@@ -16,9 +18,14 @@
 		57A812272A94E19500642DF3 /* BoletinsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A812262A94E19500642DF3 /* BoletinsView.swift */; };
 		57A812292A94E1AD00642DF3 /* MedicamentosView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A812282A94E1AD00642DF3 /* MedicamentosView.swift */; };
 		57A8122B2A94E1B900642DF3 /* DadosView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A8122A2A94E1B900642DF3 /* DadosView.swift */; };
+		F2F9AD022A963D6C00BC8F84 /* OnboardingAView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F9AD012A963D6C00BC8F84 /* OnboardingAView.swift */; };
+		F2F9AD092A97A44400BC8F84 /* OnboardingBView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F9AD082A97A44400BC8F84 /* OnboardingBView.swift */; };
+		57E3B8392A98D82B003EAAA6 /* GlobalData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57E3B8382A98D82B003EAAA6 /* GlobalData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		57754E112A9775B40047C2BE /* FichaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FichaView.swift; sourceTree = "<group>"; };
+		57754E132A977FB70047C2BE /* PrivacidadeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacidadeView.swift; sourceTree = "<group>"; };
 		57A47BC32A94D5090062AE7C /* perseus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = perseus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		57A47BC62A94D5090062AE7C /* perseusApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = perseusApp.swift; sourceTree = "<group>"; };
 		57A47BC82A94D5090062AE7C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -29,6 +36,9 @@
 		57A812262A94E19500642DF3 /* BoletinsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoletinsView.swift; sourceTree = "<group>"; };
 		57A812282A94E1AD00642DF3 /* MedicamentosView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicamentosView.swift; sourceTree = "<group>"; };
 		57A8122A2A94E1B900642DF3 /* DadosView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DadosView.swift; sourceTree = "<group>"; };
+		F2F9AD012A963D6C00BC8F84 /* OnboardingAView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingAView.swift; sourceTree = "<group>"; };
+		F2F9AD082A97A44400BC8F84 /* OnboardingBView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingBView.swift; sourceTree = "<group>"; };
+		57E3B8382A98D82B003EAAA6 /* GlobalData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +55,7 @@
 		57A47BBA2A94D5090062AE7C = {
 			isa = PBXGroup;
 			children = (
+				57E3B8382A98D82B003EAAA6 /* GlobalData.swift */,
 				57A47BC52A94D5090062AE7C /* perseus */,
 				57A47BC42A94D5090062AE7C /* Products */,
 			);
@@ -65,11 +76,15 @@
 				57A812262A94E19500642DF3 /* BoletinsView.swift */,
 				57A47BC82A94D5090062AE7C /* ContentView.swift */,
 				57A8122A2A94E1B900642DF3 /* DadosView.swift */,
+				F2F9AD012A963D6C00BC8F84 /* OnboardingAView.swift */,
+				F2F9AD082A97A44400BC8F84 /* OnboardingBView.swift */,
+				57754E112A9775B40047C2BE /* FichaView.swift */,
 				57A812282A94E1AD00642DF3 /* MedicamentosView.swift */,
 				57A47BCA2A94D50A0062AE7C /* Assets.xcassets */,
 				57A47BCF2A94D50A0062AE7C /* Persistence.swift */,
 				57A47BD12A94D50A0062AE7C /* perseus.xcdatamodeld */,
 				57A47BCC2A94D50A0062AE7C /* Preview Content */,
+				57754E132A977FB70047C2BE /* PrivacidadeView.swift */,
 			);
 			path = perseus;
 			sourceTree = "<group>";
@@ -98,6 +113,8 @@
 			dependencies = (
 			);
 			name = perseus;
+			packageProductDependencies = (
+			);
 			productName = perseus;
 			productReference = 57A47BC32A94D5090062AE7C /* perseus.app */;
 			productType = "com.apple.product-type.application";
@@ -126,6 +143,8 @@
 				Base,
 			);
 			mainGroup = 57A47BBA2A94D5090062AE7C;
+			packageReferences = (
+			);
 			productRefGroup = 57A47BC42A94D5090062AE7C /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -152,13 +171,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F2F9AD022A963D6C00BC8F84 /* OnboardingAView.swift in Sources */,
+				57754E142A977FB70047C2BE /* PrivacidadeView.swift in Sources */,
+				57754E122A9775B40047C2BE /* FichaView.swift in Sources */,
 				57A8122B2A94E1B900642DF3 /* DadosView.swift in Sources */,
 				57A47BD02A94D50A0062AE7C /* Persistence.swift in Sources */,
 				57A812272A94E19500642DF3 /* BoletinsView.swift in Sources */,
 				57A47BC92A94D5090062AE7C /* ContentView.swift in Sources */,
+				57E3B8392A98D82B003EAAA6 /* GlobalData.swift in Sources */,
 				57A812292A94E1AD00642DF3 /* MedicamentosView.swift in Sources */,
 				57A47BC72A94D5090062AE7C /* perseusApp.swift in Sources */,
 				57A47BD32A94D50A0062AE7C /* perseus.xcdatamodeld in Sources */,
+				F2F9AD092A97A44400BC8F84 /* OnboardingBView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
