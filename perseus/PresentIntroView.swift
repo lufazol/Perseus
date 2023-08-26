@@ -8,8 +8,42 @@
 import SwiftUI
 
 struct PresentIntroView: View {
+    @State private var pageIndex = 0
+    @State private var showOnboarding = false
+    private let intros: [IntroPage] = IntroPage.introPages
+    private let dotAppearance = UIPageControl.appearance()
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationView {
+            TabView(selection: $pageIndex) {
+                ForEach(intros) { intro in
+                    VStack {
+                        Spacer()
+                        IntroView(intro: intro)
+                        Spacer()
+                        
+                        if intro == intros.last {
+                            NavigationLink("Começar a usar", destination: OnboardingAView())
+                        } else {
+                            Button("Prosseguir", action: incrementPage)
+                        }
+                        Spacer()
+                    }
+                    .tag(intro.tag)
+                }
+            }
+            .animation(.default, value: pageIndex)
+            .tabViewStyle(.page)
+            .indexViewStyle(.page(backgroundDisplayMode: .interactive))
+            .onAppear {
+                dotAppearance.currentPageIndicatorTintColor = .black
+                dotAppearance.pageIndicatorTintColor = .gray
+            }
+        }
+    }
+    
+    func incrementPage() {
+        pageIndex += 1
     }
 }
 
