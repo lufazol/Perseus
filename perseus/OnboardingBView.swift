@@ -9,10 +9,15 @@ import SwiftUI
 
 struct OnboardingBView: View {
     
+    @ObservedObject
+    private var elder: Elder = GlobalElder.shared.mockedElder
+
+    /*
     @State var blood: String = "A+"
     @State var weight: String = "60.0"
     @State var surgery: String = ""
     @State var illnesses: String = ""
+    */
     
     var bloodType = ["A+","A-","B+","B-","AB+","AB-","O+","O-"]
     var currentValue: Float = 0.0
@@ -44,7 +49,7 @@ struct OnboardingBView: View {
                     HStack {
                         Text("Tipo sanguíneo")
                         Spacer()
-                        Picker("", selection: $blood) {
+                        Picker("", selection: $elder.tipoSanguineo) {
                             //Text("").tag("")
                             ForEach(bloodType, id: \.self){ item in
                                 Text(item)
@@ -57,7 +62,7 @@ struct OnboardingBView: View {
                     HStack {
                         Text("Peso (kg)")
                         Spacer()
-                        Picker("", selection: $weight) {
+                        Picker("", selection: $elder.peso) {
                             ForEach(weightArray, id: \.self){ item in
                                 Text(item)
                             }
@@ -66,13 +71,13 @@ struct OnboardingBView: View {
                 }
                 
                 Section {
-                    TextField("Cirurgias", text: $surgery, axis:.vertical)
+                    TextField("Cirurgias", text: $elder.cirurgias, axis:.vertical)
                 } footer: {
                     Text("Escreva aqui as cirurgias pelas quais a pessoa passou.")
                 }
                 
                 Section {
-                    TextField("Doenças", text: $illnesses, axis: .vertical)
+                    TextField("Doenças", text: $elder.doencas, axis: .vertical)
                 } footer: {
                     Text("Escreva aqui as doenças que a pessoa teve.")
                 }

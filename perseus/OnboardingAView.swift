@@ -8,12 +8,16 @@ import SwiftUI
 import Foundation
 
 struct OnboardingAView: View {
-    
-    @State private var nameIsSet: Bool = false
+    @ObservedObject
+    private var elder: Elder = GlobalElder.shared.mockedElder
+
+    /*
     @State var name: String = ""
     @State var dateWasSelected = false
     @State var birthDate = Date.now
     @State var gender: String = "Masculino"
+    */
+
     var genders = ["Masculino", "Feminino", "Outro"]
 
     @State var goToOnboardingBView = false
@@ -37,7 +41,7 @@ struct OnboardingAView: View {
                     }.listRowBackground(Color.clear)
                     
                     Section {
-                        TextField("Nome do Idoso", text: $name)
+                        TextField("Nome do Idoso", text: $elder.nome)
                             .autocorrectionDisabled()
                     } footer: {
                         Text("*Campo obrigatório")
@@ -47,7 +51,7 @@ struct OnboardingAView: View {
                         HStack {
                             Text("Nascimento")
                             Spacer()
-                            DatePicker("nascimento", selection: $birthDate, in: ...Date.now, displayedComponents: .date)
+                            DatePicker("nascimento", selection: $elder.dataDeNascimento, in: ...Date.now, displayedComponents: .date)
                                 .labelsHidden()
                         }
                     }
@@ -56,7 +60,7 @@ struct OnboardingAView: View {
                         HStack {
                             Text("Sexo")
                             Spacer()
-                            Picker("", selection: $gender) {
+                            Picker("", selection: $elder.sexo) {
                                 //Text("").tag("")
                                 ForEach(genders, id: \.self){ item in
                                     Text(item)
@@ -69,7 +73,7 @@ struct OnboardingAView: View {
                         NavigationLink("Próximo", destination: OnboardingBView())
                             .background(Color(hex: 0x261C8C))
                             .listRowBackground(Color(hex: 0x261C8C))
-                            .disabled(name.isEmpty)
+                            .disabled(elder.nome.isEmpty)
                             .foregroundColor(Color.white)
                             .frame(maxWidth: .infinity, alignment: .center)
                     }

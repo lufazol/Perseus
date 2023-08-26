@@ -12,6 +12,16 @@ struct FichaView: View {
     // set lists used on pickers
     let tiposSanguineos = ["A+", "A-", "B+", "B-", "AB+", "AB-", "O+", "O-"]
     let sexos = ["Masculino", "Feminino", "Outro", "Não declarar"]
+    var currentValue: Float = 0.0
+    var weightArray:[String] = []
+
+    //loop for weight values
+    init() {
+        while currentValue <= 500.0 {
+            weightArray.append(String(format: "%.1f", currentValue))
+            currentValue += 0.5
+        }
+    }
 
     @Environment(\.editMode) private var editMode
     
@@ -95,16 +105,16 @@ struct FichaView: View {
 
                 Section {
                     HStack {
-                        Text("Peso")
+                        Text("Peso (kg)")
                         Spacer()
                         if editMode?.wrappedValue.isEditing == true {
                             Picker("", selection: $elder.peso) {
-                                ForEach(0..<500) {
-                                    Text("\($0) kg")
+                                ForEach(weightArray, id: \.self){ item in
+                                    Text(item)
                                 }
                             }
                         } else {
-                            Text("\(String(elder.peso)) kg")
+                            Text("\(String(elder.peso))")
                         }
                     }
                 }
@@ -128,10 +138,15 @@ struct FichaView: View {
                 Section {
                     HStack {
                         if editMode?.wrappedValue.isEditing == true {
-                            TextField("", text: $elder.cirurgias, axis: .vertical)
+                            TextField("Adicione as cirurgias", text: $elder.cirurgias, axis: .vertical)
                                 .foregroundColor(.accentColor)
                         } else {
-                            Text(elder.cirurgias)
+                            if elder.cirurgias.isEmpty {
+                                Text("Nenhuma cirurgia adicionada")
+                                    .foregroundColor(Color.gray)
+                            } else {
+                                Text(elder.cirurgias)
+                            }
                         }
                     }
                 } header: {
@@ -141,10 +156,15 @@ struct FichaView: View {
                 Section {
                     HStack {
                         if editMode?.wrappedValue.isEditing == true {
-                            TextField("", text: $elder.doencas, axis: .vertical)
+                            TextField("Adicione as doenças", text: $elder.doencas, axis: .vertical)
                                 .foregroundColor(.accentColor)
                         } else {
-                            Text(elder.doencas)
+                            if elder.doencas.isEmpty {
+                                Text("Nenhuma doença adicionada")
+                                    .foregroundColor(Color.gray)
+                            } else {
+                                Text(elder.doencas)
+                            }
                         }
                     }
                 } header: {
