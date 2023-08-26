@@ -80,6 +80,7 @@ struct OnboardingAView: View {
                 }
             }
         }
+        .navigationBarBackButtonHidden(true)
     }
 }
 

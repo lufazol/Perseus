@@ -13,7 +13,7 @@ struct perseusApp: App {
 
     var body: some Scene {
         WindowGroup {
-            OnboardingAView()
+            PresentIntroView()
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
                 .environment(\.locale, Locale(identifier: "pt_BR"))
                 .environmentObject(GlobalElder.shared.mockedElder)
