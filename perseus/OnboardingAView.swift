@@ -11,6 +11,7 @@ struct OnboardingAView: View {
     @ObservedObject
     private var elder: Elder = GlobalElder.shared.mockedElder
 
+
     /*
     @State var name: String = ""
     @State var dateWasSelected = false
@@ -33,9 +34,12 @@ struct OnboardingAView: View {
                                     .foregroundColor(Color.gray)
                                     .padding(.horizontal, -16)
                                 
-                                Circle()
-                                    .padding(.top, 24)
-                                    .frame(width: UIScreen.main.bounds.width * 0.36)
+                                Image("amelia")
+                                     .resizable()
+                                     .scaledToFill()
+                                     .frame(width: UIScreen.main.bounds.width * 0.36)
+                                     .clipShape(Circle())
+                                     .padding(.bottom, -20)
                             }
                         }
                     }.listRowBackground(Color.clear)
@@ -70,13 +74,34 @@ struct OnboardingAView: View {
                     }
                     
                     Section{
-                        NavigationLink("Próximo", destination: OnboardingBView())
-                            .background(Color(hex: 0x261C8C))
-                            .listRowBackground(Color(hex: 0x261C8C))
+                        Text("Ao prosseguir você concorda com nossos termo de Politica de Privacidade.")
+                            .foregroundColor(Color.gray)
+                            .padding(.horizontal, -16)
+                            .padding(.top, -8)
+                        
+                    }.listRowBackground(Color.clear)
+                    
+                    Section{
+                        ZStack{
+                            
+                            NavigationLink("", destination: OnboardingBView(), isActive: $goToOnboardingBView)
+                            
+                            Button {
+                                goToOnboardingBView = true
+                            } label: {
+                                HStack {
+                                    Spacer()
+                                    Text("Proximo")
+                                    Spacer()
+                                }.foregroundColor(Color.white)
+                            }
                             .disabled(elder.nome.isEmpty)
-                            .foregroundColor(Color.white)
-                            .frame(maxWidth: .infinity, alignment: .center)
-                    }
+                        }
+                    }.listRowBackground(Color(hex: 0x261C8C))
+                    
+
+
+                    
                 }
             }
         }

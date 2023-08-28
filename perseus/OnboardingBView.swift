@@ -11,7 +11,8 @@ struct OnboardingBView: View {
     
     @ObservedObject
     private var elder: Elder = GlobalElder.shared.mockedElder
-
+    @State var goToBoletinsView = false
+    
     /*
     @State var blood: String = "A+"
     @State var weight: String = "60.0"
@@ -83,12 +84,21 @@ struct OnboardingBView: View {
                 }
                 
                 Section{
-                    NavigationLink("Finalizar", destination: ContentView())
-                        .background(Color(hex: 0x261C8C))
-                        .listRowBackground(Color(hex: 0x261C8C))
-                        .foregroundColor(Color.white)
-                        .frame(maxWidth: .infinity, alignment: .center)
-                }
+                    ZStack{
+                        
+                        NavigationLink("", destination: BoletinsView(), isActive: $goToBoletinsView)
+                        
+                        Button {
+                            goToBoletinsView = true
+                        } label: {
+                            HStack {
+                                Spacer()
+                                Text("Finalizar")
+                                Spacer()
+                            }.foregroundColor(Color.white)
+                        }
+                    }
+                }.listRowBackground(Color(hex: 0x261C8C))
             }
         }
     }

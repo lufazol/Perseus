@@ -123,48 +123,48 @@ struct DadosView: View {
                         }
                     }
                     */
-                    NavigationLink(destination: FichaView()) {
-                        HStack {
-                            Image(systemName: "hand.raised.fill")
-                                .imageScale(.large)
-                                .foregroundColor(.white)
-                                .background(
-                                    Rectangle()
-                                        .foregroundColor(Color(hex: 0x574CBF))
-                                        .frame(width: rectangleWidth, height: rectangleHeight)
-                                        .cornerRadius(10)
-                                )
-                                .padding(.trailing, 10)
-                            Text("Declaração de privacidade")
-                            Spacer()
-                        }
-                    }
+//                    NavigationLink(destination: FichaView()) {
+//                        HStack {
+//                            Image(systemName: "hand.raised.fill")
+//                                .imageScale(.large)
+//                                .foregroundColor(.white)
+//                                .background(
+//                                    Rectangle()
+//                                        .foregroundColor(Color(hex: 0x574CBF))
+//                                        .frame(width: rectangleWidth, height: rectangleHeight)
+//                                        .cornerRadius(10)
+//                                )
+//                                .padding(.trailing, 10)
+//                            Text("Declaração de privacidade")
+//                            Spacer()
+//                        }
+//                    }
                 }
 
-                Section {
-                    Button(action: {
-                        // Action to perform when the button is tapped
-                    }) {
-                        HStack {
-                            Spacer()
-                            Text("Apagar conta")
-                                .foregroundColor(.red)
-                            Spacer()
-                        }
-
-                    }
-                    .background(Color.white)
-                    .cornerRadius(10)
-                }
+//                Section {
+//                    Button(action: {
+//                        // Action to perform when the button is tapped
+//                    }) {
+//                        HStack {
+//                            Spacer()
+//                            Text("Apagar conta")
+//                                .foregroundColor(.red)
+//                            Spacer()
+//                        }
+//
+//                    }
+//                    .background(Color.white)
+//                    .cornerRadius(10)
+//                }
             }
         }
-        .navigationBarItems(trailing:
-            Button(action: {
-                // Action when the button is tapped
-            }) {
-                Image(systemName: "square.and.arrow.up")
-            }
-        )
+//        .navigationBarItems(trailing:
+//            Button(action: {
+//                // Action when the button is tapped
+//            }) {
+//                Image(systemName: "square.and.arrow.up")
+//            }
+//        )
     }
 }
 
