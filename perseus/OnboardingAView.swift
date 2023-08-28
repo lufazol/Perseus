@@ -4,10 +4,14 @@
 //
 //  Created by Guilherme Ferreira Lenzolari on 23/08/23.
 //
+import PhotosUI
 import SwiftUI
 import Foundation
 
 struct OnboardingAView: View {
+    @State var selectedItems: [PhotosPickerItem] = []
+    //@State var data: Data?
+
     @ObservedObject
     private var elder: Elder = GlobalElder.shared.mockedElder
 
@@ -32,10 +36,46 @@ struct OnboardingAView: View {
                                 Text("Para começar a utilizar, por favor adicione os dados da pessoa que você está cuidando.")
                                     .foregroundColor(Color.gray)
                                     .padding(.horizontal, -16)
+                                    .padding(.bottom, 24)
+
+                                if let data = elder.foto, let uiimage = UIImage(data: data) {
+                                    Image(uiImage: uiimage)
+                                        .resizable()
+                                        .scaledToFill()
+                                        .frame(width: 200, height: 180)
+                                        .clipShape(Circle())
+                                } else {
+                                    Image("noprofile")
+                                         .resizable()
+                                         .scaledToFill()
+                                         .frame(width: 200, height: 180)
+                                         .clipShape(Circle())
+                                }
                                 
-                                Circle()
-                                    .padding(.top, 24)
-                                    .frame(width: UIScreen.main.bounds.width * 0.36)
+                                PhotosPicker(
+                                    selection: $selectedItems,
+                                    maxSelectionCount: 1,
+                                    matching: .images
+                                ) {
+                                    Text("Adicionar foto")
+                                }
+                                .onChange(of: selectedItems) { newValue in
+                                    guard let item = selectedItems.first else {
+                                        return
+                                    }
+                                    item.loadTransferable(type: Data.self) { result in
+                                        switch result {
+                                        case .success(let data):
+                                            if let data = data {
+                                                elder.foto = data
+                                            } else {
+                                                print("Data is nil")
+                                            }
+                                        case .failure(let failure):
+                                            fatalError("\(failure)")
+                                        }
+                                    }
+                                }
                             }
                         }
                     }.listRowBackground(Color.clear)
