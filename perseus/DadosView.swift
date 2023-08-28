@@ -5,6 +5,7 @@
 //  Created by Luan Fazolin on 22/08/23.
 //
 
+import PhotosUI
 import SwiftUI
 
 extension Color {
@@ -35,11 +36,19 @@ struct DadosView: View {
                     HStack {
                         Spacer()
                         VStack {
-                            Image("amelia")
-                                 .resizable()
-                                 .scaledToFill()
-                                 .frame(width: 200, height: 180)
-                                 .clipShape(Circle())
+                            if let data = elder.foto, let uiimage = UIImage(data: data) {
+                                Image(uiImage: uiimage)
+                                    .resizable()
+                                    .scaledToFill()
+                                    .frame(width: 200, height: 180)
+                                    .clipShape(Circle())
+                            } else {
+                                Image("noprofile")
+                                     .resizable()
+                                     .scaledToFill()
+                                     .frame(width: 200, height: 180)
+                                     .clipShape(Circle())
+                            }
                             Text(elder.nome)
                                 .font(.largeTitle)
                         }
