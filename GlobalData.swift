@@ -16,9 +16,10 @@ class Elder: ObservableObject {
     @Published var tipoSanguineo: String
     @Published var cirurgias: String
     @Published var doencas: String
+    @Published var foto: Data?
 
 
-    init(nome: String, dataDeNascimento: Date, sexo: String, peso: String, tipoSanguineo: String, cirurgias: String, doencas: String) {
+    init(nome: String, dataDeNascimento: Date, sexo: String, peso: String, tipoSanguineo: String, cirurgias: String, doencas: String, foto: Data?) {
         self.nome = nome
         self.dataDeNascimento = dataDeNascimento
         self.sexo = sexo
@@ -26,6 +27,7 @@ class Elder: ObservableObject {
         self.tipoSanguineo = tipoSanguineo
         self.cirurgias = cirurgias
         self.doencas = doencas
+        self.foto = foto
     }
 }
 
@@ -42,5 +44,6 @@ class GlobalElder {
         peso: "80.0",
         tipoSanguineo: "A+",
         cirurgias: "",
-        doencas: "")
+        doencas: "",
+        foto: nil)
 }
