@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="21754" systemVersion="22F82" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="Ficha" representedClassName="Ficha" syncable="YES" codeGenerationType="class">
+    <entity name="Dores" representedClassName="Dores" syncable="YES">
+        <attribute name="createdAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="descricao" optional="YES" attributeType="String"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="valor" optional="YES" attributeType="String"/>
+        <relationship name="idoso" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Idoso" inverseName="dores" inverseEntity="Idoso"/>
+    </entity>
+    <entity name="Ficha" representedClassName="Ficha" syncable="YES">
         <attribute name="alergias" optional="YES" attributeType="String"/>
         <attribute name="cirurgias" optional="YES" attributeType="String"/>
         <attribute name="createdAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
@@ -13,9 +20,55 @@
         <attribute name="tipoSanguineo" optional="YES" attributeType="String"/>
         <relationship name="idoso" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Idoso" inverseName="ficha" inverseEntity="Idoso"/>
     </entity>
-    <entity name="Idoso" representedClassName="Idoso" syncable="YES" codeGenerationType="class">
+    <entity name="Glicemia" representedClassName="Glicemia" syncable="YES">
         <attribute name="createdAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="valor" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <relationship name="idoso" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Idoso" inverseName="glicemia" inverseEntity="Idoso"/>
+    </entity>
+    <entity name="Humor" representedClassName="Humor" syncable="YES">
+        <attribute name="createdAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="descricao" optional="YES" attributeType="String"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="valor" optional="YES" attributeType="String"/>
+        <relationship name="idoso" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Idoso" inverseName="humor" inverseEntity="Idoso"/>
+    </entity>
+    <entity name="Idoso" representedClassName="Idoso" syncable="YES">
+        <attribute name="createdAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="image" optional="YES" attributeType="Binary"/>
+        <relationship name="dores" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Dores" inverseName="idoso" inverseEntity="Dores"/>
         <relationship name="ficha" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Ficha" inverseName="idoso" inverseEntity="Ficha"/>
+        <relationship name="glicemia" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Glicemia" inverseName="idoso" inverseEntity="Glicemia"/>
+        <relationship name="humor" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Humor" inverseName="idoso" inverseEntity="Humor"/>
+        <relationship name="lucidez" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Lucidez" inverseName="idoso" inverseEntity="Lucidez"/>
+        <relationship name="peso" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Peso" inverseName="idoso" inverseEntity="Peso"/>
+        <relationship name="pressao" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Pressao" inverseName="idoso" inverseEntity="Pressao"/>
+        <relationship name="temperatura" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Temperatura" inverseName="idoso" inverseEntity="Temperatura"/>
+    </entity>
+    <entity name="Lucidez" representedClassName="Lucidez" syncable="YES">
+        <attribute name="createdAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="descricao" optional="YES" attributeType="String"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="valor" optional="YES" attributeType="String"/>
+        <relationship name="idoso" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Idoso" inverseName="lucidez" inverseEntity="Idoso"/>
+    </entity>
+    <entity name="Peso" representedClassName="Peso" syncable="YES">
+        <attribute name="createdAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="valor" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <relationship name="idoso" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Idoso" inverseName="peso" inverseEntity="Idoso"/>
+    </entity>
+    <entity name="Pressao" representedClassName="Pressao" syncable="YES">
+        <attribute name="createdAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="valor" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <relationship name="idoso" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Idoso" inverseName="pressao" inverseEntity="Idoso"/>
+    </entity>
+    <entity name="Temperatura" representedClassName="Temperatura" syncable="YES">
+        <attribute name="createdAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="valor" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <relationship name="idoso" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Idoso" inverseName="temperatura" inverseEntity="Idoso"/>
     </entity>
 </model>
