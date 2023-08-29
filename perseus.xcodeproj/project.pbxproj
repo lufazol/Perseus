@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		4808F5692A9F66BF008F9216 /* ContatosList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4808F5682A9F66BF008F9216 /* ContatosList.swift */; };
 		4808F56B2A9F85E7008F9216 /* PDFTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4808F56A2A9F85E7008F9216 /* PDFTest.swift */; };
+		5760684D2A9E228E00E2F379 /* DetalheBoletimView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5760684C2A9E228E00E2F379 /* DetalheBoletimView.swift */; };
 		57754E122A9775B40047C2BE /* FichaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57754E112A9775B40047C2BE /* FichaView.swift */; };
 		57754E142A977FB70047C2BE /* PrivacidadeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57754E132A977FB70047C2BE /* PrivacidadeView.swift */; };
 		57A47BC72A94D5090062AE7C /* perseusApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A47BC62A94D5090062AE7C /* perseusApp.swift */; };
@@ -55,6 +56,7 @@
 /* Begin PBXFileReference section */
 		4808F5682A9F66BF008F9216 /* ContatosList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContatosList.swift; sourceTree = "<group>"; };
 		4808F56A2A9F85E7008F9216 /* PDFTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFTest.swift; sourceTree = "<group>"; };
+		5760684C2A9E228E00E2F379 /* DetalheBoletimView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetalheBoletimView.swift; sourceTree = "<group>"; };
 		57754E112A9775B40047C2BE /* FichaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FichaView.swift; sourceTree = "<group>"; };
 		57754E132A977FB70047C2BE /* PrivacidadeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacidadeView.swift; sourceTree = "<group>"; };
 		57A47BC32A94D5090062AE7C /* perseus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = perseus.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -147,6 +149,7 @@
 				57A47BCC2A94D50A0062AE7C /* Preview Content */,
 				57754E132A977FB70047C2BE /* PrivacidadeView.swift */,
 				4808F56A2A9F85E7008F9216 /* PDFTest.swift */,
+				5760684C2A9E228E00E2F379 /* DetalheBoletimView.swift */,
 			);
 			path = perseus;
 			sourceTree = "<group>";
@@ -294,6 +297,7 @@
 				ECC5B4352A9F672C00594CE2 /* Medicamento+CoreDataClass.swift in Sources */,
 				ECC5B4062A97A6E400594CE2 /* FichaService.swift in Sources */,
 				ECC5B4232A9E25F100594CE2 /* Pressao+CoreDataProperties.swift in Sources */,
+				5760684D2A9E228E00E2F379 /* DetalheBoletimView.swift in Sources */,
 				57A47BD02A94D50A0062AE7C /* Persistence.swift in Sources */,
 				57A812272A94E19500642DF3 /* BoletinsView.swift in Sources */,
 				ECC5B42F2A9E25F100594CE2 /* Glicemia+CoreDataProperties.swift in Sources */,
