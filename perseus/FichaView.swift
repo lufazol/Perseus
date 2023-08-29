@@ -4,11 +4,12 @@
 //
 //  Created by Luan Fazolin on 24/08/23.
 //
-
+import PhotosUI
 import SwiftUI
 
 struct FichaView: View {
-    
+    @State var selectedItems: [PhotosPickerItem] = []
+
     // set lists used on pickers
     let tiposSanguineos = ["A+", "A-", "B+", "B-", "AB+", "AB-", "O+", "O-"]
     let sexos = ["Masculino", "Feminino", "Outro", "Não declarar"]
@@ -47,11 +48,50 @@ struct FichaView: View {
                     HStack {
                         Spacer()
                         VStack {
-                           Image("amelia")
-                                .resizable()
-                                .scaledToFill()
-                                .frame(width: 200, height: 180)
-                                .clipShape(Circle())
+                            if let data = elder.foto, let uiimage = UIImage(data: data) {
+                                Image(uiImage: uiimage)
+                                    .resizable()
+                                    .scaledToFill()
+                                    .frame(width: 200, height: 180)
+                                    .clipShape(Circle())
+                            } else {
+                                Image("noprofile")
+                                     .resizable()
+                                     .scaledToFill()
+                                     .frame(width: 200, height: 180)
+                                     .clipShape(Circle())
+                            }
+                            
+                            if editMode?.wrappedValue.isEditing == true {
+                                PhotosPicker(
+                                    selection: $selectedItems,
+                                    maxSelectionCount: 1,
+                                    matching: .images
+                                ) {
+                                    if elder.foto == nil {
+                                        Text("Adicionar foto")
+                                    } else {
+                                        Text("Trocar foto")
+                                    }
+                                }
+                                .onChange(of: selectedItems) { newValue in
+                                    guard let item = selectedItems.first else {
+                                        return
+                                    }
+                                    item.loadTransferable(type: Data.self) { result in
+                                        switch result {
+                                        case .success(let data):
+                                            if let data = data {
+                                                elder.foto = data
+                                            } else {
+                                                print("Data is nil")
+                                            }
+                                        case .failure(let failure):
+                                            fatalError("\(failure)")
+                                        }
+                                    }
+                                }
+                            }
                                 
                         }
                         Spacer()
