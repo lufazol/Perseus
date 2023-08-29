@@ -126,9 +126,6 @@
 				57A812282A94E1AD00642DF3 /* MedicamentosView.swift */,
 				57A47BCA2A94D50A0062AE7C /* Assets.xcassets */,
 				ECC5B4092A9901BA00594CE2 /* TesteCoreData.swift */,
-				57A47BCF2A94D50A0062AE7C /* Persistence.swift */,
-				ECC5B4052A97A6E400594CE2 /* FichaService.swift */,
-				ECC5B40C2A9E1CDA00594CE2 /* BoletimService.swift */,
 				57A47BD12A94D50A0062AE7C /* perseus.xcdatamodeld */,
 				57A47BCC2A94D50A0062AE7C /* Preview Content */,
 				57754E132A977FB70047C2BE /* PrivacidadeView.swift */,
@@ -147,6 +144,9 @@
 		ECC5B40B2A9E195C00594CE2 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				57A47BCF2A94D50A0062AE7C /* Persistence.swift */,
+				ECC5B4052A97A6E400594CE2 /* FichaService.swift */,
+				ECC5B40C2A9E1CDA00594CE2 /* BoletimService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
