@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import CoreData
 
 class FichaService: ObservableObject {
     @Published var dadosFicha: Ficha?
