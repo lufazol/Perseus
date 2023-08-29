@@ -17,6 +17,7 @@ struct TesteCoreData: View {
     @State private var cirurgias = ""
     @State private var alergias = ""
     @State private var createdFichaUUID: UUID? = nil
+    @State private var image: UIImage?
     
     @ObservedObject var fichaService = FichaService()
     
@@ -30,10 +31,11 @@ struct TesteCoreData: View {
             TextField("Doenças", text: $doencas)
             TextField("Cirurgias", text: $cirurgias)
             TextField("Alergias", text: $alergias)
+            // Picker de imagem
             
             Button("Criar Ficha") {
                 if let ficha = fichaService.getDadosDaFicha() {
-                    fichaService.updateFicha(ficha: ficha, nome: nome, sexo: sexo, nascimento: nascimento, peso: Int64(peso) ?? 0, tipoSanguineo: tipoSanguineo, doencas: doencas, cirurgias: cirurgias, alergias: alergias)
+                    fichaService.updateFicha(ficha: ficha, nome: nome, sexo: sexo, nascimento: nascimento, peso: Int64(peso) ?? 0, tipoSanguineo: tipoSanguineo, doencas: doencas, cirurgias: cirurgias, alergias: alergias, image: (image?.jpegData(compressionQuality: 1.0)!)!)
                 } else {
                     let newFichaUUID = UUID()
                     fichaService.createFicha(
@@ -46,7 +48,8 @@ struct TesteCoreData: View {
                         cirurgias: cirurgias,
                         alergias: alergias,
                         id: newFichaUUID,
-                        createdAt: Date()
+                        createdAt: Date(),
+                        image: (image?.jpegData(compressionQuality: 1.0)!)!
                     )
                     createdFichaUUID = newFichaUUID
                 }
