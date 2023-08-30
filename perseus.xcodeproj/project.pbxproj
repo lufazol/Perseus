@@ -42,6 +42,9 @@
 		ECC5B42F2A9E25F100594CE2 /* Glicemia+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC5B41D2A9E25F100594CE2 /* Glicemia+CoreDataProperties.swift */; };
 		ECC5B4302A9E25F100594CE2 /* Temperatura+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC5B41E2A9E25F100594CE2 /* Temperatura+CoreDataClass.swift */; };
 		ECC5B4312A9E25F100594CE2 /* Temperatura+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC5B41F2A9E25F100594CE2 /* Temperatura+CoreDataProperties.swift */; };
+		ECC5B4352A9F672C00594CE2 /* Medicamento+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC5B4332A9F672C00594CE2 /* Medicamento+CoreDataClass.swift */; };
+		ECC5B4362A9F672C00594CE2 /* Medicamento+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC5B4342A9F672C00594CE2 /* Medicamento+CoreDataProperties.swift */; };
+		ECC5B4382A9F684B00594CE2 /* MedicamentoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC5B4372A9F684B00594CE2 /* MedicamentoService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -81,6 +84,9 @@
 		ECC5B41D2A9E25F100594CE2 /* Glicemia+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Glicemia+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		ECC5B41E2A9E25F100594CE2 /* Temperatura+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Temperatura+CoreDataClass.swift"; sourceTree = "<group>"; };
 		ECC5B41F2A9E25F100594CE2 /* Temperatura+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Temperatura+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		ECC5B4332A9F672C00594CE2 /* Medicamento+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Medicamento+CoreDataClass.swift"; sourceTree = "<group>"; };
+		ECC5B4342A9F672C00594CE2 /* Medicamento+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Medicamento+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		ECC5B4372A9F684B00594CE2 /* MedicamentoService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicamentoService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,6 +152,7 @@
 			children = (
 				57A47BCF2A94D50A0062AE7C /* Persistence.swift */,
 				ECC5B4052A97A6E400594CE2 /* FichaService.swift */,
+				ECC5B4372A9F684B00594CE2 /* MedicamentoService.swift */,
 				ECC5B40C2A9E1CDA00594CE2 /* BoletimService.swift */,
 			);
 			path = Services;
@@ -154,6 +161,8 @@
 		ECC5B4322A9E260000594CE2 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				ECC5B4332A9F672C00594CE2 /* Medicamento+CoreDataClass.swift */,
+				ECC5B4342A9F672C00594CE2 /* Medicamento+CoreDataProperties.swift */,
 				ECC5B40E2A9E25F100594CE2 /* Dores+CoreDataClass.swift */,
 				ECC5B40F2A9E25F100594CE2 /* Dores+CoreDataProperties.swift */,
 				ECC5B4102A9E25F100594CE2 /* Pressao+CoreDataClass.swift */,
@@ -264,6 +273,7 @@
 				ECC5B42C2A9E25F100594CE2 /* Humor+CoreDataClass.swift in Sources */,
 				ECC5B40D2A9E1CDA00594CE2 /* BoletimService.swift in Sources */,
 				57A8122B2A94E1B900642DF3 /* DadosView.swift in Sources */,
+				ECC5B4352A9F672C00594CE2 /* Medicamento+CoreDataClass.swift in Sources */,
 				ECC5B4062A97A6E400594CE2 /* FichaService.swift in Sources */,
 				ECC5B4232A9E25F100594CE2 /* Pressao+CoreDataProperties.swift in Sources */,
 				57A47BD02A94D50A0062AE7C /* Persistence.swift in Sources */,
@@ -279,6 +289,8 @@
 				57A812292A94E1AD00642DF3 /* MedicamentosView.swift in Sources */,
 				57A47BC72A94D5090062AE7C /* perseusApp.swift in Sources */,
 				ECC5B4302A9E25F100594CE2 /* Temperatura+CoreDataClass.swift in Sources */,
+				ECC5B4382A9F684B00594CE2 /* MedicamentoService.swift in Sources */,
+				ECC5B4362A9F672C00594CE2 /* Medicamento+CoreDataProperties.swift in Sources */,
 				57A47BD32A94D50A0062AE7C /* perseus.xcdatamodeld in Sources */,
 				F2F9AD092A97A44400BC8F84 /* OnboardingBView.swift in Sources */,
 				ECC5B42A2A9E25F100594CE2 /* Lucidez+CoreDataClass.swift in Sources */,
