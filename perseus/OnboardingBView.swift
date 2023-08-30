@@ -11,17 +11,12 @@ struct OnboardingBView: View {
     
     @ObservedObject
     private var elder: Elder = GlobalElder.shared.mockedElder
-
-    /*
-    @State var blood: String = "A+"
-    @State var weight: String = "60.0"
-    @State var surgery: String = ""
-    @State var illnesses: String = ""
-    */
     
     var bloodType = ["A+","A-","B+","B-","AB+","AB-","O+","O-"]
     var currentValue: Float = 0.0
     var weightArray:[String] = []
+    
+    @State var goToBoletimView = false
 
     //loop for weight values
     init() {
@@ -83,12 +78,23 @@ struct OnboardingBView: View {
                 }
                 
                 Section{
-                    NavigationLink("Finalizar", destination: ContentView())
-                        .background(Color(hex: 0x261C8C))
-                        .listRowBackground(Color(hex: 0x261C8C))
-                        .foregroundColor(Color.white)
-                        .frame(maxWidth: .infinity, alignment: .center)
-                }
+                    ZStack{
+                        
+                        NavigationLink("", destination: ContentView()).opacity(0)
+                        
+                        Button {
+                            goToBoletimView = true
+                        } label: {
+                            HStack {
+                                Spacer()
+                                Text("Proximo")
+                                Spacer()
+                            }.foregroundColor(Color.white)
+                        }
+                        .disabled(elder.nome.isEmpty)
+                    }
+                }.listRowBackground(Color(hex: 0x261C8C))
+                
             }
         }
     }
