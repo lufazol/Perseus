@@ -1,5 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="21754" systemVersion="22F82" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Contato" representedClassName="Contato" syncable="YES">
+        <attribute name="createdAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="endereco" optional="YES" attributeType="String"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="imagem" optional="YES" attributeType="Binary"/>
+        <attribute name="nome" optional="YES" attributeType="String"/>
+        <attribute name="parentesco" optional="YES" attributeType="String"/>
+        <attribute name="sobrenome" optional="YES" attributeType="String"/>
+        <attribute name="telefone" optional="YES" attributeType="String"/>
+        <relationship name="idoso" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Idoso" inverseName="contato" inverseEntity="Idoso"/>
+    </entity>
     <entity name="Dores" representedClassName="Dores" syncable="YES">
         <attribute name="createdAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="descricao" optional="YES" attributeType="String"/>
@@ -37,6 +48,7 @@
         <attribute name="createdAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="image" optional="YES" attributeType="Binary"/>
+        <relationship name="contato" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Contato" inverseName="idoso" inverseEntity="Contato"/>
         <relationship name="dores" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Dores" inverseName="idoso" inverseEntity="Dores"/>
         <relationship name="ficha" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Ficha" inverseName="idoso" inverseEntity="Ficha"/>
         <relationship name="glicemia" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Glicemia" inverseName="idoso" inverseEntity="Glicemia"/>
