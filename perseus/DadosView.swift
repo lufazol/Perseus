@@ -76,9 +76,8 @@ struct DadosView: View {
                     }
                 }
 
-                /*
                 Section {
-                    NavigationLink(destination: FichaView()) {
+                    NavigationLink(destination: ContatosList()) {
                         HStack {
                             Image(systemName: "person.line.dotted.person.fill")
                                 .imageScale(.small)
@@ -95,7 +94,6 @@ struct DadosView: View {
                         }
                     }
                 }
-                */
 
                 Section {
                     /*
