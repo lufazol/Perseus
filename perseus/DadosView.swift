@@ -130,7 +130,7 @@ struct DadosView: View {
                         }
                     }
                     */
-                    NavigationLink(destination: FichaView()) {
+                    NavigationLink(destination: PDFTestView()) {
                         HStack {
                             Image(systemName: "hand.raised.fill")
                                 .imageScale(.large)
