@@ -8,8 +8,27 @@
 import SwiftUI
 
 struct DetalheBoletimView: View {
+    var boletins: [DadoBoletim] = DadoBoletim.sampleDados
+
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            List {
+                Image("grafico")
+                    .resizable()
+                    .scaledToFill()
+                    .frame(width: 340, height: 220)
+                    .listRowBackground(Color.clear)
+                ForEach(boletins) { boletin in
+                    Section {
+                        ForEach(boletin.dados, id: \.self) { dado in
+                            Text(dado)
+                        }
+                    } header: {
+                        Text(boletin.data.formatted(.dateTime.day().month(.wide).year().weekday(.wide)))
+                    }
+                }
+            }
+        }
     }
 }
 

@@ -139,6 +139,7 @@
 				57A812262A94E19500642DF3 /* BoletinsView.swift */,
 				57A47BC82A94D5090062AE7C /* ContentView.swift */,
 				57A8122A2A94E1B900642DF3 /* DadosView.swift */,
+				5760684C2A9E228E00E2F379 /* DetalheBoletimView.swift */,
 				F2F9AD012A963D6C00BC8F84 /* OnboardingAView.swift */,
 				F2F9AD082A97A44400BC8F84 /* OnboardingBView.swift */,
 				57754E112A9775B40047C2BE /* FichaView.swift */,
