@@ -9,6 +9,8 @@ import SwiftUI
 
 struct DetalheBoletimView: View {
     var boletins: [DadoBoletim] = DadoBoletim.sampleDados
+    @State private var showingSheet = false
+
 
     var body: some View {
         VStack {
@@ -29,6 +31,18 @@ struct DetalheBoletimView: View {
                 }
             }
         }
+        .navigationBarItems(trailing:
+            Button(action: {
+            showingSheet.toggle()
+            }) {
+                Image(systemName: "plus")
+            }
+            .sheet(isPresented: $showingSheet) {
+                NavigationView {
+                    AddBoletimView()
+                }
+            }
+        )
     }
 }
 
