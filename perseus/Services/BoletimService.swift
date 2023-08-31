@@ -27,7 +27,7 @@ class BoletimService: ObservableObject {
         }
     }
 
-    func createTemperatura(valor: Double, createdAt: Date, id: UUID, idoso: Idoso) {
+    func createTemperatura(valor: Double, idoso: Idoso) {
         //criando temperatura
         let novaTemperatura = Temperatura(context: persistence.container.viewContext)
         novaTemperatura.id = UUID()
@@ -69,7 +69,7 @@ class BoletimService: ObservableObject {
         }
     }
 
-    func createPressao(valor: Double, createdAt: Date, id: UUID, idoso: Idoso) {
+    func createPressao(valor: Double, idoso: Idoso) {
         //criando pressao
         let novaPressao = Pressao(context: persistence.container.viewContext)
         novaPressao.id = UUID()
@@ -111,7 +111,7 @@ class BoletimService: ObservableObject {
         }
     }
 
-    func createGlicemia(valor: Double, createdAt: Date, id: UUID, idoso: Idoso) {
+    func createGlicemia(valor: Double, idoso: Idoso) {
         //criando glicemia
         let novaGlicemia = Glicemia(context: persistence.container.viewContext)
         novaGlicemia.id = UUID()
@@ -153,7 +153,7 @@ class BoletimService: ObservableObject {
         }
     }
 
-    func createPeso(valor: Double, createdAt: Date, id: UUID, idoso: Idoso) {
+    func createPeso(valor: Double, idoso: Idoso) {
         //criando peso
         let novoPeso = Peso(context: persistence.container.viewContext)
         novoPeso.id = UUID()
@@ -195,7 +195,7 @@ class BoletimService: ObservableObject {
         }
     }
 
-    func createHumor(valor: String, descricao: String, createdAt: Date, id: UUID, idoso: Idoso) {
+    func createHumor(valor: String, descricao: String, idoso: Idoso) {
         //criando humor
         let novoHumor = Humor(context: persistence.container.viewContext)
         novoHumor.id = UUID()
@@ -238,7 +238,7 @@ class BoletimService: ObservableObject {
         }
     }
 
-    func createDor(valor: String, descricao: String, createdAt: Date, id: UUID, idoso: Idoso) {
+    func createDor(valor: String, descricao: String, idoso: Idoso) {
         //criando dor
         let novaDor = Dores(context: persistence.container.viewContext)
         novaDor.id = UUID()
@@ -281,7 +281,7 @@ class BoletimService: ObservableObject {
         }
     }
 
-    func createLucidez(valor: String, descricao: String, createdAt: Date, id: UUID, idoso: Idoso) {
+    func createLucidez(valor: String, descricao: String, idoso: Idoso) {
         //criando lucidez
         let novaLucidez = Lucidez(context: persistence.container.viewContext)
         novaLucidez.id = UUID()

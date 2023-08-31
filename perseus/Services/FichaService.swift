@@ -27,7 +27,7 @@ class FichaService: ObservableObject {
         }
     }
 
-    func createFicha(nome: String, sexo: String, nascimento: Date, peso: Int64, tipoSanguineo: String, doencas: String, cirurgias: String, alergias: String, id: UUID, createdAt: Date, image: Data) {
+    func createFicha(nome: String, sexo: String, nascimento: Date, peso: Int64, tipoSanguineo: String, doencas: String, cirurgias: String, alergias: String, image: Data) {
         
         //criando idoso
         let novoIdoso = Idoso(context: persistence.container.viewContext)

@@ -33,7 +33,7 @@ struct ContentView: View {
             }
 
             NavigationView {
-                DadosView()
+                DadosView(dadosFicha: FichaService())
                     .navigationTitle("Dados")
             }
             .tabItem {

@@ -12,7 +12,7 @@ struct OnboardingBView: View {
     @ObservedObject
     private var elder: Elder = GlobalElder.shared.mockedElder
     @EnvironmentObject var dadosOnboarding: DadosOnboarding
-    @EnvironmentObject var fichaService: FichaService
+    @ObservedObject var fichaService: FichaService
 
     @State var blood: String = "A+"
     @State var weight: String = "60"
@@ -22,17 +22,18 @@ struct OnboardingBView: View {
     
     var bloodType = ["A+","A-","B+","B-","AB+","AB-","O+","O-"]
     var currentValue: Int64 = 0
-    var weightArray:[String] = []
-    
-    @State var goToBoletimView = false
-
-    //loop for weight values
-    init() {
+    var weightArray: [String] {
+        var array: [String] = []
+        var currentValue: Int64 = 0
         while currentValue <= 500 {
-            weightArray.append(String(currentValue))
+            array.append(String(currentValue))
             currentValue += 1
         }
+        return array
     }
+    
+    @State var goToBoletimView = false
+    
 
     var body: some View {
         VStack{
@@ -102,26 +103,24 @@ struct OnboardingBView: View {
                         .disabled(elder.nome.isEmpty)
                     }
                 }.listRowBackground(Color(hex: 0x261C8C))
-                
-                    NavigationLink("Finalizar", destination: ContentView())
+                    NavigationLink("Finalizar", destination: ContentView().onAppear{
+                        print("criou")
+                        fichaService.createFicha(
+                            nome: dadosOnboarding.name,
+                            sexo: dadosOnboarding.gender,
+                            nascimento: dadosOnboarding.birthDate,
+                            peso: Int64(weight)!,
+                            tipoSanguineo: blood,
+                            doencas: illnesses,
+                            cirurgias: surgery,
+                            alergias: "",
+                            image: (dadosOnboarding.photo ?? UIImage(named: "noprofile")?.jpegData(compressionQuality: 1.0))!)
+
+                    })
                         .background(Color(hex: 0x261C8C))
                         .listRowBackground(Color(hex: 0x261C8C))
                         .foregroundColor(Color.white)
                         .frame(maxWidth: .infinity, alignment: .center)
-                        .simultaneousGesture(TapGesture().onEnded{
-                            fichaService.createFicha(
-                                nome: dadosOnboarding.name,
-                                sexo: dadosOnboarding.gender,
-                                nascimento: dadosOnboarding.birthDate,
-                                peso: Int64(weight)!,
-                                tipoSanguineo: blood,
-                                doencas: illnesses,
-                                cirurgias: surgery,
-                                alergias: "",
-                                id: UUID(),
-                                createdAt: Date.now,
-                                image: dadosOnboarding.photo!)
-                        })
                 }
             }
         }
@@ -129,6 +128,6 @@ struct OnboardingBView: View {
 
 struct OnboardingBView_Previews: PreviewProvider {
     static var previews: some View {
-        OnboardingBView()
+        OnboardingBView(fichaService: FichaService())
     }
 }

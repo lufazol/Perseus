@@ -47,8 +47,6 @@ struct TesteCoreData: View {
                         doencas: doencas,
                         cirurgias: cirurgias,
                         alergias: alergias,
-                        id: newFichaUUID,
-                        createdAt: Date(),
                         image: (image?.jpegData(compressionQuality: 1.0)!)!
                     )
                     createdFichaUUID = newFichaUUID

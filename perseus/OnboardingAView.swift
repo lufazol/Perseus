@@ -148,7 +148,7 @@ struct OnboardingAView: View {
                         NavigationLink(
                             "Próximo",
                             destination:
-                                OnboardingBView()
+                                OnboardingBView(fichaService: FichaService())
                                 .environmentObject(dadosOnboarding)
                         )
                             .background(Color(hex: 0x261C8C))

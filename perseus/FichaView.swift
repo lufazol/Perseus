@@ -15,14 +15,16 @@ struct FichaView: View {
     let tiposSanguineos = ["A+", "A-", "B+", "B-", "AB+", "AB-", "O+", "O-"]
     let sexos = ["Masculino", "Feminino", "Outro", "Não declarar"]
     var currentValue: Float = 0.0
-    var weightArray:[String] = []
-
-    //loop for weight values
-    init() {
-        while currentValue <= 500.0 {
-            weightArray.append(String(format: "%.1f", currentValue))
-            currentValue += 0.5
+    var weightArray: [String] {
+        var array: [String] = []
+        var currentValue: Int64 = 0
+        
+        while currentValue <= 500 {
+            array.append(String(currentValue))
+            currentValue += 1
         }
+        
+        return array
     }
 
     @Environment(\.editMode) private var editMode

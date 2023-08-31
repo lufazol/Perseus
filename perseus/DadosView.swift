@@ -45,8 +45,7 @@ struct DadosView: View {
                     HStack {
                         Spacer()
                         VStack {
-                            /*
-                            if let data = elder.foto, let uiimage = UIImage(data: data) {
+                            if let data = ficha.idoso!.image, let uiimage = UIImage(data: data) {
                                 Image(uiImage: uiimage)
                                     .resizable()
                                     .scaledToFill()
@@ -59,7 +58,6 @@ struct DadosView: View {
                                      .frame(width: 200, height: 180)
                                      .clipShape(Circle())
                             }
-                            */
                             Text(ficha.nome!)
                                 .font(.largeTitle)
                         }
@@ -342,6 +340,6 @@ struct DadosView: View {
 
 struct DadosView_Previews: PreviewProvider {
     static var previews: some View {
-        DadosView()
+        DadosView(dadosFicha: FichaService())
     }
 }
