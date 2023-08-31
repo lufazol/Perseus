@@ -21,9 +21,13 @@ extension Color {
 }
 
 struct DadosView: View {
+    
+    @EnvironmentObject var dadosFicha: FichaService
 
-    @ObservedObject
-    private var elder: Elder = GlobalElder.shared.mockedElder
+    var ficha: Ficha {
+        return self.dadosFicha.getDadosDaFicha()!
+    }
+
 
     var body: some View {
         
@@ -36,6 +40,7 @@ struct DadosView: View {
                     HStack {
                         Spacer()
                         VStack {
+                            /*
                             if let data = elder.foto, let uiimage = UIImage(data: data) {
                                 Image(uiImage: uiimage)
                                     .resizable()
@@ -49,7 +54,8 @@ struct DadosView: View {
                                      .frame(width: 200, height: 180)
                                      .clipShape(Circle())
                             }
-                            Text(elder.nome)
+                            */
+                            Text(ficha.nome!)
                                 .font(.largeTitle)
                         }
                         Spacer()

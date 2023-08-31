@@ -33,7 +33,7 @@ struct ContentView: View {
             }
 
             NavigationView {
-                TesteCoreData()
+                DadosView()
                     .navigationTitle("Dados")
             }
             .tabItem {
