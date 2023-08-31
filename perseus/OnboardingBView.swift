@@ -11,18 +11,26 @@ struct OnboardingBView: View {
     
     @ObservedObject
     private var elder: Elder = GlobalElder.shared.mockedElder
+    @EnvironmentObject var dadosOnboarding: DadosOnboarding
+    @EnvironmentObject var fichaService: FichaService
+
+    @State var blood: String = "A+"
+    @State var weight: String = "60"
+    @State var surgery: String = ""
+    @State var illnesses: String = ""
+
     
     var bloodType = ["A+","A-","B+","B-","AB+","AB-","O+","O-"]
-    var currentValue: Float = 0.0
+    var currentValue: Int64 = 0
     var weightArray:[String] = []
     
     @State var goToBoletimView = false
 
     //loop for weight values
     init() {
-        while currentValue <= 500.0 {
-            weightArray.append(String(format: "%.1f", currentValue))
-            currentValue += 0.5
+        while currentValue <= 500 {
+            weightArray.append(String(currentValue))
+            currentValue += 1
         }
     }
 
@@ -44,7 +52,7 @@ struct OnboardingBView: View {
                     HStack {
                         Text("Tipo sanguíneo")
                         Spacer()
-                        Picker("", selection: $elder.tipoSanguineo) {
+                        Picker("", selection: $blood) {
                             //Text("").tag("")
                             ForEach(bloodType, id: \.self){ item in
                                 Text(item)
@@ -57,7 +65,7 @@ struct OnboardingBView: View {
                     HStack {
                         Text("Peso (kg)")
                         Spacer()
-                        Picker("", selection: $elder.peso) {
+                        Picker("", selection: $weight) {
                             ForEach(weightArray, id: \.self){ item in
                                 Text(item)
                             }
@@ -66,13 +74,13 @@ struct OnboardingBView: View {
                 }
                 
                 Section {
-                    TextField("Cirurgias", text: $elder.cirurgias, axis:.vertical)
+                    TextField("Cirurgias", text: $surgery, axis:.vertical)
                 } footer: {
                     Text("Escreva aqui as cirurgias pelas quais a pessoa passou.")
                 }
                 
                 Section {
-                    TextField("Doenças", text: $elder.doencas, axis: .vertical)
+                    TextField("Doenças", text: $illnesses, axis: .vertical)
                 } footer: {
                     Text("Escreva aqui as doenças que a pessoa teve.")
                 }
@@ -95,10 +103,29 @@ struct OnboardingBView: View {
                     }
                 }.listRowBackground(Color(hex: 0x261C8C))
                 
+                    NavigationLink("Finalizar", destination: ContentView())
+                        .background(Color(hex: 0x261C8C))
+                        .listRowBackground(Color(hex: 0x261C8C))
+                        .foregroundColor(Color.white)
+                        .frame(maxWidth: .infinity, alignment: .center)
+                        .simultaneousGesture(TapGesture().onEnded{
+                            fichaService.createFicha(
+                                nome: dadosOnboarding.name,
+                                sexo: dadosOnboarding.gender,
+                                nascimento: dadosOnboarding.birthDate,
+                                peso: Int64(weight)!,
+                                tipoSanguineo: blood,
+                                doencas: illnesses,
+                                cirurgias: surgery,
+                                alergias: "",
+                                id: UUID(),
+                                createdAt: Date.now,
+                                image: dadosOnboarding.photo!)
+                        })
+                }
             }
         }
     }
-}
 
 struct OnboardingBView_Previews: PreviewProvider {
     static var previews: some View {

@@ -8,19 +8,18 @@ import PhotosUI
 import SwiftUI
 import Foundation
 
+class DadosOnboarding: ObservableObject {
+    @Published var photo: Data?
+    @Published var name: String = ""
+    @Published var birthDate: Date = Date.now
+    @Published var gender: String = "Masculino"
+}
+
+
 struct OnboardingAView: View {
     @State var selectedItems: [PhotosPickerItem] = []
-    //@State var data: Data?
 
-    @ObservedObject
-    private var elder: Elder = GlobalElder.shared.mockedElder
-
-    /*
-    @State var name: String = ""
-    @State var dateWasSelected = false
-    @State var birthDate = Date.now
-    @State var gender: String = "Masculino"
-    */
+    @StateObject var dadosOnboarding = DadosOnboarding()
 
     var genders = ["Masculino", "Feminino", "Outro"]
 
@@ -39,7 +38,7 @@ struct OnboardingAView: View {
                                     .padding(.horizontal, -16)
                                     .padding(.bottom, 24)
 
-                                if let data = elder.foto, let uiimage = UIImage(data: data) {
+                                if let data = dadosOnboarding.photo, let uiimage = UIImage(data: data) {
                                     Image(uiImage: uiimage)
                                         .resizable()
                                         .scaledToFill()
@@ -68,7 +67,7 @@ struct OnboardingAView: View {
                                         switch result {
                                         case .success(let data):
                                             if let data = data {
-                                                elder.foto = data
+                                                dadosOnboarding.photo = data
                                             } else {
                                                 print("Data is nil")
                                             }
@@ -82,7 +81,7 @@ struct OnboardingAView: View {
                     }.listRowBackground(Color.clear)
                     
                     Section {
-                        TextField("Nome do Idoso", text: $elder.nome)
+                        TextField("Nome do Idoso", text: $dadosOnboarding.name)
                             .autocorrectionDisabled()
                     } footer: {
                         Text("*Campo obrigatório")
@@ -92,7 +91,7 @@ struct OnboardingAView: View {
                         HStack {
                             Text("Nascimento")
                             Spacer()
-                            DatePicker("nascimento", selection: $elder.dataDeNascimento, in: ...Date.now, displayedComponents: .date)
+                            DatePicker("nascimento", selection: $dadosOnboarding.birthDate, in: ...Date.now, displayedComponents: .date)
                                 .labelsHidden()
                         }
                     }
@@ -101,7 +100,7 @@ struct OnboardingAView: View {
                         HStack {
                             Text("Sexo")
                             Spacer()
-                            Picker("", selection: $elder.sexo) {
+                            Picker("", selection: $dadosOnboarding.gender) {
                                 //Text("").tag("")
                                 ForEach(genders, id: \.self){ item in
                                     Text(item)
@@ -129,7 +128,7 @@ struct OnboardingAView: View {
                     Section{
                         ZStack{
                             
-                            if !elder.nome.isEmpty{
+                            if dadosOnboarding.name.isEmpty{
                                 NavigationLink("", destination: OnboardingBView()).opacity(0)
                             }
                             
@@ -143,14 +142,25 @@ struct OnboardingAView: View {
                                     Spacer()
                                 }.foregroundColor(Color.white)
                             }
-                            .disabled(elder.nome.isEmpty)
+                            .disabled(dadosOnboarding.name.isEmpty)
                         }
-                    }.listRowBackground(elder.nome.isEmpty ? Color.gray : (Color(hex: 0x261C8C)))
+                    }.listRowBackground(dadosOnboarding.name.isEmpty ? Color.gray : (Color(hex: 0x261C8C)))
+                        NavigationLink(
+                            "Próximo",
+                            destination:
+                                OnboardingBView()
+                                .environmentObject(dadosOnboarding)
+                        )
+                            .background(Color(hex: 0x261C8C))
+                            .listRowBackground(Color(hex: 0x261C8C))
+                            .disabled(dadosOnboarding.name.isEmpty)
+                            .foregroundColor(Color.white)
+                            .frame(maxWidth: .infinity, alignment: .center)
+                    }
                 }
             }
         }
     }
-}
 
 
 struct PersonalInfoOnboardingVie_Previews: PreviewProvider {
