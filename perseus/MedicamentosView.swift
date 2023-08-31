@@ -50,7 +50,7 @@ struct MedicamentosView: View {
                 }
             }
             .navigationBarItems(trailing:
-                    NavigationLink(destination: FichaView()) {
+                    NavigationLink(destination: AdicaoMedicamentoView()) {
                 
                     Image(systemName: "plus")
                 }
