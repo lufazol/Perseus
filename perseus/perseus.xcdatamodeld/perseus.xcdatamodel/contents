@@ -1,9 +1,99 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1" systemVersion="11A491" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="false" userDefinedModelVersionIdentifier="">
-    <entity name="Item" representedClassName="Item" syncable="YES" codeGenerationType="class">
-        <attribute name="timestamp" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="21754" systemVersion="22F82" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Contato" representedClassName="Contato" syncable="YES">
+        <attribute name="createdAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="endereco" optional="YES" attributeType="String"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="imagem" optional="YES" attributeType="Binary"/>
+        <attribute name="nome" optional="YES" attributeType="String"/>
+        <attribute name="parentesco" optional="YES" attributeType="String"/>
+        <attribute name="sobrenome" optional="YES" attributeType="String"/>
+        <attribute name="telefone" optional="YES" attributeType="String"/>
+        <relationship name="idoso" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Idoso" inverseName="contato" inverseEntity="Idoso"/>
     </entity>
-    <elements>
-        <element name="Item" positionX="-63" positionY="-18" width="128" height="44"/>
-    </elements>
+    <entity name="Dores" representedClassName="Dores" syncable="YES">
+        <attribute name="createdAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="descricao" optional="YES" attributeType="String"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="valor" optional="YES" attributeType="String"/>
+        <relationship name="idoso" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Idoso" inverseName="dores" inverseEntity="Idoso"/>
+    </entity>
+    <entity name="Ficha" representedClassName="Ficha" syncable="YES">
+        <attribute name="alergias" optional="YES" attributeType="String"/>
+        <attribute name="cirurgias" optional="YES" attributeType="String"/>
+        <attribute name="createdAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="doencas" optional="YES" attributeType="String"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="nascimento" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="nome" optional="YES" attributeType="String"/>
+        <attribute name="peso" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="sexo" optional="YES" attributeType="String"/>
+        <attribute name="tipoSanguineo" optional="YES" attributeType="String"/>
+        <relationship name="idoso" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Idoso" inverseName="ficha" inverseEntity="Idoso"/>
+    </entity>
+    <entity name="Glicemia" representedClassName="Glicemia" syncable="YES">
+        <attribute name="createdAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="valor" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <relationship name="idoso" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Idoso" inverseName="glicemia" inverseEntity="Idoso"/>
+    </entity>
+    <entity name="Humor" representedClassName="Humor" syncable="YES">
+        <attribute name="createdAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="descricao" optional="YES" attributeType="String"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="valor" optional="YES" attributeType="String"/>
+        <relationship name="idoso" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Idoso" inverseName="humor" inverseEntity="Idoso"/>
+    </entity>
+    <entity name="Idoso" representedClassName="Idoso" syncable="YES">
+        <attribute name="createdAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="image" optional="YES" attributeType="Binary"/>
+        <relationship name="contato" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Contato" inverseName="idoso" inverseEntity="Contato"/>
+        <relationship name="dores" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Dores" inverseName="idoso" inverseEntity="Dores"/>
+        <relationship name="ficha" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Ficha" inverseName="idoso" inverseEntity="Ficha"/>
+        <relationship name="glicemia" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Glicemia" inverseName="idoso" inverseEntity="Glicemia"/>
+        <relationship name="humor" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Humor" inverseName="idoso" inverseEntity="Humor"/>
+        <relationship name="lucidez" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Lucidez" inverseName="idoso" inverseEntity="Lucidez"/>
+        <relationship name="medicamento" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Medicamento" inverseName="idoso" inverseEntity="Medicamento"/>
+        <relationship name="peso" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Peso" inverseName="idoso" inverseEntity="Peso"/>
+        <relationship name="pressao" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Pressao" inverseName="idoso" inverseEntity="Pressao"/>
+        <relationship name="temperatura" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Temperatura" inverseName="idoso" inverseEntity="Temperatura"/>
+    </entity>
+    <entity name="Lucidez" representedClassName="Lucidez" syncable="YES">
+        <attribute name="createdAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="descricao" optional="YES" attributeType="String"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="valor" optional="YES" attributeType="String"/>
+        <relationship name="idoso" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Idoso" inverseName="lucidez" inverseEntity="Idoso"/>
+    </entity>
+    <entity name="Medicamento" representedClassName="Medicamento" syncable="YES">
+        <attribute name="createdAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="dosagem" optional="YES" attributeType="String"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="imagem" optional="YES" attributeType="Binary"/>
+        <attribute name="intervalo" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="nome" optional="YES" attributeType="String"/>
+        <attribute name="observacoes" optional="YES" attributeType="String"/>
+        <attribute name="quantidade" optional="YES" attributeType="String"/>
+        <attribute name="ultimaVez" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <relationship name="idoso" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Idoso" inverseName="medicamento" inverseEntity="Idoso"/>
+    </entity>
+    <entity name="Peso" representedClassName="Peso" syncable="YES">
+        <attribute name="createdAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="valor" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <relationship name="idoso" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Idoso" inverseName="peso" inverseEntity="Idoso"/>
+    </entity>
+    <entity name="Pressao" representedClassName="Pressao" syncable="YES">
+        <attribute name="createdAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="valor" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <relationship name="idoso" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Idoso" inverseName="pressao" inverseEntity="Idoso"/>
+    </entity>
+    <entity name="Temperatura" representedClassName="Temperatura" syncable="YES">
+        <attribute name="createdAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="valor" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <relationship name="idoso" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Idoso" inverseName="temperatura" inverseEntity="Idoso"/>
+    </entity>
 </model>

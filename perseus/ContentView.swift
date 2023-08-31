@@ -34,6 +34,7 @@ struct ContentView: View {
 
             NavigationView {
                 DadosView()
+                    .navigationTitle("Dados")
             }
             .tabItem {
                 Image(systemName: "person.text.rectangle")
@@ -46,6 +47,5 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
-    }
+        ContentView()    }
 }

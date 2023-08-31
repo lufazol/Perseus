@@ -21,6 +21,33 @@
 		57E3B8392A98D82B003EAAA6 /* GlobalData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57E3B8382A98D82B003EAAA6 /* GlobalData.swift */; };
 		F2F9AD022A963D6C00BC8F84 /* OnboardingAView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F9AD012A963D6C00BC8F84 /* OnboardingAView.swift */; };
 		F2F9AD092A97A44400BC8F84 /* OnboardingBView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F9AD082A97A44400BC8F84 /* OnboardingBView.swift */; };
+		ECC5B4062A97A6E400594CE2 /* FichaService.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC5B4052A97A6E400594CE2 /* FichaService.swift */; };
+		ECC5B40A2A9901BA00594CE2 /* TesteCoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC5B4092A9901BA00594CE2 /* TesteCoreData.swift */; };
+		ECC5B40D2A9E1CDA00594CE2 /* BoletimService.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC5B40C2A9E1CDA00594CE2 /* BoletimService.swift */; };
+		ECC5B4202A9E25F100594CE2 /* Dores+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC5B40E2A9E25F100594CE2 /* Dores+CoreDataClass.swift */; };
+		ECC5B4212A9E25F100594CE2 /* Dores+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC5B40F2A9E25F100594CE2 /* Dores+CoreDataProperties.swift */; };
+		ECC5B4222A9E25F100594CE2 /* Pressao+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC5B4102A9E25F100594CE2 /* Pressao+CoreDataClass.swift */; };
+		ECC5B4232A9E25F100594CE2 /* Pressao+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC5B4112A9E25F100594CE2 /* Pressao+CoreDataProperties.swift */; };
+		ECC5B4242A9E25F100594CE2 /* Peso+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC5B4122A9E25F100594CE2 /* Peso+CoreDataClass.swift */; };
+		ECC5B4252A9E25F100594CE2 /* Peso+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC5B4132A9E25F100594CE2 /* Peso+CoreDataProperties.swift */; };
+		ECC5B4262A9E25F100594CE2 /* Idoso+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC5B4142A9E25F100594CE2 /* Idoso+CoreDataClass.swift */; };
+		ECC5B4272A9E25F100594CE2 /* Idoso+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC5B4152A9E25F100594CE2 /* Idoso+CoreDataProperties.swift */; };
+		ECC5B4282A9E25F100594CE2 /* Ficha+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC5B4162A9E25F100594CE2 /* Ficha+CoreDataClass.swift */; };
+		ECC5B4292A9E25F100594CE2 /* Ficha+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC5B4172A9E25F100594CE2 /* Ficha+CoreDataProperties.swift */; };
+		ECC5B42A2A9E25F100594CE2 /* Lucidez+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC5B4182A9E25F100594CE2 /* Lucidez+CoreDataClass.swift */; };
+		ECC5B42B2A9E25F100594CE2 /* Lucidez+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC5B4192A9E25F100594CE2 /* Lucidez+CoreDataProperties.swift */; };
+		ECC5B42C2A9E25F100594CE2 /* Humor+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC5B41A2A9E25F100594CE2 /* Humor+CoreDataClass.swift */; };
+		ECC5B42D2A9E25F100594CE2 /* Humor+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC5B41B2A9E25F100594CE2 /* Humor+CoreDataProperties.swift */; };
+		ECC5B42E2A9E25F100594CE2 /* Glicemia+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC5B41C2A9E25F100594CE2 /* Glicemia+CoreDataClass.swift */; };
+		ECC5B42F2A9E25F100594CE2 /* Glicemia+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC5B41D2A9E25F100594CE2 /* Glicemia+CoreDataProperties.swift */; };
+		ECC5B4302A9E25F100594CE2 /* Temperatura+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC5B41E2A9E25F100594CE2 /* Temperatura+CoreDataClass.swift */; };
+		ECC5B4312A9E25F100594CE2 /* Temperatura+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC5B41F2A9E25F100594CE2 /* Temperatura+CoreDataProperties.swift */; };
+		ECC5B4352A9F672C00594CE2 /* Medicamento+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC5B4332A9F672C00594CE2 /* Medicamento+CoreDataClass.swift */; };
+		ECC5B4362A9F672C00594CE2 /* Medicamento+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC5B4342A9F672C00594CE2 /* Medicamento+CoreDataProperties.swift */; };
+		ECC5B4382A9F684B00594CE2 /* MedicamentoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC5B4372A9F684B00594CE2 /* MedicamentoService.swift */; };
+		ECC5B43B2A9F702500594CE2 /* Contato+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC5B4392A9F702500594CE2 /* Contato+CoreDataClass.swift */; };
+		ECC5B43C2A9F702500594CE2 /* Contato+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC5B43A2A9F702500594CE2 /* Contato+CoreDataProperties.swift */; };
+		ECC5B43E2A9F70BF00594CE2 /* ContatoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC5B43D2A9F70BF00594CE2 /* ContatoService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +66,33 @@
 		57E3B8382A98D82B003EAAA6 /* GlobalData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalData.swift; sourceTree = "<group>"; };
 		F2F9AD012A963D6C00BC8F84 /* OnboardingAView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingAView.swift; sourceTree = "<group>"; };
 		F2F9AD082A97A44400BC8F84 /* OnboardingBView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingBView.swift; sourceTree = "<group>"; };
+		ECC5B4052A97A6E400594CE2 /* FichaService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FichaService.swift; sourceTree = "<group>"; };
+		ECC5B4092A9901BA00594CE2 /* TesteCoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TesteCoreData.swift; sourceTree = "<group>"; };
+		ECC5B40C2A9E1CDA00594CE2 /* BoletimService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoletimService.swift; sourceTree = "<group>"; };
+		ECC5B40E2A9E25F100594CE2 /* Dores+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dores+CoreDataClass.swift"; sourceTree = "<group>"; };
+		ECC5B40F2A9E25F100594CE2 /* Dores+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dores+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		ECC5B4102A9E25F100594CE2 /* Pressao+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Pressao+CoreDataClass.swift"; sourceTree = "<group>"; };
+		ECC5B4112A9E25F100594CE2 /* Pressao+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Pressao+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		ECC5B4122A9E25F100594CE2 /* Peso+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Peso+CoreDataClass.swift"; sourceTree = "<group>"; };
+		ECC5B4132A9E25F100594CE2 /* Peso+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Peso+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		ECC5B4142A9E25F100594CE2 /* Idoso+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Idoso+CoreDataClass.swift"; sourceTree = "<group>"; };
+		ECC5B4152A9E25F100594CE2 /* Idoso+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Idoso+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		ECC5B4162A9E25F100594CE2 /* Ficha+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Ficha+CoreDataClass.swift"; sourceTree = "<group>"; };
+		ECC5B4172A9E25F100594CE2 /* Ficha+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Ficha+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		ECC5B4182A9E25F100594CE2 /* Lucidez+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Lucidez+CoreDataClass.swift"; sourceTree = "<group>"; };
+		ECC5B4192A9E25F100594CE2 /* Lucidez+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Lucidez+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		ECC5B41A2A9E25F100594CE2 /* Humor+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Humor+CoreDataClass.swift"; sourceTree = "<group>"; };
+		ECC5B41B2A9E25F100594CE2 /* Humor+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Humor+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		ECC5B41C2A9E25F100594CE2 /* Glicemia+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Glicemia+CoreDataClass.swift"; sourceTree = "<group>"; };
+		ECC5B41D2A9E25F100594CE2 /* Glicemia+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Glicemia+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		ECC5B41E2A9E25F100594CE2 /* Temperatura+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Temperatura+CoreDataClass.swift"; sourceTree = "<group>"; };
+		ECC5B41F2A9E25F100594CE2 /* Temperatura+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Temperatura+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		ECC5B4332A9F672C00594CE2 /* Medicamento+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Medicamento+CoreDataClass.swift"; sourceTree = "<group>"; };
+		ECC5B4342A9F672C00594CE2 /* Medicamento+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Medicamento+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		ECC5B4372A9F684B00594CE2 /* MedicamentoService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicamentoService.swift; sourceTree = "<group>"; };
+		ECC5B4392A9F702500594CE2 /* Contato+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Contato+CoreDataClass.swift"; sourceTree = "<group>"; };
+		ECC5B43A2A9F702500594CE2 /* Contato+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Contato+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		ECC5B43D2A9F70BF00594CE2 /* ContatoService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContatoService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +126,8 @@
 		57A47BC52A94D5090062AE7C /* perseus */ = {
 			isa = PBXGroup;
 			children = (
+				ECC5B4322A9E260000594CE2 /* Models */,
+				ECC5B40B2A9E195C00594CE2 /* Services */,
 				57A47BC62A94D5090062AE7C /* perseusApp.swift */,
 				57A812262A94E19500642DF3 /* BoletinsView.swift */,
 				57A47BC82A94D5090062AE7C /* ContentView.swift */,
@@ -81,7 +137,7 @@
 				57754E112A9775B40047C2BE /* FichaView.swift */,
 				57A812282A94E1AD00642DF3 /* MedicamentosView.swift */,
 				57A47BCA2A94D50A0062AE7C /* Assets.xcassets */,
-				57A47BCF2A94D50A0062AE7C /* Persistence.swift */,
+				ECC5B4092A9901BA00594CE2 /* TesteCoreData.swift */,
 				57A47BD12A94D50A0062AE7C /* perseus.xcdatamodeld */,
 				57A47BCC2A94D50A0062AE7C /* Preview Content */,
 				57754E132A977FB70047C2BE /* PrivacidadeView.swift */,
@@ -95,6 +151,47 @@
 				57A47BCD2A94D50A0062AE7C /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		ECC5B40B2A9E195C00594CE2 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				57A47BCF2A94D50A0062AE7C /* Persistence.swift */,
+				ECC5B4052A97A6E400594CE2 /* FichaService.swift */,
+				ECC5B4372A9F684B00594CE2 /* MedicamentoService.swift */,
+				ECC5B43D2A9F70BF00594CE2 /* ContatoService.swift */,
+				ECC5B40C2A9E1CDA00594CE2 /* BoletimService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		ECC5B4322A9E260000594CE2 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				ECC5B4392A9F702500594CE2 /* Contato+CoreDataClass.swift */,
+				ECC5B43A2A9F702500594CE2 /* Contato+CoreDataProperties.swift */,
+				ECC5B4332A9F672C00594CE2 /* Medicamento+CoreDataClass.swift */,
+				ECC5B4342A9F672C00594CE2 /* Medicamento+CoreDataProperties.swift */,
+				ECC5B40E2A9E25F100594CE2 /* Dores+CoreDataClass.swift */,
+				ECC5B40F2A9E25F100594CE2 /* Dores+CoreDataProperties.swift */,
+				ECC5B4102A9E25F100594CE2 /* Pressao+CoreDataClass.swift */,
+				ECC5B4112A9E25F100594CE2 /* Pressao+CoreDataProperties.swift */,
+				ECC5B4122A9E25F100594CE2 /* Peso+CoreDataClass.swift */,
+				ECC5B4132A9E25F100594CE2 /* Peso+CoreDataProperties.swift */,
+				ECC5B4142A9E25F100594CE2 /* Idoso+CoreDataClass.swift */,
+				ECC5B4152A9E25F100594CE2 /* Idoso+CoreDataProperties.swift */,
+				ECC5B4162A9E25F100594CE2 /* Ficha+CoreDataClass.swift */,
+				ECC5B4172A9E25F100594CE2 /* Ficha+CoreDataProperties.swift */,
+				ECC5B4182A9E25F100594CE2 /* Lucidez+CoreDataClass.swift */,
+				ECC5B4192A9E25F100594CE2 /* Lucidez+CoreDataProperties.swift */,
+				ECC5B41A2A9E25F100594CE2 /* Humor+CoreDataClass.swift */,
+				ECC5B41B2A9E25F100594CE2 /* Humor+CoreDataProperties.swift */,
+				ECC5B41C2A9E25F100594CE2 /* Glicemia+CoreDataClass.swift */,
+				ECC5B41D2A9E25F100594CE2 /* Glicemia+CoreDataProperties.swift */,
+				ECC5B41E2A9E25F100594CE2 /* Temperatura+CoreDataClass.swift */,
+				ECC5B41F2A9E25F100594CE2 /* Temperatura+CoreDataProperties.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -174,15 +271,42 @@
 				F2F9AD022A963D6C00BC8F84 /* OnboardingAView.swift in Sources */,
 				57754E142A977FB70047C2BE /* PrivacidadeView.swift in Sources */,
 				57754E122A9775B40047C2BE /* FichaView.swift in Sources */,
+				ECC5B42B2A9E25F100594CE2 /* Lucidez+CoreDataProperties.swift in Sources */,
+				ECC5B4222A9E25F100594CE2 /* Pressao+CoreDataClass.swift in Sources */,
+				ECC5B4202A9E25F100594CE2 /* Dores+CoreDataClass.swift in Sources */,
+				ECC5B4212A9E25F100594CE2 /* Dores+CoreDataProperties.swift in Sources */,
+				ECC5B4312A9E25F100594CE2 /* Temperatura+CoreDataProperties.swift in Sources */,
+				ECC5B4262A9E25F100594CE2 /* Idoso+CoreDataClass.swift in Sources */,
+				ECC5B43E2A9F70BF00594CE2 /* ContatoService.swift in Sources */,
+				ECC5B4272A9E25F100594CE2 /* Idoso+CoreDataProperties.swift in Sources */,
+				ECC5B42E2A9E25F100594CE2 /* Glicemia+CoreDataClass.swift in Sources */,
+				ECC5B43C2A9F702500594CE2 /* Contato+CoreDataProperties.swift in Sources */,
+				ECC5B42C2A9E25F100594CE2 /* Humor+CoreDataClass.swift in Sources */,
+				ECC5B40D2A9E1CDA00594CE2 /* BoletimService.swift in Sources */,
 				57A8122B2A94E1B900642DF3 /* DadosView.swift in Sources */,
+				ECC5B4352A9F672C00594CE2 /* Medicamento+CoreDataClass.swift in Sources */,
+				ECC5B4062A97A6E400594CE2 /* FichaService.swift in Sources */,
+				ECC5B4232A9E25F100594CE2 /* Pressao+CoreDataProperties.swift in Sources */,
 				57A47BD02A94D50A0062AE7C /* Persistence.swift in Sources */,
 				57A812272A94E19500642DF3 /* BoletinsView.swift in Sources */,
+				ECC5B42F2A9E25F100594CE2 /* Glicemia+CoreDataProperties.swift in Sources */,
+				ECC5B4242A9E25F100594CE2 /* Peso+CoreDataClass.swift in Sources */,
+				ECC5B43B2A9F702500594CE2 /* Contato+CoreDataClass.swift in Sources */,
+				ECC5B4282A9E25F100594CE2 /* Ficha+CoreDataClass.swift in Sources */,
+				ECC5B42D2A9E25F100594CE2 /* Humor+CoreDataProperties.swift in Sources */,
+				ECC5B4252A9E25F100594CE2 /* Peso+CoreDataProperties.swift in Sources */,
 				57A47BC92A94D5090062AE7C /* ContentView.swift in Sources */,
 				57E3B8392A98D82B003EAAA6 /* GlobalData.swift in Sources */,
+				ECC5B4292A9E25F100594CE2 /* Ficha+CoreDataProperties.swift in Sources */,
 				57A812292A94E1AD00642DF3 /* MedicamentosView.swift in Sources */,
 				57A47BC72A94D5090062AE7C /* perseusApp.swift in Sources */,
+				ECC5B4302A9E25F100594CE2 /* Temperatura+CoreDataClass.swift in Sources */,
+				ECC5B4382A9F684B00594CE2 /* MedicamentoService.swift in Sources */,
+				ECC5B4362A9F672C00594CE2 /* Medicamento+CoreDataProperties.swift in Sources */,
 				57A47BD32A94D50A0062AE7C /* perseus.xcdatamodeld in Sources */,
 				F2F9AD092A97A44400BC8F84 /* OnboardingBView.swift in Sources */,
+				ECC5B42A2A9E25F100594CE2 /* Lucidez+CoreDataClass.swift in Sources */,
+				ECC5B40A2A9901BA00594CE2 /* TesteCoreData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
