@@ -130,7 +130,7 @@ struct DadosView: View {
                         }
                     }
                     */
-                    NavigationLink(destination: PDFTestView()) {
+                    NavigationLink(destination: PrivacidadeView()) {
                         HStack {
                             Image(systemName: "hand.raised.fill")
                                 .imageScale(.large)
@@ -166,9 +166,7 @@ struct DadosView: View {
             }
         }
         .navigationBarItems(trailing:
-            Button(action: {
-                // Action when the button is tapped
-            }) {
+            NavigationLink(destination: PDFTestView()) {
                 Image(systemName: "square.and.arrow.up")
             }
         )
