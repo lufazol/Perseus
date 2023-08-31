@@ -7,16 +7,16 @@
 
 import SwiftUI
 
-struct Contato: Identifiable {
+struct ContatoMock: Identifiable {
   let id : Int
   let name : String
 }
 
 var contatoList = [
-    Contato(id: 0,name: "João"),
-    Contato(id: 1,name: "Pedro"),
-    Contato(id: 2,name: "Dra. Sandra"),
-    Contato(id: 3,name: "Elisa")
+    ContatoMock(id: 0,name: "João"),
+    ContatoMock(id: 1,name: "Pedro"),
+    ContatoMock(id: 2,name: "Dra. Sandra"),
+    ContatoMock(id: 3,name: "Elisa")
   ]
 
 struct ContatosList: View {
