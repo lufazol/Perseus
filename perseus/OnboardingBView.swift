@@ -87,7 +87,7 @@ struct OnboardingBView: View {
                         } label: {
                             HStack {
                                 Spacer()
-                                Text("Proximo")
+                                Text("Começar a usar")
                                 Spacer()
                             }.foregroundColor(Color.white)
                         }

@@ -113,7 +113,7 @@ struct OnboardingAView: View {
                     Section{
                         ZStack{
                             
-                            NavigationLink("", destination: OnboardingBView())
+                            NavigationLink("", destination: PrivacidadeView())
                                 .opacity(0)
                             
                             Text("Ao prosseguir você concorda com nossos termo de Politica de Privacidade.")
