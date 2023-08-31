@@ -25,6 +25,7 @@ struct OnboardingAView: View {
     var genders = ["Masculino", "Feminino", "Outro"]
 
     @State var goToOnboardingBView = false
+    @State var goToPrivacidadeView = false
     
     var body: some View {
         NavigationView{
@@ -104,19 +105,47 @@ struct OnboardingAView: View {
                                 //Text("").tag("")
                                 ForEach(genders, id: \.self){ item in
                                     Text(item)
-                                }
-                            }
+                                } 
+                            } 
                         }
                     }
                     
                     Section{
-                        NavigationLink("Próximo", destination: OnboardingBView())
-                            .background(Color(hex: 0x261C8C))
-                            .listRowBackground(Color(hex: 0x261C8C))
+                        ZStack{
+                            
+                            NavigationLink("", destination: PrivacidadeView())
+                                .opacity(0)
+                            
+                            Text("Ao prosseguir você concorda com nossos termo de Politica de Privacidade.")
+                                .foregroundColor(Color(hex: 0x261C8C))
+                                .padding(.horizontal, -16)
+                                .padding(.bottom, -20)
+                                .padding(.top, -15)
+                                .underline()
+                                }
+
+                            }.listRowBackground(Color.clear)
+                        
+                    Section{
+                        ZStack{
+                            
+                            if !elder.nome.isEmpty{
+                                NavigationLink("", destination: OnboardingBView()).opacity(0)
+                            }
+                            
+                            //NavigationLink("", destination: OnboardingBView(), isActive: $goToOnboardingBView)
+                            
+                            Button {
+                            } label: {
+                                HStack {
+                                    Spacer()
+                                    Text("Proximo")
+                                    Spacer()
+                                }.foregroundColor(Color.white)
+                            }
                             .disabled(elder.nome.isEmpty)
-                            .foregroundColor(Color.white)
-                            .frame(maxWidth: .infinity, alignment: .center)
-                    }
+                        }
+                    }.listRowBackground(elder.nome.isEmpty ? Color.gray : (Color(hex: 0x261C8C)))
                 }
             }
         }

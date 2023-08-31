@@ -8,6 +8,23 @@
 import Foundation
 import UIKit
 
+
+struct DadoBoletim: Identifiable, Equatable {
+    let id = UUID()
+    var data: Date
+    var dados: [String]
+    var tag: Int
+    
+    static var sampleDado = DadoBoletim(data: Date.now, dados: ["120 x 80 mmHg", "124 x 83 mmHg", "113 x 72 mmHg"], tag: 0)
+    
+    static var sampleDados: [DadoBoletim] = [
+        DadoBoletim(data: Date.now, dados: ["120 x 80 mmHg", "124 x 83 mmHg", "113 x 72 mmHg"], tag: 0),
+        DadoBoletim(data: Date.now, dados: ["125 x 80 mmHg", "129 x 83 mmHg", "111 x 70 mmHg"], tag: 1),
+        DadoBoletim(data: Date.now, dados: ["112 x 70 mmHg", "110 x 83 mmHg", "312 x 190 mmHg"], tag: 2)
+    ]
+}
+
+
 class Elder: ObservableObject {
     @Published var nome: String
     @Published var dataDeNascimento: Date
