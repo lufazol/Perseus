@@ -20,7 +20,11 @@ extension Color {
     }
 }
 
+@MainActor
 struct DadosView: View {
+    
+    let altura = 1122.0
+    let largura = 793.0
 
     @ObservedObject
     private var elder: Elder = GlobalElder.shared.mockedElder
@@ -166,10 +170,127 @@ struct DadosView: View {
             }
         }
         .navigationBarItems(trailing:
-            NavigationLink(destination: PDFTestView()) {
-                Image(systemName: "square.and.arrow.up")
+            ShareLink(item: render(), label: {Image(systemName: "square.and.arrow.up")})
+        )
+    }
+    
+    func render() -> URL {
+        // 1: Render Hello World with some modifiers
+        let renderer = ImageRenderer(content:
+        ZStack(alignment: .top){
+            Rectangle()
+                .frame(width: largura, height: altura)
+                .foregroundColor(Color(hex: 0xF2F2F7))
+                VStack {
+                    Spacer(minLength: 40)
+                    if let data = elder.foto, let uiimage = UIImage(data: data) {
+                        Image(uiImage: uiimage)
+                            .resizable()
+                            .scaledToFill()
+                            .frame(width: 320, height: 320)
+                            .clipShape(Circle())
+                    } else {
+                        Image("noprofile")
+                             .resizable()
+                             .scaledToFill()
+                             .frame(width: 320, height: 320)
+                             .clipShape(Circle())
+                    }
+                
+                    Spacer(minLength: 40)
+
+                    HStack {
+                        Spacer(minLength: 80)
+                        Text("Nome do idoso:")
+                            .font(.system(size: 31))
+                        Spacer()
+                        Text(elder.nome)
+                            .font(.system(size: 31))
+                        Spacer(minLength: 80)
+                    }
+                
+                    Spacer(minLength: 40)
+
+                    HStack {
+                        Spacer(minLength: 80)
+                        Text("Nascimento:")
+                            .font(.system(size: 31))
+                        Spacer()
+                        Text(elder.dataDeNascimento.formatted(.dateTime.day().month().year()))
+                            .font(.system(size: 31))
+                        Spacer(minLength: 80)
+                    }
+                    
+                    Spacer(minLength: 40)
+
+                    HStack {
+                        Spacer(minLength: 80)
+                        Text("Sexo")
+                            .font(.system(size: 31))
+                        Spacer()
+                        Text(elder.sexo)
+                            .font(.system(size: 31))
+                        Spacer(minLength: 80)
+                    }
+                    
+                    Spacer(minLength: 40)
+                    
+                    HStack {
+                        Text("Peso (kg)")
+                        Spacer()
+                        Text("\(String(elder.peso))")
+                    }
+//
+//                    HStack {
+//                        Text("Tipo sanguíneo")
+//                        Text(elder.tipoSanguineo)
+//                    }
+
+//                    HStack {
+//                        if elder.cirurgias.isEmpty {
+//                            Text("Nenhuma cirurgia adicionada")
+//                                .foregroundColor(Color.gray)
+//                        } else {
+//                            Text(elder.cirurgias)
+//                        }
+//                    }
+//
+//                    HStack {
+//                        if elder.doencas.isEmpty {
+//                            Text("Nenhuma doença adicionada")
+//                                .foregroundColor(Color.gray)
+//                        } else {
+//                            Text(elder.doencas)
+//                        }
+//                    }
+                }
             }
         )
+        
+        // 2: Save it to our documents directory
+        let url = URL.documentsDirectory.appending(path: "ficha_medica.pdf")
+        
+        // 3: Start the rendering process
+        renderer.render { size, context in
+            // 4: Tell SwiftUI our PDF should be the same size as the views we're rendering
+            var box = CGRect(x: 0, y: 0, width: size.width, height: size.height)
+            
+            // 5: Create the CGContext for our PDF pages
+            guard let pdf = CGContext(url as CFURL, mediaBox: &box, nil) else {
+                return
+            }
+            
+            // 6: Start a new PDF page
+            pdf.beginPDFPage(nil)
+            
+            // 7: Render the SwiftUI view data onto the page
+            context(pdf)
+            
+            // 8: End the page and close the file
+            pdf.endPDFPage()
+            pdf.closePDF()
+        }
+        return url
     }
 }
 
