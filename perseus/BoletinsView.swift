@@ -8,6 +8,10 @@
 import SwiftUI
 
 struct BoletinsView: View {
+
+    @State var boletimSelecionado: String = ""
+    var selecao: String = ""
+
     var body: some View {
         let rectangleWidth = CGFloat(32)
         let rectangleHeight = CGFloat(32)
@@ -25,7 +29,7 @@ struct BoletinsView: View {
                         }
                     }.listRowBackground(Color.clear)
                 Section {
-                    NavigationLink(destination: FichaView()) {
+                    NavigationLink(destination: DetalheBoletimView(boletimSelecionado: $boletimSelecionado).navigationBarTitle("Temperatura")) {
                         HStack {
                             Image(systemName: "medical.thermometer.fill")
                                 .scaledToFit()
@@ -40,7 +44,11 @@ struct BoletinsView: View {
                             Text("Temperatura")
                         }
                     }
-                    NavigationLink(destination: FichaView()) {
+                    .onTapGesture {
+                        boletimSelecionado = "temperatura"
+                    }
+
+                    NavigationLink(destination: DetalheBoletimView(boletimSelecionado: $boletimSelecionado).navigationBarTitle("Pressão")) {
                         HStack {
                             Image(systemName: "heart.text.square.fill")
                                 .scaledToFit()
@@ -55,7 +63,12 @@ struct BoletinsView: View {
                             Text("Pressão")
                         }
                     }
-                    NavigationLink(destination: FichaView()) {
+                    .onTapGesture {
+                        boletimSelecionado = "pressao"
+                    }
+
+
+                    NavigationLink(destination: DetalheBoletimView(boletimSelecionado: $boletimSelecionado).navigationBarTitle("Glicemia")) {
                         HStack {
                             Image(systemName: "syringe.fill")
                                 .scaledToFit()
@@ -70,7 +83,12 @@ struct BoletinsView: View {
                             Text("Glicemia")
                         }
                     }
-                    NavigationLink(destination: FichaView()) {
+                    .onTapGesture {
+                        boletimSelecionado = "glicemia"
+                    }
+
+
+                    NavigationLink(destination: DetalheBoletimView(boletimSelecionado: $boletimSelecionado).navigationBarTitle("Peso")) {
                         HStack {
                             Image(systemName: "scalemass.fill")
                                 .scaledToFit()
@@ -85,7 +103,12 @@ struct BoletinsView: View {
                             Text("Peso")
                         }
                     }
-                    NavigationLink(destination: FichaView()) {
+                    .onTapGesture {
+                        boletimSelecionado = "peso"
+                    }
+
+
+                    NavigationLink(destination: DetalheBoletimView(boletimSelecionado: $boletimSelecionado).navigationBarTitle("Humor")) {
                         HStack {
                             Image(systemName: "bubbles.and.sparkles.fill")
                                 .scaledToFit()
@@ -100,7 +123,11 @@ struct BoletinsView: View {
                             Text("Humor")
                         }
                     }
-                    NavigationLink(destination: FichaView()) {
+                    .onTapGesture {
+                        boletimSelecionado = "humor"
+                    }
+
+                    NavigationLink(destination: DetalheBoletimView(boletimSelecionado: $boletimSelecionado).navigationBarTitle("Dor")) {
                         HStack {
                             Image(systemName: "bandage.fill")
                                 .scaledToFit()
@@ -115,7 +142,12 @@ struct BoletinsView: View {
                             Text("Dor")
                         }
                     }
-                    NavigationLink(destination: FichaView()) {
+                    .onTapGesture {
+                        boletimSelecionado = "dor"
+                    }
+
+
+                    NavigationLink(destination: DetalheBoletimView(boletimSelecionado: $boletimSelecionado).navigationBarTitle("Lucidez")) {
                         HStack {
                             Image("BrainIcon")
                                 .imageScale(.small)
@@ -130,6 +162,9 @@ struct BoletinsView: View {
                                 .padding(.leading, -3)
                             Text("Lucidez")
                         }
+                    }
+                    .onTapGesture {
+                        boletimSelecionado = "lucidez"
                     }
                 } 
             }
