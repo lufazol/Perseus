@@ -1,6 +1,7 @@
 import SwiftUI
 
-struct Medicamento: Identifiable {
+
+struct MedicamentoMock: Identifiable {
     var id: Int
     let nome: String
     let dosagem: String
@@ -8,9 +9,10 @@ struct Medicamento: Identifiable {
 }
 
 var medList = [
-    Medicamento(id: 0, nome: "Paracetamol", dosagem: "50mg", tempo: "2 comprimidos a cada 2 horas"),
-    Medicamento(id: 1, nome: "Ibuprofeno", dosagem: "100mg", tempo: "1 comprimidos a cada 8 horas")
+    MedicamentoMock(id: 0, nome: "Paracetamol", dosagem: "50mg", tempo: "2 comprimidos a cada 2 horas"),
+    MedicamentoMock(id: 1, nome: "Ibuprofeno", dosagem: "100mg", tempo: "1 comprimidos a cada 8 horas")
 ]
+
 
 struct MedicamentosView: View {
     var body: some View {
