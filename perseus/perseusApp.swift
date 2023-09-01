@@ -10,10 +10,11 @@ import SwiftUI
 @main
 struct perseusApp: App {
     let persistenceController = PersistenceController.shared
-    @ObservedObject var fichaService = FichaService()
+    var fichaService = FichaService()
 
     var hasFicha: Bool {
-        return fichaService.getDadosDaFicha() != nil
+        fichaService.getDadosDaFicha()
+        return fichaService.ficha != nil
     }
 
     var body: some Scene {
@@ -23,11 +24,13 @@ struct perseusApp: App {
                     .environment(\.locale, Locale(identifier: "pt_BR"))
                     .colorScheme(.light)
                     .environmentObject(GlobalElder.shared.mockedElder)
+                    .environmentObject(FichaService())
             } else {
                 OnboardingAView()
                     .environment(\.locale, Locale(identifier: "pt_BR"))
                     .colorScheme(.light)
                     .environmentObject(GlobalElder.shared.mockedElder)
+                    .environmentObject(FichaService())
             }
         }
     }

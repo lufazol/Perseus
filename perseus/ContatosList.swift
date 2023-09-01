@@ -7,18 +7,6 @@
 
 import SwiftUI
 
-struct ContatoMock: Identifiable {
-  let id : Int
-  let name : String
-}
-
-var contatoList = [
-    ContatoMock(id: 0,name: "João"),
-    ContatoMock(id: 1,name: "Pedro"),
-    ContatoMock(id: 2,name: "Dra. Sandra"),
-    ContatoMock(id: 3,name: "Elisa")
-  ]
-
 struct ContatosList: View {
     @State private var showingSheet = false
     
@@ -32,12 +20,8 @@ struct ContatosList: View {
     
     @ObservedObject var contatoService = ContatoService()
     
-    var contatos: [Contato] {
-        return self.contatoService.getContatos()
-    }
-    
     var body: some View {
-        List(contatos) { contato in
+        List(contatoService.contatos ?? []) { contato in
             NavigationLink(destination: FichaView()) {
                 HStack {
                     Text(contato.nome ?? "Sem nome adicionado")
@@ -50,9 +34,11 @@ struct ContatosList: View {
                 Image(systemName: "plus")
                 
             }
-            )
-            .sheet(isPresented: $showingSheet) {
-                AddContatosView()
+                .sheet(isPresented: $showingSheet) {
+                    AddContatosView()
+                }        )
+            .task {
+                contatoService.getContatos()
             }
         }
     }

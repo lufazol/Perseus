@@ -10,13 +10,13 @@ import SwiftUI
 struct OnboardingBView: View {
     
     @EnvironmentObject var dadosOnboarding: DadosOnboarding
-    @ObservedObject var fichaService = FichaService()
-
+    var fichaService = FichaService()
+    
     @State var blood: String = "A+"
     @State var weight: String = "60"
     @State var surgery: String = ""
     @State var illnesses: String = ""
-
+    
     
     var bloodType = ["A+","A-","B+","B-","AB+","AB-","O+","O-"]
     var currentValue: Int64 = 0
@@ -32,7 +32,7 @@ struct OnboardingBView: View {
     
     @State var goToBoletimView = false
     
-
+    
     var body: some View {
         VStack{
             Form {
@@ -40,13 +40,13 @@ struct OnboardingBView: View {
                     HStack{
                         VStack{
                             Text("Para começar a utilizar, por favor adicione os dados da pessoa que você está cuidando.")
-                            .foregroundColor(Color.gray)
-                            .padding(.horizontal, -16)
-
-                            }
+                                .foregroundColor(Color.gray)
+                                .padding(.horizontal, -16)
+                            
                         }
-                    }.listRowBackground(Color.clear)
-
+                    }
+                }.listRowBackground(Color.clear)
+                
                 Section{
                     HStack {
                         Text("Tipo sanguíneo")
@@ -59,7 +59,7 @@ struct OnboardingBView: View {
                         }
                     }
                 }
-                       
+                
                 Section{
                     HStack {
                         Text("Peso (kg)")
@@ -89,23 +89,19 @@ struct OnboardingBView: View {
                         
                         NavigationLink("", destination:
                                         ContentView())
-                                        .opacity(0)
-                                        .onAppear{
-                                            print("criou")
-                                            fichaService.createFicha(
-                                                nome: dadosOnboarding.name,
-                                                sexo: dadosOnboarding.gender,
-                                                nascimento: dadosOnboarding.birthDate,
-                                                peso: Int64(weight)!,
-                                                tipoSanguineo: blood,
-                                                doencas: illnesses,
-                                                cirurgias: surgery,
-                                                alergias: "",
-                                                image: (dadosOnboarding.photo ?? UIImage(named: "noprofile")?.jpegData(compressionQuality: 1.0))!)
-
-                                        }
+                        .opacity(0)
                         
                         Button {
+                            fichaService.createFicha(
+                                nome: dadosOnboarding.name,
+                                sexo: dadosOnboarding.gender,
+                                nascimento: dadosOnboarding.birthDate,
+                                peso: Int64(weight)!,
+                                tipoSanguineo: blood,
+                                doencas: illnesses,
+                                cirurgias: surgery,
+                                alergias: "",
+                                image: (dadosOnboarding.photo ?? UIImage(named: "noprofile")?.jpegData(compressionQuality: 1.0))!)
                             goToBoletimView = true
                         } label: {
                             HStack {
@@ -117,10 +113,10 @@ struct OnboardingBView: View {
                         .disabled(dadosOnboarding.name.isEmpty)
                     }
                 }.listRowBackground(Color(hex: 0x261C8C))
-                }
             }
         }
     }
+}
 
 struct OnboardingBView_Previews: PreviewProvider {
     static var previews: some View {

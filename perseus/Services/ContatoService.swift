@@ -16,14 +16,14 @@ class ContatoService: ObservableObject {
     }
     //CRUD Contato
     
-    func getContatos() -> [Contato] {
+    func getContatos() {
         let request = Contato.fetchRequest()
         do {
             let contatos = try persistence.container.viewContext.fetch(request)
-            return contatos
+            self.contatos = contatos
         } catch {
             print("Erro ao buscar contatos: \(error)")
-            return []
+            self.contatos = []
         }
     }
 

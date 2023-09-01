@@ -25,7 +25,6 @@
 		57A8122B2A94E1B900642DF3 /* DadosView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A8122A2A94E1B900642DF3 /* DadosView.swift */; };
 		57E3B8392A98D82B003EAAA6 /* GlobalData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57E3B8382A98D82B003EAAA6 /* GlobalData.swift */; };
 		ECC5B4062A97A6E400594CE2 /* FichaService.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC5B4052A97A6E400594CE2 /* FichaService.swift */; };
-		ECC5B40A2A9901BA00594CE2 /* TesteCoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC5B4092A9901BA00594CE2 /* TesteCoreData.swift */; };
 		ECC5B40D2A9E1CDA00594CE2 /* BoletimService.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC5B40C2A9E1CDA00594CE2 /* BoletimService.swift */; };
 		ECC5B4202A9E25F100594CE2 /* Dores+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC5B40E2A9E25F100594CE2 /* Dores+CoreDataClass.swift */; };
 		ECC5B4212A9E25F100594CE2 /* Dores+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC5B40F2A9E25F100594CE2 /* Dores+CoreDataProperties.swift */; };
@@ -75,7 +74,6 @@
 		57A8122A2A94E1B900642DF3 /* DadosView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DadosView.swift; sourceTree = "<group>"; };
 		57E3B8382A98D82B003EAAA6 /* GlobalData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalData.swift; sourceTree = "<group>"; };
 		ECC5B4052A97A6E400594CE2 /* FichaService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FichaService.swift; sourceTree = "<group>"; };
-		ECC5B4092A9901BA00594CE2 /* TesteCoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TesteCoreData.swift; sourceTree = "<group>"; };
 		ECC5B40C2A9E1CDA00594CE2 /* BoletimService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoletimService.swift; sourceTree = "<group>"; };
 		ECC5B40E2A9E25F100594CE2 /* Dores+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dores+CoreDataClass.swift"; sourceTree = "<group>"; };
 		ECC5B40F2A9E25F100594CE2 /* Dores+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dores+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -150,7 +148,6 @@
 				57754E112A9775B40047C2BE /* FichaView.swift */,
 				57A812282A94E1AD00642DF3 /* MedicamentosView.swift */,
 				57A47BCA2A94D50A0062AE7C /* Assets.xcassets */,
-				ECC5B4092A9901BA00594CE2 /* TesteCoreData.swift */,
 				57A47BD12A94D50A0062AE7C /* perseus.xcdatamodeld */,
 				57A47BCC2A94D50A0062AE7C /* Preview Content */,
 				57754E132A977FB70047C2BE /* PrivacidadeView.swift */,
@@ -327,7 +324,6 @@
 				57A47BD32A94D50A0062AE7C /* perseus.xcdatamodeld in Sources */,
 				F2F9AD092A97A44400BC8F84 /* OnboardingBView.swift in Sources */,
 				ECC5B42A2A9E25F100594CE2 /* Lucidez+CoreDataClass.swift in Sources */,
-				ECC5B40A2A9901BA00594CE2 /* TesteCoreData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -16,14 +16,14 @@ class MedicamentoService: ObservableObject {
     }
     //CRUD Medicamento
     
-    func getMedicamentos() -> [Medicamento?] {
+    func getMedicamentos() {
         let request = Medicamento.fetchRequest()
         do {
             let medicamentos = try persistence.container.viewContext.fetch(request)
-            return medicamentos
+            self.medicamentos = medicamentos
         } catch {
             print("Erro ao buscar medicamentos: \(error)")
-            return [nil]
+            self.medicamentos = []
         }
     }
 

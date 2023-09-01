@@ -26,10 +26,17 @@ struct DadosView: View {
 
     let altura = 1122.0
     let largura = 793.0
-    @EnvironmentObject var dadosFicha: FichaService
 
-    var ficha: Ficha {
-        return self.fichaService.getDadosDaFicha()!
+    @EnvironmentObject var fichaService: FichaService
+
+//    @State var ficha: Ficha?
+    
+    func image(for data:Data?) -> UIImage? {
+        if let data = data {
+            return UIImage(data: data)
+        } else {
+            return UIImage(named: "noprofile")
+        }
     }
 
 
@@ -45,20 +52,14 @@ struct DadosView: View {
                     HStack {
                         Spacer()
                         VStack {
-                            if let data = ficha.idoso!.image, let uiimage = UIImage(data: data) {
+                            if let uiimage = image(for: fichaService.ficha?.idoso?.image) {
                                 Image(uiImage: uiimage)
                                     .resizable()
                                     .scaledToFill()
                                     .frame(width: 200, height: 180)
                                     .clipShape(Circle())
-                            } else {
-                                Image("noprofile")
-                                     .resizable()
-                                     .scaledToFill()
-                                     .frame(width: 200, height: 180)
-                                     .clipShape(Circle())
                             }
-                            Text(ficha.nome!)
+                            Text(fichaService.ficha?.nome ?? "")
                                 .font(.largeTitle)
                         }
                         Spacer()
@@ -177,6 +178,9 @@ struct DadosView: View {
         .navigationBarItems(trailing:
             ShareLink(item: render(), label: {Image(systemName: "square.and.arrow.up")})
         )
+        .onAppear() {
+           fichaService.getDadosDaFicha()
+        }
     }
     
     func render() -> URL {

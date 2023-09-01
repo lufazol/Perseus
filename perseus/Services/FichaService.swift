@@ -8,22 +8,22 @@
 import Foundation
 
 class FichaService: ObservableObject {
-    @Published var dadosFicha: Ficha?
+    @Published var ficha: Ficha?
     
     let persistence = PersistenceController.shared
 
     init() {
     }
     //CRUD
-    func getDadosDaFicha() -> Ficha? {
+    func getDadosDaFicha() {
         let request = Ficha.fetchRequest()
         
         do {
             let fichas = try persistence.container.viewContext.fetch(request)
-            return fichas.first
+            ficha = fichas.first
         } catch {
             print("Erro ao buscar a ficha: \(error)")
-            return nil
+            ficha = nil
         }
     }
 

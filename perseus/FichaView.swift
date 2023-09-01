@@ -29,21 +29,26 @@ struct FichaView: View {
 
     @Environment(\.editMode) private var editMode
     
+    @State private var nome = ""
+    @State private var sexo = ""
+    @State private var nascimento = Date()
+    @State private var peso = ""
+    @State private var tipoSanguineo = ""
+    @State private var doencas = ""
+    @State private var cirurgias = ""
+    @State private var image: Data?
     
-    // States are commented so that they might be used when core data is implemented
-    /*
-    @State private var nome = GlobalElder.shared.mockedElder.nome
-    @State private var dataDeNascimento = GlobalElder.shared.mockedElder.dataDeNascimento
-    @State private var sexo = GlobalElder.shared.mockedElder.sexo
-    @State private var peso = GlobalElder.shared.mockedElder.peso
-    @State private var tipoSanguineo = GlobalElder.shared.mockedElder.tipoSanguineo
-    @State private var cirurgias = GlobalElder.shared.mockedElder.cirurgias
-    @State private var doencas = GlobalElder.shared.mockedElder.doencas
-    */
+    @EnvironmentObject var fichaService: FichaService
+   // @State var ficha: Ficha?
     
-    @ObservedObject
-    private var elder: Elder = GlobalElder.shared.mockedElder
-
+    func image(for data:Data?) -> UIImage? {
+        if let data = data {
+            return UIImage(data: data)
+        } else {
+            return UIImage(named: "noprofile")
+        }
+    }
+    
     var body: some View {
         VStack {
             Form {
@@ -51,18 +56,12 @@ struct FichaView: View {
                     HStack {
                         Spacer()
                         VStack {
-                            if let data = elder.foto, let uiimage = UIImage(data: data) {
+                            if let uiimage = image(for: fichaService.ficha?.idoso?.image) {
                                 Image(uiImage: uiimage)
                                     .resizable()
                                     .scaledToFill()
                                     .frame(width: 200, height: 180)
                                     .clipShape(Circle())
-                            } else {
-                                Image("noprofile")
-                                     .resizable()
-                                     .scaledToFill()
-                                     .frame(width: 200, height: 180)
-                                     .clipShape(Circle())
                             }
                             
                             if editMode?.wrappedValue.isEditing == true {
@@ -70,30 +69,24 @@ struct FichaView: View {
                                     selection: $selectedItems,
                                     maxSelectionCount: 1,
                                     matching: .images
-                                ) {
-                                    if elder.foto == nil {
-                                        Text("Adicionar foto")
-                                    } else {
-                                        Text("Trocar foto")
-                                    }
-                                }
-                                .onChange(of: selectedItems) { newValue in
-                                    guard let item = selectedItems.first else {
-                                        return
-                                    }
-                                    item.loadTransferable(type: Data.self) { result in
-                                        switch result {
-                                        case .success(let data):
-                                            if let data = data {
-                                                elder.foto = data
-                                            } else {
-                                                print("Data is nil")
+                                ) {}
+                                    .onChange(of: selectedItems) { newValue in
+                                        guard let item = selectedItems.first else {
+                                            return
+                                        }
+                                        item.loadTransferable(type: Data.self) { result in
+                                            switch result {
+                                            case .success(let data):
+                                                if let data = data {
+                                                    image = data
+                                                } else {
+                                                    print("Data is nil")
+                                                }
+                                            case .failure(let failure):
+                                                fatalError("\(failure)")
                                             }
-                                        case .failure(let failure):
-                                            fatalError("\(failure)")
                                         }
                                     }
-                                }
                             }
                                 
                         }
@@ -107,12 +100,12 @@ struct FichaView: View {
                         Text("Nome do idoso")
                         Spacer()
                         if editMode?.wrappedValue.isEditing == true {
-                            TextField("", text: $elder.nome)
+                            TextField(fichaService.ficha?.nome ?? "nome", text: $nome)
                                 .labelsHidden()
                                 .multilineTextAlignment(.trailing)
                                 .foregroundColor(.accentColor)
                         } else {
-                            Text(elder.nome)
+                            Text(fichaService.ficha?.nome ?? "")
                         }
                     }
                 }
@@ -122,10 +115,10 @@ struct FichaView: View {
                         Text("Nascimento")
                         Spacer()
                         if editMode?.wrappedValue.isEditing == true {
-                            DatePicker("nascimento", selection: $elder.dataDeNascimento, displayedComponents: .date)
+                            DatePicker("nascimento", selection: $nascimento, displayedComponents: .date)
                                 .labelsHidden()
                         } else {
-                            Text(elder.dataDeNascimento.formatted(.dateTime.day().month().year()))
+                            Text(fichaService.ficha?.nascimento?.formatted(.dateTime.day().month().year()) ?? "")
                         }
                     }
                 }
@@ -135,13 +128,13 @@ struct FichaView: View {
                         Text("Sexo")
                         Spacer()
                         if editMode?.wrappedValue.isEditing == true {
-                            Picker("", selection: $elder.sexo) {
+                            Picker("", selection: $sexo) {
                                 ForEach(sexos, id: \.self) { item in
                                     Text(item)
                                 }
                             }
                         } else {
-                            Text(elder.sexo)
+                            Text(fichaService.ficha?.sexo ?? "")
                         }
                     }
                 }
@@ -151,13 +144,13 @@ struct FichaView: View {
                         Text("Peso (kg)")
                         Spacer()
                         if editMode?.wrappedValue.isEditing == true {
-                            Picker("", selection: $elder.peso) {
+                            Picker("", selection: $peso) {
                                 ForEach(weightArray, id: \.self){ item in
                                     Text(item)
                                 }
                             }
                         } else {
-                            Text("\(String(elder.peso))")
+                            Text("\(String(fichaService.ficha?.peso ?? 0))")
                         }
                     }
                 }
@@ -167,13 +160,13 @@ struct FichaView: View {
                         Text("Tipo sanguíneo")
                         Spacer()
                         if editMode?.wrappedValue.isEditing == true {
-                            Picker("", selection: $elder.tipoSanguineo) {
+                            Picker("", selection: $tipoSanguineo) {
                                 ForEach(tiposSanguineos, id: \.self) { item in
                                     Text(item)
                                 }
                             }
                         } else {
-                            Text(elder.tipoSanguineo)
+                            Text(fichaService.ficha?.tipoSanguineo ?? "")
                         }
                     }
                 }
@@ -181,15 +174,10 @@ struct FichaView: View {
                 Section {
                     HStack {
                         if editMode?.wrappedValue.isEditing == true {
-                            TextField("Adicione as cirurgias", text: $elder.cirurgias, axis: .vertical)
+                            TextField("Adicione as cirurgias", text: $cirurgias, axis: .vertical)
                                 .foregroundColor(.accentColor)
                         } else {
-                            if elder.cirurgias.isEmpty {
-                                Text("Nenhuma cirurgia adicionada")
-                                    .foregroundColor(Color.gray)
-                            } else {
-                                Text(elder.cirurgias)
-                            }
+                            Text(fichaService.ficha?.cirurgias ?? "Nenhuma cirurgia adicionada")
                         }
                     }
                 } header: {
@@ -199,15 +187,10 @@ struct FichaView: View {
                 Section {
                     HStack {
                         if editMode?.wrappedValue.isEditing == true {
-                            TextField("Adicione as doenças", text: $elder.doencas, axis: .vertical)
+                            TextField("Adicione as doenças", text: $doencas, axis: .vertical)
                                 .foregroundColor(.accentColor)
                         } else {
-                            if elder.doencas.isEmpty {
-                                Text("Nenhuma doença adicionada")
-                                    .foregroundColor(Color.gray)
-                            } else {
-                                Text(elder.doencas)
-                            }
+                            Text(fichaService.ficha?.doencas ?? "Nenhuma doença adicionada")
                         }
                     }
                 } header: {
@@ -220,11 +203,15 @@ struct FichaView: View {
         .toolbar {
             EditButton()
         }
-        .onChange(of: editMode!.wrappedValue, perform: { value in
-          if !(value.isEditing) {
-             // funcao para salvar
-          }
+        .onChange(of: editMode?.wrappedValue.isEditing, perform: { isEditing in
+            if !isEditing! {
+                fichaService.updateFicha(ficha: fichaService.ficha!, nome: nome, sexo: sexo, nascimento: nascimento, peso: Int64(peso) ?? 200, tipoSanguineo: tipoSanguineo, doencas: doencas, cirurgias: cirurgias, alergias: "dado não inputado", image: image ?? Data() )
+            }
+            fichaService.getDadosDaFicha()
         })
+        .onAppear {
+            fichaService.getDadosDaFicha()
+        }
     }
     
 }

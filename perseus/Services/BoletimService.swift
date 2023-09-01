@@ -8,7 +8,13 @@
 import Foundation
 
 class BoletimService: ObservableObject {
-//    @Published var dadosFicha: Ficha?
+    @Published var temperaturas: [Temperatura]?
+    @Published var pressoes: [Pressao]?
+    @Published var glicemias: [Glicemia]?
+    @Published var pesos: [Peso]?
+    @Published var humores: [Humor]?
+    @Published var dores: [Dores]?
+    @Published var lucidezes: [Lucidez]?
     
     let persistence = PersistenceController.shared
 
@@ -16,14 +22,14 @@ class BoletimService: ObservableObject {
     }
     
     //CRUD Temperatura
-    func getTemperaturas() -> [Temperatura?] {
+    func getTemperaturas() {
         let request = Temperatura.fetchRequest()
         do {
             let temperaturas = try persistence.container.viewContext.fetch(request)
-            return temperaturas
+            self.temperaturas = temperaturas
         } catch {
             print("Erro ao buscar temperaturas: \(error)")
-            return [nil]
+            self.temperaturas = []
         }
     }
 
@@ -58,14 +64,14 @@ class BoletimService: ObservableObject {
     }
     
     //CRUD Pressão
-    func getPressoes() -> [Pressao?] {
+    func getPressoes() {
         let request = Pressao.fetchRequest()
         do {
             let pressoes = try persistence.container.viewContext.fetch(request)
-            return pressoes
+            self.pressoes = pressoes
         } catch {
             print("Erro ao buscar pressoes: \(error)")
-            return [nil]
+            self.pressoes = []
         }
     }
 
@@ -100,14 +106,14 @@ class BoletimService: ObservableObject {
     }
     
     //CRUD Glicemia
-    func getGlicemias() -> [Glicemia?] {
+    func getGlicemias() {
         let request = Glicemia.fetchRequest()
         do {
             let glicemias = try persistence.container.viewContext.fetch(request)
-            return glicemias
+            self.glicemias = glicemias
         } catch {
             print("Erro ao buscar glicemias: \(error)")
-            return [nil]
+            self.glicemias = []
         }
     }
 
@@ -142,14 +148,14 @@ class BoletimService: ObservableObject {
     }
     
     //CRUD Peso
-    func getPesos() -> [Peso?] {
+    func getPesos() {
         let request = Peso.fetchRequest()
         do {
             let pesos = try persistence.container.viewContext.fetch(request)
-            return pesos
+            self.pesos = pesos
         } catch {
             print("Erro ao buscar pesos: \(error)")
-            return [nil]
+            self.pesos = []
         }
     }
 
@@ -184,14 +190,14 @@ class BoletimService: ObservableObject {
     }
     
     //CRUD Humor
-    func getHumores() -> [Humor?] {
+    func getHumores(){
         let request = Humor.fetchRequest()
         do {
             let humores = try persistence.container.viewContext.fetch(request)
-            return humores
+            self.humores = humores
         } catch {
             print("Erro ao buscar humores: \(error)")
-            return [nil]
+            self.humores = []
         }
     }
 
@@ -227,14 +233,14 @@ class BoletimService: ObservableObject {
     }
     
     //CRUD Dores
-    func getDores() -> [Dores?] {
+    func getDores(){
         let request = Dores.fetchRequest()
         do {
             let dores = try persistence.container.viewContext.fetch(request)
-            return dores
+            self.dores = dores
         } catch {
             print("Erro ao buscar dores: \(error)")
-            return [nil]
+            self.dores = []
         }
     }
 
@@ -270,14 +276,14 @@ class BoletimService: ObservableObject {
     }
     
     //CRUD Lucidez
-    func getLucidez() -> [Lucidez?] {
+    func getLucidez() {
         let request = Lucidez.fetchRequest()
         do {
             let lucidez = try persistence.container.viewContext.fetch(request)
-            return lucidez
+            self.lucidezes = lucidez
         } catch {
             print("Erro ao buscar lucidez: \(error)")
-            return [nil]
+            self.lucidezes = []
         }
     }
 
