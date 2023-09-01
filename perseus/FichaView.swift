@@ -9,6 +9,7 @@ import SwiftUI
 
 struct FichaView: View {
     @State var selectedItems: [PhotosPickerItem] = []
+    @State var isExitingUpdated: Bool = false
 
     // set lists used on pickers
     let tiposSanguineos = ["A+", "A-", "B+", "B-", "AB+", "AB-", "O+", "O-"]
@@ -217,8 +218,15 @@ struct FichaView: View {
         .toolbar {
             EditButton()
         }
+        .onChange(of: editMode!.wrappedValue, perform: { value in
+          if !(value.isEditing) {
+             // funcao para salvar
+          }
+        })
     }
+    
 }
+
 
 struct FichaView_Previews: PreviewProvider {
     static var previews: some View {
