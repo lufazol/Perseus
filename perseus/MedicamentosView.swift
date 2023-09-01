@@ -15,7 +15,7 @@ var medList = [
 struct MedicamentosView: View {
     var body: some View {
         List(medList) { medicamento in
-            NavigationLink(destination: FichaView()) {
+            NavigationLink(destination: EdicaoMedicamentoView()) {
                 HStack {
                     ZStack {
                         Rectangle()

@@ -10,6 +10,7 @@ import SwiftUI
 struct AdicaoMedicamentoView: View {
     
     @Environment(\.presentationMode) var presentationMode
+    @Environment(\.editMode) private var editMode
     
     @State var drugName: String = ""
     @State var dosagem: String = ""
@@ -18,16 +19,14 @@ struct AdicaoMedicamentoView: View {
     @State var observacoes: String = ""
     @State var imagem: String = ""
     
-    //@Environment(\.editMode) private var editMode
     
     var body: some View {
         VStack{
             Form{
                 
                 Section{
-                    TextField("Nome do Medicamente", text: $drugName)
+                    TextField("Nome do Medicamento", text: $drugName)
                         .autocorrectionDisabled()
-                    
                 }
                 Section{
                     TextField("Dosagem", text: $dosagem)
@@ -46,36 +45,37 @@ struct AdicaoMedicamentoView: View {
                         .autocorrectionDisabled()
                         .lineLimit(5, reservesSpace: true)
                 }
-
+                
                 
                 Section{
-//                    if let data = elder.foto, let uiimage = UIImage(data: data) {
-//                        Image(uiImage: uiimage)
-//                            .resizable()
-//                            .scaledToFill()
-//                            .frame(width: 200, height: 180)
-//                            .clipShape(Circle())
-//                    } else {
-                        Image("paracetamol")
-                             .resizable()
-                             .scaledToFit()
-                             .frame(width: 200, height: 180)
-                    }
+                    //                    if let data = elder.foto, let uiimage = UIImage(data: data) {
+                    //                        Image(uiImage: uiimage)
+                    //                            .resizable()
+                    //                            .scaledToFill()
+                    //                            .frame(width: 200, height: 180)
+                    //                            .clipShape(Circle())
+                    //                    } else {
+                    Image("paracetamol")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 200, height: 180)
                 }
-                
+            }
+            
         }
         .navigationBarTitle("Medicamentos", displayMode: .inline)
         .navigationBarBackButtonHidden(true)
         .navigationBarItems(leading:
-            Button("Cancelar", action: {
+                                Button("Cancelar", action: {
             self.presentationMode.wrappedValue.dismiss()
             
-            }))
+        }))
         .navigationBarItems(trailing:
-            Button("Salvar", action: {
-            
-            }))
-
+                                Button("Salvar", action: {
+            self.presentationMode.wrappedValue.dismiss()
+            //TODO: Salvar infos no Core Data
+        }))
+        
     }
 }
 struct AdicaoMedicamentoView_Previews: PreviewProvider {

@@ -13,6 +13,7 @@
 		574F44C82A9F7DE400DD6478 /* AddBoletimView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 574F44C72A9F7DE400DD6478 /* AddBoletimView.swift */; };
 		5760684D2A9E228E00E2F379 /* DetalheBoletimView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5760684C2A9E228E00E2F379 /* DetalheBoletimView.swift */; };
 		3156437F2A9F87E8004243A0 /* AdicaoMedicamentoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3156437E2A9F87E8004243A0 /* AdicaoMedicamentoView.swift */; };
+		315643812AA204AD004243A0 /* EdicaoMedicamentoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 315643802AA204AD004243A0 /* EdicaoMedicamentoView.swift */; };
 		57754E122A9775B40047C2BE /* FichaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57754E112A9775B40047C2BE /* FichaView.swift */; };
 		57754E142A977FB70047C2BE /* PrivacidadeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57754E132A977FB70047C2BE /* PrivacidadeView.swift */; };
 		57A47BC72A94D5090062AE7C /* perseusApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A47BC62A94D5090062AE7C /* perseusApp.swift */; };
@@ -62,6 +63,7 @@
 		574F44C72A9F7DE400DD6478 /* AddBoletimView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBoletimView.swift; sourceTree = "<group>"; };
 		5760684C2A9E228E00E2F379 /* DetalheBoletimView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetalheBoletimView.swift; sourceTree = "<group>"; };
 		3156437E2A9F87E8004243A0 /* AdicaoMedicamentoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdicaoMedicamentoView.swift; sourceTree = "<group>"; };
+		315643802AA204AD004243A0 /* EdicaoMedicamentoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EdicaoMedicamentoView.swift; sourceTree = "<group>"; };
 		57754E112A9775B40047C2BE /* FichaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FichaView.swift; sourceTree = "<group>"; };
 		57754E132A977FB70047C2BE /* PrivacidadeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacidadeView.swift; sourceTree = "<group>"; };
 		57A47BC32A94D5090062AE7C /* perseus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = perseus.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -149,6 +151,7 @@
 				F2F9AD082A97A44400BC8F84 /* OnboardingBView.swift */,
 				57754E112A9775B40047C2BE /* FichaView.swift */,
 				57A812282A94E1AD00642DF3 /* MedicamentosView.swift */,
+				315643802AA204AD004243A0 /* EdicaoMedicamentoView.swift */,
 				3156437E2A9F87E8004243A0 /* AdicaoMedicamentoView.swift */,
 				57A47BCA2A94D50A0062AE7C /* Assets.xcassets */,
 				57A47BD12A94D50A0062AE7C /* perseus.xcdatamodeld */,
@@ -287,6 +290,7 @@
 				4808F5692A9F66BF008F9216 /* ContatosList.swift in Sources */,
 				F2F9AD022A963D6C00BC8F84 /* OnboardingAView.swift in Sources */,
 				57754E142A977FB70047C2BE /* PrivacidadeView.swift in Sources */,
+				315643812AA204AD004243A0 /* EdicaoMedicamentoView.swift in Sources */,
 				57754E122A9775B40047C2BE /* FichaView.swift in Sources */,
 				ECC5B42B2A9E25F100594CE2 /* Lucidez+CoreDataProperties.swift in Sources */,
 				ECC5B4222A9E25F100594CE2 /* Pressao+CoreDataClass.swift in Sources */,
