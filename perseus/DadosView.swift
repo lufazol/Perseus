@@ -175,96 +175,134 @@ struct DadosView: View {
     }
     
     func render() -> URL {
-        // 1: Render Hello World with some modifiers
+        // 1: Render
         let renderer = ImageRenderer(content:
-        ZStack(alignment: .top){
-            Rectangle()
+            ZStack {
+                Rectangle()
                 .frame(width: largura, height: altura)
-                .foregroundColor(Color(hex: 0xF2F2F7))
+                .foregroundColor(.white)
                 VStack {
-                    Spacer(minLength: 40)
-                    if let data = elder.foto, let uiimage = UIImage(data: data) {
-                        Image(uiImage: uiimage)
-                            .resizable()
-                            .scaledToFill()
-                            .frame(width: 320, height: 320)
-                            .clipShape(Circle())
-                    } else {
-                        Image("noprofile")
-                             .resizable()
-                             .scaledToFill()
-                             .frame(width: 320, height: 320)
-                             .clipShape(Circle())
-                    }
-                
-                    Spacer(minLength: 40)
+                    ZStack {
+                        Rectangle()
+                            .foregroundColor(.clear)
+                            .frame(height: 320.0)
+                        HStack {
+                            if let data = elder.foto, let uiimage = UIImage(data: data) {
+                                Image(uiImage: uiimage)
+                                    .resizable()
+                                    .scaledToFill()
+                                    .frame(width: 320, height: 320)
+                                    .clipShape(Circle())
+                            } else {
+                                Image("noprofile")
+                                     .resizable()
+                                     .scaledToFill()
+                                     .frame(width: 320, height: 320)
+                                     .clipShape(Circle())
+                            }
+                            
+                            Spacer(minLength: 32)
 
-                    HStack {
-                        Spacer(minLength: 80)
-                        Text("Nome do idoso:")
-                            .font(.system(size: 31))
-                        Spacer()
-                        Text(elder.nome)
-                            .font(.system(size: 31))
-                        Spacer(minLength: 80)
-                    }
-                
-                    Spacer(minLength: 40)
+                            VStack {
+                                HStack {
+                                    Text("Nome do idoso:")
+                                        .font(.system(size: 25))
+                                        .fontWeight(.bold)
+                                        .multilineTextAlignment(.leading)
+                                    Spacer()
+                                    Text(elder.nome)
+                                        .font(.system(size: 25))
+                                }
+                            
+                                Spacer()
 
-                    HStack {
-                        Spacer(minLength: 80)
-                        Text("Nascimento:")
-                            .font(.system(size: 31))
-                        Spacer()
-                        Text(elder.dataDeNascimento.formatted(.dateTime.day().month().year()))
-                            .font(.system(size: 31))
-                        Spacer(minLength: 80)
+                                HStack {
+                                    Text("Nascimento:")
+                                        .font(.system(size: 25))
+                                        .multilineTextAlignment(.leading)
+                                    Spacer()
+                                    Text(elder.dataDeNascimento.formatted(.dateTime.day().month().year()))
+                                        .font(.system(size: 25))
+                                }
+                                
+                                Spacer()
+
+                                HStack {
+                                    Text("Sexo")
+                                        .font(.system(size: 25))
+                                    Spacer()
+                                    Text(elder.sexo)
+                                        .font(.system(size: 25))
+                                }
+                                
+                                Spacer()
+                                
+                                HStack {
+                                    Text("Peso (kg)")
+                                        .font(.system(size: 25))
+                                    Spacer()
+                                    Text("\(String(elder.peso))")
+                                        .font(.system(size: 25))
+                                }
+                                
+                                Spacer()
+
+                                HStack {
+                                    Text("Tipo sanguíneo")
+                                        .font(.system(size: 25))
+                                    Spacer()
+                                    Text(elder.tipoSanguineo)
+                                        .font(.system(size: 25))
+                                }
+                            }
+                            .frame(height: 240)
+                        }
                     }
+                    VStack {
+                        if elder.cirurgias.isEmpty {
+                            Text("Nenhuma cirurgia adicionada")
+                                .foregroundColor(.gray)
+                                .font(.system(size: 31))
+                        } else {
+                            HStack {
+                                VStack {
+                                    Text("CIRURGIAS")
+                                        .font(.system(size: 25))
+                                        .foregroundColor(.gray)
+                                    Text(elder.cirurgias)
+                                        .font(.system(size: 31))
+                                }
+                            }
+                        }
+                        
+                        VStack {
+                            if elder.doencas.isEmpty {
+                                Text("Nenhuma doença adicionada")
+                                    .foregroundColor(.gray)
+                                    .font(.system(size: 31))
+                            } else {
+                                HStack {
+                                    VStack {
+                                        Text("DOENÇAS")
+                                            .font(.system(size: 25))
+                                            .foregroundColor(.gray)
+                                        Text(elder.doencas)
+                                            .font(.system(size: 31))
+                                        
+                                    }
+                                }
+                            }
+                        }
+                        .padding(.top, 80)
+                    }
+                    .padding(.top, 80)
+                    Spacer()
                     
-                    Spacer(minLength: 40)
-
-                    HStack {
-                        Spacer(minLength: 80)
-                        Text("Sexo")
-                            .font(.system(size: 31))
-                        Spacer()
-                        Text(elder.sexo)
-                            .font(.system(size: 31))
-                        Spacer(minLength: 80)
-                    }
-                    
-                    Spacer(minLength: 40)
-                    
-                    HStack {
-                        Text("Peso (kg)")
-                        Spacer()
-                        Text("\(String(elder.peso))")
-                    }
-//
-//                    HStack {
-//                        Text("Tipo sanguíneo")
-//                        Text(elder.tipoSanguineo)
-//                    }
-
-//                    HStack {
-//                        if elder.cirurgias.isEmpty {
-//                            Text("Nenhuma cirurgia adicionada")
-//                                .foregroundColor(Color.gray)
-//                        } else {
-//                            Text(elder.cirurgias)
-//                        }
-//                    }
-//
-//                    HStack {
-//                        if elder.doencas.isEmpty {
-//                            Text("Nenhuma doença adicionada")
-//                                .foregroundColor(Color.gray)
-//                        } else {
-//                            Text(elder.doencas)
-//                        }
-//                    }
                 }
             }
+            .padding(.horizontal, 120)
+            .padding(.top, 80)
+            .padding(.bottom, 80)
         )
         
         // 2: Save it to our documents directory
