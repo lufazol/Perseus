@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		4808F5692A9F66BF008F9216 /* ContatosList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4808F5682A9F66BF008F9216 /* ContatosList.swift */; };
 		4808F56B2A9F85E7008F9216 /* PDFTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4808F56A2A9F85E7008F9216 /* PDFTest.swift */; };
+		48DAD5F12AA21A01004C02A8 /* AddContatosView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48DAD5F02AA21A01004C02A8 /* AddContatosView.swift */; };
 		574F44C82A9F7DE400DD6478 /* AddBoletimView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 574F44C72A9F7DE400DD6478 /* AddBoletimView.swift */; };
 		5760684D2A9E228E00E2F379 /* DetalheBoletimView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5760684C2A9E228E00E2F379 /* DetalheBoletimView.swift */; };
 		57754E122A9775B40047C2BE /* FichaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57754E112A9775B40047C2BE /* FichaView.swift */; };
@@ -23,8 +24,6 @@
 		57A812292A94E1AD00642DF3 /* MedicamentosView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A812282A94E1AD00642DF3 /* MedicamentosView.swift */; };
 		57A8122B2A94E1B900642DF3 /* DadosView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A8122A2A94E1B900642DF3 /* DadosView.swift */; };
 		57E3B8392A98D82B003EAAA6 /* GlobalData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57E3B8382A98D82B003EAAA6 /* GlobalData.swift */; };
-		F2F9AD022A963D6C00BC8F84 /* OnboardingAView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F9AD012A963D6C00BC8F84 /* OnboardingAView.swift */; };
-		F2F9AD092A97A44400BC8F84 /* OnboardingBView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F9AD082A97A44400BC8F84 /* OnboardingBView.swift */; };
 		ECC5B4062A97A6E400594CE2 /* FichaService.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC5B4052A97A6E400594CE2 /* FichaService.swift */; };
 		ECC5B40A2A9901BA00594CE2 /* TesteCoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC5B4092A9901BA00594CE2 /* TesteCoreData.swift */; };
 		ECC5B40D2A9E1CDA00594CE2 /* BoletimService.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC5B40C2A9E1CDA00594CE2 /* BoletimService.swift */; };
@@ -52,11 +51,14 @@
 		ECC5B43B2A9F702500594CE2 /* Contato+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC5B4392A9F702500594CE2 /* Contato+CoreDataClass.swift */; };
 		ECC5B43C2A9F702500594CE2 /* Contato+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC5B43A2A9F702500594CE2 /* Contato+CoreDataProperties.swift */; };
 		ECC5B43E2A9F70BF00594CE2 /* ContatoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC5B43D2A9F70BF00594CE2 /* ContatoService.swift */; };
+		F2F9AD022A963D6C00BC8F84 /* OnboardingAView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F9AD012A963D6C00BC8F84 /* OnboardingAView.swift */; };
+		F2F9AD092A97A44400BC8F84 /* OnboardingBView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F9AD082A97A44400BC8F84 /* OnboardingBView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		4808F5682A9F66BF008F9216 /* ContatosList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContatosList.swift; sourceTree = "<group>"; };
 		4808F56A2A9F85E7008F9216 /* PDFTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFTest.swift; sourceTree = "<group>"; };
+		48DAD5F02AA21A01004C02A8 /* AddContatosView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddContatosView.swift; sourceTree = "<group>"; };
 		574F44C72A9F7DE400DD6478 /* AddBoletimView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBoletimView.swift; sourceTree = "<group>"; };
 		5760684C2A9E228E00E2F379 /* DetalheBoletimView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetalheBoletimView.swift; sourceTree = "<group>"; };
 		57754E112A9775B40047C2BE /* FichaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FichaView.swift; sourceTree = "<group>"; };
@@ -72,8 +74,6 @@
 		57A812282A94E1AD00642DF3 /* MedicamentosView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicamentosView.swift; sourceTree = "<group>"; };
 		57A8122A2A94E1B900642DF3 /* DadosView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DadosView.swift; sourceTree = "<group>"; };
 		57E3B8382A98D82B003EAAA6 /* GlobalData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalData.swift; sourceTree = "<group>"; };
-		F2F9AD012A963D6C00BC8F84 /* OnboardingAView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingAView.swift; sourceTree = "<group>"; };
-		F2F9AD082A97A44400BC8F84 /* OnboardingBView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingBView.swift; sourceTree = "<group>"; };
 		ECC5B4052A97A6E400594CE2 /* FichaService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FichaService.swift; sourceTree = "<group>"; };
 		ECC5B4092A9901BA00594CE2 /* TesteCoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TesteCoreData.swift; sourceTree = "<group>"; };
 		ECC5B40C2A9E1CDA00594CE2 /* BoletimService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoletimService.swift; sourceTree = "<group>"; };
@@ -101,6 +101,8 @@
 		ECC5B4392A9F702500594CE2 /* Contato+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Contato+CoreDataClass.swift"; sourceTree = "<group>"; };
 		ECC5B43A2A9F702500594CE2 /* Contato+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Contato+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		ECC5B43D2A9F70BF00594CE2 /* ContatoService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContatoService.swift; sourceTree = "<group>"; };
+		F2F9AD012A963D6C00BC8F84 /* OnboardingAView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingAView.swift; sourceTree = "<group>"; };
+		F2F9AD082A97A44400BC8F84 /* OnboardingBView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingBView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,13 +138,13 @@
 			children = (
 				ECC5B4322A9E260000594CE2 /* Models */,
 				ECC5B40B2A9E195C00594CE2 /* Services */,
+				48DAD5F02AA21A01004C02A8 /* AddContatosView.swift */,
 				4808F5682A9F66BF008F9216 /* ContatosList.swift */,
 				57A47BC62A94D5090062AE7C /* perseusApp.swift */,
 				574F44C72A9F7DE400DD6478 /* AddBoletimView.swift */,
 				57A812262A94E19500642DF3 /* BoletinsView.swift */,
 				57A47BC82A94D5090062AE7C /* ContentView.swift */,
 				57A8122A2A94E1B900642DF3 /* DadosView.swift */,
-				5760684C2A9E228E00E2F379 /* DetalheBoletimView.swift */,
 				F2F9AD012A963D6C00BC8F84 /* OnboardingAView.swift */,
 				F2F9AD082A97A44400BC8F84 /* OnboardingBView.swift */,
 				57754E112A9775B40047C2BE /* FichaView.swift */,
@@ -300,6 +302,7 @@
 				57A8122B2A94E1B900642DF3 /* DadosView.swift in Sources */,
 				ECC5B4352A9F672C00594CE2 /* Medicamento+CoreDataClass.swift in Sources */,
 				ECC5B4062A97A6E400594CE2 /* FichaService.swift in Sources */,
+				48DAD5F12AA21A01004C02A8 /* AddContatosView.swift in Sources */,
 				ECC5B4232A9E25F100594CE2 /* Pressao+CoreDataProperties.swift in Sources */,
 				5760684D2A9E228E00E2F379 /* DetalheBoletimView.swift in Sources */,
 				57A47BD02A94D50A0062AE7C /* Persistence.swift in Sources */,

@@ -20,20 +20,28 @@ var contatoList = [
   ]
 
 struct ContatosList: View {
+    @State private var showingSheet = false
+
     var body: some View {
         List(contatoList) { contato in
-            NavigationLink(destination: FichaView()) {
-                HStack {
-                  Text(contato.name)
+            Button {
+                    showingSheet.toggle()
+                } label: {
+                    Text(contato.name)
+
                 }
-            }
         }
         .navigationTitle("Contatos")
-        .navigationBarItems(trailing:
-            NavigationLink(destination: FichaView()) {
+        .navigationBarItems(trailing: Button {
+                showingSheet.toggle()
+            } label: {
                 Image(systemName: "plus")
+
             }
         )
+        .sheet(isPresented: $showingSheet) {
+            AddContatosView()
+        }
     }
 }
 
