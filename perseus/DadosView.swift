@@ -29,7 +29,7 @@ struct DadosView: View {
     @EnvironmentObject var dadosFicha: FichaService
 
     var ficha: Ficha {
-        return self.dadosFicha.getDadosDaFicha()!
+        return self.fichaService.getDadosDaFicha()!
     }
 
 
@@ -338,8 +338,8 @@ struct DadosView: View {
 }
 
 
-struct DadosView_Previews: PreviewProvider {
-    static var previews: some View {
-        DadosView(dadosFicha: FichaService())
-    }
-}
+//struct DadosView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        DadosView()
+//    }
+//}

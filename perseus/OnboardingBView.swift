@@ -9,10 +9,8 @@ import SwiftUI
 
 struct OnboardingBView: View {
     
-    @ObservedObject
-    private var elder: Elder = GlobalElder.shared.mockedElder
     @EnvironmentObject var dadosOnboarding: DadosOnboarding
-    @ObservedObject var fichaService: FichaService
+    @ObservedObject var fichaService = FichaService()
 
     @State var blood: String = "A+"
     @State var weight: String = "60"
@@ -89,7 +87,23 @@ struct OnboardingBView: View {
                 Section{
                     ZStack{
                         
-                        NavigationLink("", destination: ContentView()).opacity(0)
+                        NavigationLink("", destination:
+                                        ContentView())
+                                        .opacity(0)
+                                        .onAppear{
+                                            print("criou")
+                                            fichaService.createFicha(
+                                                nome: dadosOnboarding.name,
+                                                sexo: dadosOnboarding.gender,
+                                                nascimento: dadosOnboarding.birthDate,
+                                                peso: Int64(weight)!,
+                                                tipoSanguineo: blood,
+                                                doencas: illnesses,
+                                                cirurgias: surgery,
+                                                alergias: "",
+                                                image: (dadosOnboarding.photo ?? UIImage(named: "noprofile")?.jpegData(compressionQuality: 1.0))!)
+
+                                        }
                         
                         Button {
                             goToBoletimView = true
@@ -100,27 +114,9 @@ struct OnboardingBView: View {
                                 Spacer()
                             }.foregroundColor(Color.white)
                         }
-                        .disabled(elder.nome.isEmpty)
+                        .disabled(dadosOnboarding.name.isEmpty)
                     }
                 }.listRowBackground(Color(hex: 0x261C8C))
-                    NavigationLink("Finalizar", destination: ContentView().onAppear{
-                        print("criou")
-                        fichaService.createFicha(
-                            nome: dadosOnboarding.name,
-                            sexo: dadosOnboarding.gender,
-                            nascimento: dadosOnboarding.birthDate,
-                            peso: Int64(weight)!,
-                            tipoSanguineo: blood,
-                            doencas: illnesses,
-                            cirurgias: surgery,
-                            alergias: "",
-                            image: (dadosOnboarding.photo ?? UIImage(named: "noprofile")?.jpegData(compressionQuality: 1.0))!)
-
-                    })
-                        .background(Color(hex: 0x261C8C))
-                        .listRowBackground(Color(hex: 0x261C8C))
-                        .foregroundColor(Color.white)
-                        .frame(maxWidth: .infinity, alignment: .center)
                 }
             }
         }
@@ -128,6 +124,6 @@ struct OnboardingBView: View {
 
 struct OnboardingBView_Previews: PreviewProvider {
     static var previews: some View {
-        OnboardingBView(fichaService: FichaService())
+        OnboardingBView()
     }
 }

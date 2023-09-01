@@ -18,11 +18,11 @@ class DadosOnboarding: ObservableObject {
 
 struct OnboardingAView: View {
     @State var selectedItems: [PhotosPickerItem] = []
-
+    
     @StateObject var dadosOnboarding = DadosOnboarding()
-
+    
     var genders = ["Masculino", "Feminino", "Outro"]
-
+    
     @State var goToOnboardingBView = false
     @State var goToPrivacidadeView = false
     
@@ -37,7 +37,7 @@ struct OnboardingAView: View {
                                     .foregroundColor(Color.gray)
                                     .padding(.horizontal, -16)
                                     .padding(.bottom, 24)
-
+                                
                                 if let data = dadosOnboarding.photo, let uiimage = UIImage(data: data) {
                                     Image(uiImage: uiimage)
                                         .resizable()
@@ -46,10 +46,10 @@ struct OnboardingAView: View {
                                         .clipShape(Circle())
                                 } else {
                                     Image("noprofile")
-                                         .resizable()
-                                         .scaledToFill()
-                                         .frame(width: 200, height: 180)
-                                         .clipShape(Circle())
+                                        .resizable()
+                                        .scaledToFill()
+                                        .frame(width: 200, height: 180)
+                                        .clipShape(Circle())
                                 }
                                 
                                 PhotosPicker(
@@ -86,7 +86,7 @@ struct OnboardingAView: View {
                     } footer: {
                         Text("*Campo obrigatório")
                     }
-
+                    
                     Section{
                         HStack {
                             Text("Nascimento")
@@ -104,8 +104,8 @@ struct OnboardingAView: View {
                                 //Text("").tag("")
                                 ForEach(genders, id: \.self){ item in
                                     Text(item)
-                                } 
-                            } 
+                                }
+                            }
                         }
                     }
                     
@@ -121,18 +121,19 @@ struct OnboardingAView: View {
                                 .padding(.bottom, -20)
                                 .padding(.top, -15)
                                 .underline()
-                                }
-
-                            }.listRowBackground(Color.clear)
+                        }
                         
+                    }.listRowBackground(Color.clear)
+                    
                     Section{
                         ZStack{
                             
-                            if dadosOnboarding.name.isEmpty{
-                                NavigationLink("", destination: OnboardingBView()).opacity(0)
+                            if !dadosOnboarding.name.isEmpty{
+                                NavigationLink("", destination:
+                                                OnboardingBView().environmentObject(dadosOnboarding))
+                                .opacity(0)
+                                .environmentObject(dadosOnboarding)
                             }
-                            
-                            //NavigationLink("", destination: OnboardingBView(), isActive: $goToOnboardingBView)
                             
                             Button {
                             } label: {
@@ -145,22 +146,12 @@ struct OnboardingAView: View {
                             .disabled(dadosOnboarding.name.isEmpty)
                         }
                     }.listRowBackground(dadosOnboarding.name.isEmpty ? Color.gray : (Color(hex: 0x261C8C)))
-                        NavigationLink(
-                            "Próximo",
-                            destination:
-                                OnboardingBView(fichaService: FichaService())
-                                .environmentObject(dadosOnboarding)
-                        )
-                            .background(Color(hex: 0x261C8C))
-                            .listRowBackground(Color(hex: 0x261C8C))
-                            .disabled(dadosOnboarding.name.isEmpty)
-                            .foregroundColor(Color.white)
-                            .frame(maxWidth: .infinity, alignment: .center)
-                    }
                 }
             }
         }
     }
+}
+
 
 
 struct PersonalInfoOnboardingVie_Previews: PreviewProvider {

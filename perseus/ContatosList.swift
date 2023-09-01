@@ -21,26 +21,39 @@ var contatoList = [
 
 struct ContatosList: View {
     @State private var showingSheet = false
-
+    
+    //    var body: some View {
+    //        List(contatoList) { contato in
+    //            Button {
+    //                    showingSheet.toggle()
+    //                } label: {
+    //                    Text(contato.name)
+    
+    
+    @ObservedObject var contatoService = ContatoService()
+    
+    var contatos: [Contato] {
+        return self.contatoService.getContatos()
+    }
+    
     var body: some View {
-        List(contatoList) { contato in
-            Button {
-                    showingSheet.toggle()
-                } label: {
-                    Text(contato.name)
-
+        List(contatos) { contato in
+            NavigationLink(destination: FichaView()) {
+                HStack {
+                    Text(contato.nome ?? "Sem nome adicionado")
                 }
-        }
-        .navigationTitle("Contatos")
-        .navigationBarItems(trailing: Button {
+            }
+            .navigationTitle("Contatos")
+            .navigationBarItems(trailing: Button {
                 showingSheet.toggle()
             } label: {
                 Image(systemName: "plus")
-
+                
             }
-        )
-        .sheet(isPresented: $showingSheet) {
-            AddContatosView()
+            )
+            .sheet(isPresented: $showingSheet) {
+                AddContatosView()
+            }
         }
     }
 }
