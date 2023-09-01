@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		4808F5692A9F66BF008F9216 /* ContatosList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4808F5682A9F66BF008F9216 /* ContatosList.swift */; };
 		4808F56B2A9F85E7008F9216 /* PDFTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4808F56A2A9F85E7008F9216 /* PDFTest.swift */; };
+		48DAD5F12AA21A01004C02A8 /* AddContatosView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48DAD5F02AA21A01004C02A8 /* AddContatosView.swift */; };
 		574F44C82A9F7DE400DD6478 /* AddBoletimView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 574F44C72A9F7DE400DD6478 /* AddBoletimView.swift */; };
 		5760684D2A9E228E00E2F379 /* DetalheBoletimView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5760684C2A9E228E00E2F379 /* DetalheBoletimView.swift */; };
 		57754E122A9775B40047C2BE /* FichaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57754E112A9775B40047C2BE /* FichaView.swift */; };
@@ -57,6 +58,7 @@
 /* Begin PBXFileReference section */
 		4808F5682A9F66BF008F9216 /* ContatosList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContatosList.swift; sourceTree = "<group>"; };
 		4808F56A2A9F85E7008F9216 /* PDFTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFTest.swift; sourceTree = "<group>"; };
+		48DAD5F02AA21A01004C02A8 /* AddContatosView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddContatosView.swift; sourceTree = "<group>"; };
 		574F44C72A9F7DE400DD6478 /* AddBoletimView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBoletimView.swift; sourceTree = "<group>"; };
 		5760684C2A9E228E00E2F379 /* DetalheBoletimView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetalheBoletimView.swift; sourceTree = "<group>"; };
 		57754E112A9775B40047C2BE /* FichaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FichaView.swift; sourceTree = "<group>"; };
@@ -136,6 +138,7 @@
 			children = (
 				ECC5B4322A9E260000594CE2 /* Models */,
 				ECC5B40B2A9E195C00594CE2 /* Services */,
+				48DAD5F02AA21A01004C02A8 /* AddContatosView.swift */,
 				4808F5682A9F66BF008F9216 /* ContatosList.swift */,
 				57A47BC62A94D5090062AE7C /* perseusApp.swift */,
 				574F44C72A9F7DE400DD6478 /* AddBoletimView.swift */,
@@ -300,6 +303,7 @@
 				57A8122B2A94E1B900642DF3 /* DadosView.swift in Sources */,
 				ECC5B4352A9F672C00594CE2 /* Medicamento+CoreDataClass.swift in Sources */,
 				ECC5B4062A97A6E400594CE2 /* FichaService.swift in Sources */,
+				48DAD5F12AA21A01004C02A8 /* AddContatosView.swift in Sources */,
 				ECC5B4232A9E25F100594CE2 /* Pressao+CoreDataProperties.swift in Sources */,
 				5760684D2A9E228E00E2F379 /* DetalheBoletimView.swift in Sources */,
 				57A47BD02A94D50A0062AE7C /* Persistence.swift in Sources */,
