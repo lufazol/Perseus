@@ -248,11 +248,12 @@
 			};
 			buildConfigurationList = 57A47BBE2A94D5090062AE7C /* Build configuration list for PBXProject "perseus" */;
 			compatibilityVersion = "Xcode 14.0";
-			developmentRegion = en;
+			developmentRegion = "pt-BR";
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 				Base,
+				"pt-BR",
 			);
 			mainGroup = 57A47BBA2A94D5090062AE7C;
 			packageReferences = (

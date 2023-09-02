@@ -8,9 +8,11 @@
 import SwiftUI
 
 struct DetalheBoletimView: View {
+    @Binding var boletimSelecionado: String
+
     var boletins: [DadoBoletim] = DadoBoletim.sampleDados
     @State private var showingSheet = false
-
+    @State private var selecao: String = ""
 
     var body: some View {
         VStack {
@@ -31,6 +33,26 @@ struct DetalheBoletimView: View {
                 }
             }
         }
+        .onAppear {
+            switch boletimSelecionado {
+            case "temperatura":
+                selecao = "Temperatura"
+            case "pressao":
+                selecao = "Pressão"
+            case "glicemia":
+                selecao = "Glicemia"
+            case "peso":
+                selecao = "Peso"
+            case "humor":
+                selecao = "Humor"
+            case "dor":
+                selecao = "Dor"
+            case "lucidez":
+                selecao = "Lucidez"
+            default:
+                selecao = ""
+            }
+        }
         .navigationBarItems(trailing:
             Button(action: {
             showingSheet.toggle()
@@ -48,6 +70,6 @@ struct DetalheBoletimView: View {
 
 struct DetalheBoletimView_Previews: PreviewProvider {
     static var previews: some View {
-        DetalheBoletimView()
+        DetalheBoletimView(boletimSelecionado: .constant("Valor"))
     }
 }
