@@ -67,7 +67,11 @@ struct OnboardingAView: View {
                                         switch result {
                                         case .success(let data):
                                             if let data = data {
-                                                dadosOnboarding.photo = data
+                                                Task {
+                                                    await MainActor.run {
+                                                        dadosOnboarding.photo = data
+                                                    }
+                                                }
                                             } else {
                                                 print("Data is nil")
                                             }

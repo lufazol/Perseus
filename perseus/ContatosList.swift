@@ -10,15 +10,8 @@ import SwiftUI
 struct ContatosList: View {
     @State private var showingSheet = false
     
-    //    var body: some View {
-    //        List(contatoList) { contato in
-    //            Button {
-    //                    showingSheet.toggle()
-    //                } label: {
-    //                    Text(contato.name)
-    
-    
     @ObservedObject var contatoService = ContatoService()
+    @State var contatoSelecionado: Contato?
     
     var body: some View {
         List(contatoService.contatos ?? []) { contato in
@@ -27,19 +20,19 @@ struct ContatosList: View {
                     Text(contato.nome ?? "Sem nome adicionado")
                 }
             }
-            .navigationTitle("Contatos")
-            .navigationBarItems(trailing: Button {
-                showingSheet.toggle()
-            } label: {
-                Image(systemName: "plus")
-                
-            }
-                .sheet(isPresented: $showingSheet) {
-                    AddContatosView()
-                }        )
-            .task {
-                contatoService.getContatos()
-            }
+        }
+        .onAppear {
+            contatoService.getContatos()
+        }
+        .navigationTitle("Contatos")
+        .navigationBarItems(trailing: Button {
+            showingSheet.toggle()
+        } label: {
+            Image(systemName: "plus")
+            
+        })
+        .sheet(isPresented: $showingSheet) {
+            AddContatosView()
         }
     }
 }

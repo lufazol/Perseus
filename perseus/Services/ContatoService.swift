@@ -59,6 +59,7 @@ class ContatoService: ObservableObject {
     
     func deleteContato(contato: Contato) {
         persistence.delete(item: contato)
+        persistence.saveContext()
     }
     
     func deleteALLCONTATOS() {

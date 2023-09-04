@@ -49,6 +49,7 @@ class BoletimService: ObservableObject {
     
     func deleteTemperatura(temperatura: Temperatura) {
         persistence.delete(item: temperatura)
+        persistence.saveContext()
     }
     
     func deleteALLTEMPERATURAS() {
@@ -91,6 +92,7 @@ class BoletimService: ObservableObject {
     
     func deletePressao(pressao: Pressao) {
         persistence.delete(item: pressao)
+        persistence.saveContext()
     }
     
     func deleteALLPRESSOES() {
@@ -133,6 +135,7 @@ class BoletimService: ObservableObject {
     
     func deleteGlicemia(glicemia: Glicemia) {
         persistence.delete(item: glicemia)
+        persistence.saveContext()
     }
     
     func deleteALLGLICEMIAS() {
@@ -175,6 +178,7 @@ class BoletimService: ObservableObject {
     
     func deletePeso(peso: Peso) {
         persistence.delete(item: peso)
+        persistence.saveContext()
     }
     
     func deleteALLPESOS() {
@@ -218,6 +222,7 @@ class BoletimService: ObservableObject {
     
     func deleteHumor(humor: Humor) {
         persistence.delete(item: humor)
+        persistence.saveContext()
     }
     
     func deleteALLHUMORES() {
@@ -261,6 +266,7 @@ class BoletimService: ObservableObject {
     
     func deleteDores(dor: Dores) {
         persistence.delete(item: dor)
+        persistence.saveContext()
     }
     
     func deleteALLDORES() {
@@ -304,6 +310,7 @@ class BoletimService: ObservableObject {
     
     func deleteLucidez(lucidez: Lucidez) {
         persistence.delete(item: lucidez)
+        persistence.saveContext()
     }
     
     func deleteALLLUCIDEZ() {

@@ -71,6 +71,7 @@ class FichaService: ObservableObject {
     
     func deleteFicha(ficha: Ficha) {
         persistence.delete(item: ficha)
+        persistence.saveContext()
     }
     
     func deleteALLFICHAS() {

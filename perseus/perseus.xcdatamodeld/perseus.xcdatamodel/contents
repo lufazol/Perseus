@@ -71,7 +71,7 @@
         <attribute name="dosagem" optional="YES" attributeType="String"/>
         <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="imagem" optional="YES" attributeType="Binary"/>
-        <attribute name="intervalo" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="intervalo" optional="YES" attributeType="String"/>
         <attribute name="nome" optional="YES" attributeType="String"/>
         <attribute name="observacoes" optional="YES" attributeType="String"/>
         <attribute name="quantidade" optional="YES" attributeType="String"/>

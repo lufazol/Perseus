@@ -12,12 +12,15 @@ struct EdicaoMedicamentoView: View {
     @Environment(\.presentationMode) var presentationMode
     @Environment(\.editMode) private var editMode
     
-    @State var medicamento: String = ""
+    @ObservedObject var medicamentoService = MedicamentoService()
+    
+    var medicamentoSelecionado: Medicamento
+    
+    @State var nome: String = ""
     @State var dosagem: String = ""
     @State var quantidade: String = ""
     @State var tempodedose: String = ""
     @State var observacoes: String = ""
-    @State var imagem: String = ""
     
     
     var body: some View {
@@ -27,15 +30,15 @@ struct EdicaoMedicamentoView: View {
                 Section{
                     HStack {
                         if editMode?.wrappedValue.isEditing == true {
-                            TextField("Nome do Medicamento", text: $medicamento, axis: .vertical)
+                            TextField("Nome do Medicamento", text: $nome, axis: .vertical)
                                 .foregroundColor(.accentColor)
                                 .autocorrectionDisabled()
                         } else {
-                            if medicamento.isEmpty {
+                            if nome.isEmpty {
                                 Text("Nome do Medicamento")
                                     .foregroundColor(Color.gray)
                             } else {
-                                Text(medicamento)
+                                Text(nome)
                             }
                         }
                     }
@@ -111,38 +114,43 @@ struct EdicaoMedicamentoView: View {
                     
                 }
                 
-                
-                Section{
-                    //                    if let data = elder.foto, let uiimage = UIImage(data: data) {
-                    //                        Image(uiImage: uiimage)
-                    //                            .resizable()
-                    //                            .scaledToFill()
-                    //                            .frame(width: 200, height: 180)
-                    //                            .clipShape(Circle())
-                    //                    } else {
-                    Image("paracetamol")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 200, height: 180)
+                Section {
+                    Button(action: {
+                        medicamentoService.getMedicamentos()
+                        medicamentoService.deleteMedicamento(medicamento: medicamentoSelecionado)
+                    }) {
+                        HStack {
+                            Spacer()
+                            Text("Apagar medicamento")
+                                .foregroundColor(.red)
+                            Spacer()
+                        }
+
+                    }
+                    .background(Color.white)
+                    .cornerRadius(10)
                 }
+
             }
             
-        }.onChange(of: editMode!.wrappedValue, perform: { value in
-            if !(value.isEditing) {
-                //TODO: Alterar infos editadas no Core Data
+        }.onChange(of: editMode?.wrappedValue.isEditing, perform: { isEditing in
+            if !isEditing! {
+                medicamentoService.updateMedicamento(medicamento: medicamentoSelecionado, nome: nome, dosagem: dosagem, quantidade: quantidade, ultimaVez: Date(), intervalo: tempodedose, observacoes: observacoes)
             }
+            medicamentoService.getMedicamentos()
         })
         .navigationBarTitle("Medicamentos", displayMode: .inline)
-        .navigationBarBackButtonHidden(true)
-        .navigationBarItems(leading:
-                                Button("Cancelar", action: {
-            self.presentationMode.wrappedValue.dismiss()
-            
-        }))
-        .navigationBarTitle("Medicamentos")
         .animation(nil, value: editMode?.wrappedValue)
         .toolbar {
             EditButton()
+        }
+        .onAppear{
+            medicamentoService.getMedicamentos()
+            nome = medicamentoSelecionado.nome ?? ""
+            dosagem = medicamentoSelecionado.dosagem ?? ""
+            tempodedose = medicamentoSelecionado.intervalo ?? ""
+            observacoes = medicamentoSelecionado.observacoes ?? ""
+            quantidade = medicamentoSelecionado.quantidade ?? ""
         }
         
     }
@@ -150,8 +158,8 @@ struct EdicaoMedicamentoView: View {
 }
 
 
-struct EdicaoMedicamentoView_Previews: PreviewProvider {
-    static var previews: some View {
-        EdicaoMedicamentoView()
-    }
-}
+//struct EdicaoMedicamentoView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        EdicaoMedicamentoView()
+//    }
+//}

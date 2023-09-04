@@ -27,7 +27,7 @@ class MedicamentoService: ObservableObject {
         }
     }
 
-    func createMedicamento(nome: String, dosagem: String, quantidade: String, ultimaVez: Date, intervalo: Int64, observacoes: String, imagem: Data, idoso: Idoso) {
+    func createMedicamento(nome: String, dosagem: String, quantidade: String, ultimaVez: Date, intervalo: String, observacoes: String, idoso: Idoso) {
         
         //criando medicamento
         let novoMed = Medicamento(context: persistence.container.viewContext)
@@ -37,7 +37,6 @@ class MedicamentoService: ObservableObject {
         novoMed.ultimaVez = ultimaVez
         novoMed.intervalo = intervalo
         novoMed.observacoes = observacoes
-        novoMed.imagem = imagem
         novoMed.id = UUID()
         novoMed.createdAt = Date()
         
@@ -47,20 +46,20 @@ class MedicamentoService: ObservableObject {
         persistence.saveContext()  // Salve as alterações no contexto
     }
 
-    func updateMedicamento(medicamento: Medicamento, nome: String, dosagem: String, quantidade: String, ultimaVez: Date, intervalo: Int64, observacoes: String, imagem: Data) {
+    func updateMedicamento(medicamento: Medicamento, nome: String, dosagem: String, quantidade: String, ultimaVez: Date, intervalo: String, observacoes: String) {
         medicamento.nome = nome
         medicamento.dosagem = dosagem
         medicamento.quantidade = quantidade
         medicamento.ultimaVez = ultimaVez
         medicamento.intervalo = intervalo
         medicamento.observacoes = observacoes
-        medicamento.imagem = imagem
         
         persistence.saveContext()
     }
     
     func deleteMedicamento(medicamento: Medicamento) {
         persistence.delete(item: medicamento)
+        persistence.saveContext() 
     }
     
     func deleteALLMEDICAMENTOS() {

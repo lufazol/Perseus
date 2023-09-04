@@ -211,6 +211,14 @@ struct FichaView: View {
         })
         .onAppear {
             fichaService.getDadosDaFicha()
+            nome = fichaService.ficha?.nome ?? ""
+            sexo = fichaService.ficha?.sexo ?? ""
+            nascimento = fichaService.ficha?.nascimento ?? Date()
+            peso = "\(String(fichaService.ficha?.peso ?? 0))"
+            tipoSanguineo = fichaService.ficha?.tipoSanguineo ?? ""
+            doencas = fichaService.ficha?.doencas ?? ""
+            cirurgias = fichaService.ficha?.cirurgias ?? ""
+            image = fichaService.ficha?.idoso?.image
         }
     }
     

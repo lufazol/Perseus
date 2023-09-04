@@ -12,12 +12,15 @@ struct AdicaoMedicamentoView: View {
     @Environment(\.presentationMode) var presentationMode
     @Environment(\.editMode) private var editMode
     
+    @ObservedObject var medicamentoService = MedicamentoService()
+    @ObservedObject var fichaService = FichaService()
+    
     @State var drugName: String = ""
     @State var dosagem: String = ""
     @State var quantidade: String = ""
     @State var tempodedose: String = ""
     @State var observacoes: String = ""
-    @State var imagem: String = ""
+//    @State var imagem: String = ""
     
     
     var body: some View {
@@ -46,20 +49,19 @@ struct AdicaoMedicamentoView: View {
                         .lineLimit(5, reservesSpace: true)
                 }
                 
-                
-                Section{
-                    //                    if let data = elder.foto, let uiimage = UIImage(data: data) {
-                    //                        Image(uiImage: uiimage)
-                    //                            .resizable()
-                    //                            .scaledToFill()
-                    //                            .frame(width: 200, height: 180)
-                    //                            .clipShape(Circle())
-                    //                    } else {
-                    Image("paracetamol")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 200, height: 180)
-                }
+//                Section{
+//                    //                    if let data = elder.foto, let uiimage = UIImage(data: data) {
+//                    //                        Image(uiImage: uiimage)
+//                    //                            .resizable()
+//                    //                            .scaledToFill()
+//                    //                            .frame(width: 200, height: 180)
+//                    //                            .clipShape(Circle())
+//                    //                    } else {
+//                    Image("paracetamol")
+//                        .resizable()
+//                        .scaledToFit()
+//                        .frame(width: 200, height: 180)
+//                }
             }
             
         }
@@ -72,9 +74,13 @@ struct AdicaoMedicamentoView: View {
         }))
         .navigationBarItems(trailing:
                                 Button("Salvar", action: {
+            medicamentoService.createMedicamento(nome: drugName, dosagem: dosagem, quantidade: quantidade, ultimaVez: Date(), intervalo: tempodedose , observacoes: observacoes, idoso: (fichaService.ficha?.idoso)!)
             self.presentationMode.wrappedValue.dismiss()
-            //TODO: Salvar infos no Core Data
         }))
+        .onAppear{
+            fichaService.getDadosDaFicha()
+            medicamentoService.getMedicamentos()
+        }
         
     }
 }
