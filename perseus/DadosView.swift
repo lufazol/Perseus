@@ -20,7 +20,6 @@ extension Color {
     }
 }
 
-@MainActor
 struct DadosView: View {
     
 
@@ -38,8 +37,6 @@ struct DadosView: View {
             return UIImage(named: "noprofile")
         }
     }
-
-
 
     var body: some View {
         
@@ -196,18 +193,12 @@ struct DadosView: View {
                             .foregroundColor(.clear)
                             .frame(height: 320.0)
                         HStack {
-                            if let data = elder.foto, let uiimage = UIImage(data: data) {
+                            if let uiimage = image(for: fichaService.ficha?.idoso?.image) {
                                 Image(uiImage: uiimage)
                                     .resizable()
                                     .scaledToFill()
-                                    .frame(width: 320, height: 320)
+                                    .frame(width: 200, height: 180)
                                     .clipShape(Circle())
-                            } else {
-                                Image("noprofile")
-                                     .resizable()
-                                     .scaledToFill()
-                                     .frame(width: 320, height: 320)
-                                     .clipShape(Circle())
                             }
                             
                             Spacer(minLength: 32)
@@ -219,7 +210,7 @@ struct DadosView: View {
                                         .fontWeight(.bold)
                                         .multilineTextAlignment(.leading)
                                     Spacer()
-                                    Text(elder.nome)
+                                    Text(fichaService.ficha?.nome ?? "")
                                         .font(.system(size: 25))
                                 }
                             
@@ -230,7 +221,7 @@ struct DadosView: View {
                                         .font(.system(size: 25))
                                         .multilineTextAlignment(.leading)
                                     Spacer()
-                                    Text(elder.dataDeNascimento.formatted(.dateTime.day().month().year()))
+                                    Text(fichaService.ficha?.nascimento?.formatted(.dateTime.day().month().year()) ?? "")
                                         .font(.system(size: 25))
                                 }
                                 
@@ -240,7 +231,7 @@ struct DadosView: View {
                                     Text("Sexo")
                                         .font(.system(size: 25))
                                     Spacer()
-                                    Text(elder.sexo)
+                                    Text(fichaService.ficha?.sexo ?? "")
                                         .font(.system(size: 25))
                                 }
                                 
@@ -250,7 +241,7 @@ struct DadosView: View {
                                     Text("Peso (kg)")
                                         .font(.system(size: 25))
                                     Spacer()
-                                    Text("\(String(elder.peso))")
+                                    Text("\(String(fichaService.ficha?.peso ?? 0))")
                                         .font(.system(size: 25))
                                 }
                                 
@@ -260,7 +251,7 @@ struct DadosView: View {
                                     Text("Tipo sanguíneo")
                                         .font(.system(size: 25))
                                     Spacer()
-                                    Text(elder.tipoSanguineo)
+                                    Text(fichaService.ficha?.tipoSanguineo ?? "")
                                         .font(.system(size: 25))
                                 }
                             }
@@ -268,7 +259,7 @@ struct DadosView: View {
                         }
                     }
                     VStack {
-                        if elder.cirurgias.isEmpty {
+                        if ((fichaService.ficha?.cirurgias?.isEmpty) != nil) {
                             Text("Nenhuma cirurgia adicionada")
                                 .foregroundColor(.gray)
                                 .font(.system(size: 31))
@@ -278,14 +269,14 @@ struct DadosView: View {
                                     Text("CIRURGIAS")
                                         .font(.system(size: 25))
                                         .foregroundColor(.gray)
-                                    Text(elder.cirurgias)
+                                    Text(fichaService.ficha?.cirurgias ?? "")
                                         .font(.system(size: 31))
                                 }
                             }
                         }
                         
                         VStack {
-                            if elder.doencas.isEmpty {
+                            if ((fichaService.ficha?.doencas?.isEmpty) != nil) {
                                 Text("Nenhuma doença adicionada")
                                     .foregroundColor(.gray)
                                     .font(.system(size: 31))
@@ -295,7 +286,7 @@ struct DadosView: View {
                                         Text("DOENÇAS")
                                             .font(.system(size: 25))
                                             .foregroundColor(.gray)
-                                        Text(elder.doencas)
+                                        Text(fichaService.ficha?.doencas ?? "")
                                             .font(.system(size: 31))
                                         
                                     }
