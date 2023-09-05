@@ -8,47 +8,163 @@
 import SwiftUI
 
 struct DetalheBoletimView: View {
-    @Binding var boletimSelecionado: String
+    var boletimSelecionado: String
 
-    var boletins: [DadoBoletim] = DadoBoletim.sampleDados
     @State private var showingSheet = false
     @State private var selecao: String = ""
 
+    @ObservedObject var boletimService = BoletimService()
+    @State var temperaturas: [Temperatura]? = nil
+    @State var pressoes: [Pressao]? = nil
+    @State var glicemias: [Glicemia]? = nil
+    @State var pesos: [Peso]? = nil
+    @State var humores: [Humor]? = nil
+    @State var dores: [Dores]? = nil
+    @State var lucidezes: [Lucidez]? = nil
+
+
     var body: some View {
         VStack {
-            List {
-                Image("grafico")
-                    .resizable()
-                    .scaledToFill()
-                    .frame(width: 340, height: 220)
-                    .listRowBackground(Color.clear)
-                ForEach(boletins) { boletin in
+            if let listaTemperaturas = temperaturas {
+                List(listaTemperaturas) { temperatura in
                     Section {
-                        ForEach(boletin.dados, id: \.self) { dado in
-                            Text(dado)
+                        HStack {
+                            Text(String(temperatura.valor) + " °C")
+                            Spacer()
+                            Text(temperatura.createdAt!.formatted(.dateTime.hour().minute()))
                         }
                     } header: {
-                        Text(boletin.data.formatted(.dateTime.day().month(.wide).year().weekday(.wide)))
+                        Text(temperatura.createdAt!.formatted(.dateTime.day().month(.wide).year().weekday(.wide)))
+                    }
+                }
+            }
+
+            
+            if let listaPressoes = pressoes {
+                List(listaPressoes) { pressao in
+                    Section {
+                        HStack {
+                            Text(String(pressao.valor) + " mmHg")
+                            Spacer()
+                            Text(pressao.createdAt!.formatted(.dateTime.hour().minute()))
+                        }
+                    } header: {
+                        Text(pressao.createdAt!.formatted(.dateTime.day().month(.wide).year().weekday(.wide)))
+                    }
+                }
+            }
+
+            
+            if let listaGlicemias = glicemias {
+                List(listaGlicemias) { glicemia in
+                    Section {
+                        HStack {
+                            Text(String(glicemia.valor) + " mg/dl")
+                            Spacer()
+                            Text(glicemia.createdAt!.formatted(.dateTime.hour().minute()))
+                        }
+                    } header: {
+                        Text(glicemia.createdAt!.formatted(.dateTime.day().month(.wide).year().weekday(.wide)))
+                    }
+                }
+            }
+            
+            if let listaPesos = pesos {
+                List(listaPesos) { peso in
+                    Section {
+                        HStack {
+                            Text(String(peso.valor) + " kg")
+                            Spacer()
+                            Text(peso.createdAt!.formatted(.dateTime.hour().minute()))
+                        }
+                    } header: {
+                        Text(peso.createdAt!.formatted(.dateTime.day().month(.wide).year().weekday(.wide)))
+                    }
+                }
+            }
+            
+            if let listaHumores = humores {
+                List(listaHumores) { humor in
+                    Section {
+                        HStack {
+                            Text(humor.valor!)
+                            Spacer()
+                            Text(humor.createdAt!.formatted(.dateTime.hour().minute()))
+                        }
+                    } header: {
+                        Text(humor.createdAt!.formatted(.dateTime.day().month(.wide).year().weekday(.wide)))
+                    }
+                }
+            }
+            
+            if let listaDores = dores {
+                List(listaDores) { dor in
+                    Section {
+                        HStack {
+                            Text(dor.valor!)
+                            Spacer()
+                            Text(dor.createdAt!.formatted(.dateTime.hour().minute()))
+                        }
+                    } header: {
+                        Text(dor.createdAt!.formatted(.dateTime.day().month(.wide).year().weekday(.wide)))
+                    }
+                }
+            }
+            
+            if let listaLucidezes = lucidezes {
+                List(listaLucidezes) { lucidez in
+                    Section {
+                        HStack {
+                            Text(lucidez.valor!)
+                            Spacer()
+                            Text(lucidez.createdAt!.formatted(.dateTime.hour().minute()))
+                        }
+                    } header: {
+                        Text(lucidez.createdAt!.formatted(.dateTime.day().month(.wide).year().weekday(.wide)))
                     }
                 }
             }
         }
         .onAppear {
+            boletimService.getTemperaturas()
+            boletimService.getPressoes()
+            boletimService.getGlicemias()
+            boletimService.getPesos()
+            boletimService.getHumores()
+            boletimService.getDores()
+            boletimService.getLucidez()
+
+            /*
+            temperaturas = boletimService.temperaturas
+            pressoes = boletimService.pressoes
+            glicemias = boletimService.glicemias
+            pesos = boletimService.pesos
+            humores = boletimService.humores
+            dores = boletimService.dores
+            lucidezes = boletimService.lucidezes
+            */
             switch boletimSelecionado {
             case "temperatura":
-                selecao = "Temperatura"
+                selecao = "temperatura"
+                temperaturas = boletimService.temperaturas ?? nil
             case "pressao":
-                selecao = "Pressão"
+                selecao = "pressao"
+                pressoes = boletimService.pressoes ?? nil
             case "glicemia":
-                selecao = "Glicemia"
+                selecao = "glicemia"
+                glicemias = boletimService.glicemias ?? nil
             case "peso":
-                selecao = "Peso"
+                selecao = "peso"
+                pesos = boletimService.pesos ?? nil
             case "humor":
-                selecao = "Humor"
+                selecao = "humor"
+                humores = boletimService.humores ?? nil
             case "dor":
-                selecao = "Dor"
+                selecao = "dor"
+                dores = boletimService.dores ?? nil
             case "lucidez":
-                selecao = "Lucidez"
+                selecao = "lucidez"
+                lucidezes = boletimService.lucidezes ?? nil
             default:
                 selecao = ""
             }
@@ -59,9 +175,42 @@ struct DetalheBoletimView: View {
             }) {
                 Image(systemName: "plus")
             }
-            .sheet(isPresented: $showingSheet) {
+            .sheet(isPresented: $showingSheet, onDismiss: {
+                boletimService.getTemperaturas()
+                boletimService.getPressoes()
+                boletimService.getGlicemias()
+                boletimService.getPesos()
+                boletimService.getHumores()
+                boletimService.getDores()
+                boletimService.getLucidez()
+                switch boletimSelecionado {
+                case "temperatura":
+                    selecao = "temperatura"
+                    temperaturas = boletimService.temperaturas ?? nil
+                case "pressao":
+                    selecao = "pressao"
+                    pressoes = boletimService.pressoes ?? nil
+                case "glicemia":
+                    selecao = "glicemia"
+                    glicemias = boletimService.glicemias ?? nil
+                case "peso":
+                    selecao = "peso"
+                    pesos = boletimService.pesos ?? nil
+                case "humor":
+                    selecao = "humor"
+                    humores = boletimService.humores ?? nil
+                case "dor":
+                    selecao = "dor"
+                    dores = boletimService.dores ?? nil
+                case "lucidez":
+                    selecao = "lucidez"
+                    lucidezes = boletimService.lucidezes ?? nil
+                default:
+                    selecao = ""
+                }
+            }) {
                 NavigationView {
-                    AddBoletimView()
+                    AddBoletimView(selecao: selecao)
                 }
             }
         )
@@ -70,6 +219,6 @@ struct DetalheBoletimView: View {
 
 struct DetalheBoletimView_Previews: PreviewProvider {
     static var previews: some View {
-        DetalheBoletimView(boletimSelecionado: .constant("Valor"))
+        DetalheBoletimView(boletimSelecionado: "Valor")
     }
 }

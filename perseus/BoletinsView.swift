@@ -29,7 +29,7 @@ struct BoletinsView: View {
                         }
                     }.listRowBackground(Color.clear)
                 Section {
-                    NavigationLink(destination: DetalheBoletimView(boletimSelecionado: $boletimSelecionado).navigationBarTitle("Temperatura")) {
+                    NavigationLink(destination: DetalheBoletimView(boletimSelecionado: "temperatura").navigationBarTitle("Temperatura")) {
                         HStack {
                             Image(systemName: "medical.thermometer.fill")
                                 .scaledToFit()
@@ -48,7 +48,7 @@ struct BoletinsView: View {
                         boletimSelecionado = "temperatura"
                     }
 
-                    NavigationLink(destination: DetalheBoletimView(boletimSelecionado: $boletimSelecionado).navigationBarTitle("Pressão")) {
+                    NavigationLink(destination: DetalheBoletimView(boletimSelecionado: "pressao").navigationBarTitle("Pressão")) {
                         HStack {
                             Image(systemName: "heart.text.square.fill")
                                 .scaledToFit()
@@ -68,7 +68,7 @@ struct BoletinsView: View {
                     }
 
 
-                    NavigationLink(destination: DetalheBoletimView(boletimSelecionado: $boletimSelecionado).navigationBarTitle("Glicemia")) {
+                    NavigationLink(destination: DetalheBoletimView(boletimSelecionado: "glicemia").navigationBarTitle("Glicemia")) {
                         HStack {
                             Image(systemName: "syringe.fill")
                                 .scaledToFit()
@@ -88,7 +88,7 @@ struct BoletinsView: View {
                     }
 
 
-                    NavigationLink(destination: DetalheBoletimView(boletimSelecionado: $boletimSelecionado).navigationBarTitle("Peso")) {
+                    NavigationLink(destination: DetalheBoletimView(boletimSelecionado: "peso").navigationBarTitle("Peso")) {
                         HStack {
                             Image(systemName: "scalemass.fill")
                                 .scaledToFit()
@@ -108,7 +108,7 @@ struct BoletinsView: View {
                     }
 
 
-                    NavigationLink(destination: DetalheBoletimView(boletimSelecionado: $boletimSelecionado).navigationBarTitle("Humor")) {
+                    NavigationLink(destination: DetalheBoletimView(boletimSelecionado: "humor").navigationBarTitle("Humor")) {
                         HStack {
                             Image(systemName: "bubbles.and.sparkles.fill")
                                 .scaledToFit()
@@ -127,7 +127,7 @@ struct BoletinsView: View {
                         boletimSelecionado = "humor"
                     }
 
-                    NavigationLink(destination: DetalheBoletimView(boletimSelecionado: $boletimSelecionado).navigationBarTitle("Dor")) {
+                    NavigationLink(destination: DetalheBoletimView(boletimSelecionado: "dor").navigationBarTitle("Dor")) {
                         HStack {
                             Image(systemName: "bandage.fill")
                                 .scaledToFit()
@@ -147,7 +147,7 @@ struct BoletinsView: View {
                     }
 
 
-                    NavigationLink(destination: DetalheBoletimView(boletimSelecionado: $boletimSelecionado).navigationBarTitle("Lucidez")) {
+                    NavigationLink(destination: DetalheBoletimView(boletimSelecionado: "lucidez").navigationBarTitle("Lucidez")) {
                         HStack {
                             Image("BrainIcon")
                                 .imageScale(.small)
