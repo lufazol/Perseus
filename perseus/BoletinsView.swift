@@ -32,7 +32,7 @@ struct BoletinsView: View {
                     NavigationLink(destination: DetalheBoletimView(boletimSelecionado: "temperatura").navigationBarTitle("Temperatura")) {
                         HStack {
                             Image(systemName: "medical.thermometer.fill")
-                                .scaledToFit()
+                                .imageScale(.medium)
                                 .foregroundColor(.white)
                                 .background(
                                     Rectangle()
@@ -40,7 +40,7 @@ struct BoletinsView: View {
                                         .frame(width: rectangleWidth, height: rectangleHeight)
                                         .cornerRadius(8)
                                 )
-                                .padding(.trailing, 10)
+                                .padding(.trailing, 5)
                             Text("Temperatura")
                         }
                     }
@@ -51,7 +51,7 @@ struct BoletinsView: View {
                     NavigationLink(destination: DetalheBoletimView(boletimSelecionado: "pressao").navigationBarTitle("Pressão")) {
                         HStack {
                             Image(systemName: "heart.text.square.fill")
-                                .scaledToFit()
+                                .imageScale(.medium)
                                 .foregroundColor(.white)
                                 .background(
                                     Rectangle()
@@ -71,7 +71,7 @@ struct BoletinsView: View {
                     NavigationLink(destination: DetalheBoletimView(boletimSelecionado: "glicemia").navigationBarTitle("Glicemia")) {
                         HStack {
                             Image(systemName: "syringe.fill")
-                                .scaledToFit()
+                                .imageScale(.medium)
                                 .foregroundColor(.white)
                                 .background(
                                     Rectangle()
@@ -79,7 +79,7 @@ struct BoletinsView: View {
                                         .frame(width: rectangleWidth, height: rectangleHeight)
                                         .cornerRadius(8)
                                 )
-                                .padding(.trailing, 10)
+                                .padding(.trailing, 5)
                             Text("Glicemia")
                         }
                     }
@@ -91,7 +91,7 @@ struct BoletinsView: View {
                     NavigationLink(destination: DetalheBoletimView(boletimSelecionado: "peso").navigationBarTitle("Peso")) {
                         HStack {
                             Image(systemName: "scalemass.fill")
-                                .scaledToFit()
+                                .imageScale(.medium)
                                 .foregroundColor(.white)
                                 .background(
                                     Rectangle()
@@ -111,7 +111,7 @@ struct BoletinsView: View {
                     NavigationLink(destination: DetalheBoletimView(boletimSelecionado: "humor").navigationBarTitle("Humor")) {
                         HStack {
                             Image(systemName: "bubbles.and.sparkles.fill")
-                                .scaledToFit()
+                                .imageScale(.medium)
                                 .foregroundColor(.white)
                                 .background(
                                     Rectangle()
@@ -130,7 +130,7 @@ struct BoletinsView: View {
                     NavigationLink(destination: DetalheBoletimView(boletimSelecionado: "dor").navigationBarTitle("Dor")) {
                         HStack {
                             Image(systemName: "bandage.fill")
-                                .scaledToFit()
+                                .imageScale(.medium)
                                 .foregroundColor(.white)
                                 .background(
                                     Rectangle()
@@ -150,7 +150,7 @@ struct BoletinsView: View {
                     NavigationLink(destination: DetalheBoletimView(boletimSelecionado: "lucidez").navigationBarTitle("Lucidez")) {
                         HStack {
                             Image("BrainIcon")
-                                .imageScale(.small)
+                                .imageScale(.medium)
                                 .foregroundColor(.white)
                                 .background(
                                     Rectangle()
