@@ -88,6 +88,7 @@ struct DadosView: View {
                     }
                 }
 
+                /*
                 Section {
                     NavigationLink(destination: ContatosList()) {
                         HStack {
@@ -106,6 +107,7 @@ struct DadosView: View {
                         }
                     }
                 }
+                */
 
                 Section {
                     /*
