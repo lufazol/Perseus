@@ -12,6 +12,7 @@ struct DetalheBoletimView: View {
 
     @State private var showingSheet = false
     @State private var selecao: String = ""
+    @State private var titulo: String = ""
 
     @ObservedObject var boletimService = BoletimService()
     @State var temperaturas: [Temperatura]? = nil
@@ -44,7 +45,7 @@ struct DetalheBoletimView: View {
                 List(listaPressoes) { pressao in
                     Section {
                         HStack {
-                            Text(String(pressao.valor) + " mmHg")
+                            Text(String(format: "%.2f", pressao.valor) + " mmHg")
                             Spacer()
                             Text(pressao.createdAt!.formatted(.dateTime.hour().minute()))
                         }
@@ -59,7 +60,7 @@ struct DetalheBoletimView: View {
                 List(listaGlicemias) { glicemia in
                     Section {
                         HStack {
-                            Text(String(glicemia.valor) + " mg/dl")
+                            Text(String(format: "%.0f", glicemia.valor) + " mg/dl")
                             Spacer()
                             Text(glicemia.createdAt!.formatted(.dateTime.hour().minute()))
                         }
@@ -146,24 +147,31 @@ struct DetalheBoletimView: View {
             switch boletimSelecionado {
             case "temperatura":
                 selecao = "temperatura"
+                titulo = "temperatura"
                 temperaturas = boletimService.temperaturas ?? nil
             case "pressao":
                 selecao = "pressao"
+                titulo = "pressão"
                 pressoes = boletimService.pressoes ?? nil
             case "glicemia":
                 selecao = "glicemia"
+                titulo = "glicemia"
                 glicemias = boletimService.glicemias ?? nil
             case "peso":
                 selecao = "peso"
+                titulo = "peso"
                 pesos = boletimService.pesos ?? nil
             case "humor":
                 selecao = "humor"
+                titulo = "humor"
                 humores = boletimService.humores ?? nil
             case "dor":
                 selecao = "dor"
+                titulo = "dor"
                 dores = boletimService.dores ?? nil
             case "lucidez":
                 selecao = "lucidez"
+                titulo = "lucidez"
                 lucidezes = boletimService.lucidezes ?? nil
             default:
                 selecao = ""
@@ -186,31 +194,38 @@ struct DetalheBoletimView: View {
                 switch boletimSelecionado {
                 case "temperatura":
                     selecao = "temperatura"
+                    titulo = "temperatura"
                     temperaturas = boletimService.temperaturas ?? nil
                 case "pressao":
                     selecao = "pressao"
+                    titulo = "pressão"
                     pressoes = boletimService.pressoes ?? nil
                 case "glicemia":
                     selecao = "glicemia"
+                    titulo = "glicemia"
                     glicemias = boletimService.glicemias ?? nil
                 case "peso":
                     selecao = "peso"
+                    titulo = "peso"
                     pesos = boletimService.pesos ?? nil
                 case "humor":
                     selecao = "humor"
+                    titulo = "humor"
                     humores = boletimService.humores ?? nil
                 case "dor":
                     selecao = "dor"
+                    titulo = "dor"
                     dores = boletimService.dores ?? nil
                 case "lucidez":
                     selecao = "lucidez"
+                    titulo = "lucidez"
                     lucidezes = boletimService.lucidezes ?? nil
                 default:
                     selecao = ""
                 }
             }) {
                 NavigationView {
-                    AddBoletimView(selecao: selecao)
+                    AddBoletimView(selecao: selecao, titulo: titulo)
                 }
             }
         )
