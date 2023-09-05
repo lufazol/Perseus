@@ -21,12 +21,17 @@ extension Color {
 }
 
 struct DadosView: View {
-    
+    @State private var isShowingWarning = false
 
     let altura = 1122.0
     let largura = 793.0
 
-    @EnvironmentObject var fichaService: FichaService
+    //@EnvironmentObject var fichaService: FichaService
+    @ObservedObject var fichaService = FichaService()
+    @ObservedObject var medicamentoService = MedicamentoService()
+    @ObservedObject var boletimService = BoletimService()
+    @ObservedObject var contatoService = ContatoService()
+
 
 //    @State var ficha: Ficha?
     
@@ -157,7 +162,7 @@ struct DadosView: View {
 
                 Section {
                     Button(action: {
-                        // Action to perform when the button is tapped
+                        isShowingWarning = true
                     }) {
                         HStack {
                             Spacer()
@@ -171,6 +176,26 @@ struct DadosView: View {
                     .cornerRadius(10)
                 }
             }
+        }
+        .alert(isPresented: $isShowingWarning) {
+            Alert(
+                title: Text("Apagar conta"),
+                message: Text("Você deseja apagar sua conta e todos os seus dados? Esta ação é irreversível."),
+                primaryButton: .default(Text("Apagar").foregroundColor(Color.red), action: {
+                    medicamentoService.deleteALLMEDICAMENTOS()
+                    boletimService.deleteALLDORES()
+                    boletimService.deleteALLPESOS()
+                    boletimService.deleteALLHUMORES()
+                    boletimService.deleteALLLUCIDEZ()
+                    boletimService.deleteALLPRESSOES()
+                    boletimService.deleteALLGLICEMIAS()
+                    boletimService.deleteALLTEMPERATURAS()
+                    contatoService.deleteALLCONTATOS()
+                    fichaService.deleteALLFICHAS()
+                    isShowingWarning = false
+                }),
+                secondaryButton: .cancel()
+            )
         }
         .navigationBarItems(trailing:
             ShareLink(item: render(), label: {Image(systemName: "square.and.arrow.up")})
