@@ -143,7 +143,7 @@ struct OnboardingAView: View {
                             } label: {
                                 HStack {
                                     Spacer()
-                                    Text("Proximo")
+                                    Text("Próximo")
                                     Spacer()
                                 }.foregroundColor(Color.white)
                             }
